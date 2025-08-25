@@ -23,7 +23,7 @@ export default function Footer() {
             Like what you see? Check out this portfolio on GitHub!
           </p>
           <a
-            href="https://github.com/sachintha180/portfolio"
+            href="https://github.com/sachintha180/portfolio-frontend"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors text-sm font-medium"
