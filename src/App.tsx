@@ -1,7 +1,5 @@
 // App.tsx
 
-import TechStackSection from "./components/TechStackSection";
-import ProjectsSection from "./components/ProjectsSection";
 import ProfileSection from "./components/ProfileSection";
 import EducationSection from "./components/EducationSection";
 import MagnifierBackground from "./components/ui/MagnifierBackground";
@@ -9,6 +7,8 @@ import Footer from "./components/ui/Footer";
 import { useRef, useState, useEffect } from "react";
 import ExperienceSection from "./components/ExperienceSection";
 import Header from "./components/Header";
+import ProjectsSection from "./components/ProjectsSection";
+import TechStackSection from "./components/TechStackSection";
 
 export default function App() {
   const contentRef = useRef<HTMLDivElement>(null);

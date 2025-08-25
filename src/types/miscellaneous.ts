@@ -8,7 +8,7 @@ export type TechStackKeyType =
   | "fullStack"
   | "other";
 
-type TechStackEntryType = {
+export type TechStackEntryType = {
   tools: string[];
   languageLogoSrc?: string;
 };

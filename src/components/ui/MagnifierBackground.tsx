@@ -133,6 +133,8 @@ export default function MagnifierBackground({
         src={backgroundSrc}
         alt="Background consisting of computer science notes"
         className="absolute inset-0 h-full w-full object-cover blur-sm -z-40"
+        loading="lazy"
+        decoding="async"
       />
 
       {/* Color Tint */}
@@ -147,6 +149,8 @@ export default function MagnifierBackground({
           WebkitClipPath: clip,
           willChange: "clip-path",
         }}
+        loading="lazy"
+        decoding="async"
       />
 
       {/* Glass Ring */}

@@ -3,6 +3,7 @@
 import type { ProjectEntryType } from "../types/miscellaneous";
 import { techStackMap } from "../lib/techStack";
 import { ExternalLinkIcon, LockIcon, ClockIcon } from "lucide-react";
+
 import * as d3 from "d3";
 
 export default function ProjectCard({
@@ -45,6 +46,8 @@ export default function ProjectCard({
             src={imageSrc}
             alt={`${title} Project Image`}
             className="object-cover h-full w-full"
+            loading="lazy"
+            decoding="async"
           />
           <div
             className="absolute inset-0"
