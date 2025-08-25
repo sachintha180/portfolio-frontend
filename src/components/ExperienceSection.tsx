@@ -14,16 +14,16 @@ export default function ExperienceSection() {
   );
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-3 sm:space-y-4">
       {/* Section Header */}
       <div className="bg-gradient-to-r from-purple-500 via-blue-500 to-gray-900 pb-0.5">
-        <h2 className="text-2xl text-purple-500 font-bold bg-gray-900 pb-2">
+        <h2 className="text-xl sm:text-2xl text-purple-500 font-bold bg-gray-900 pb-2">
           experience
         </h2>
       </div>
 
       {/* Content */}
-      <article ref={containerRef} className="space-y-8 mr-5 relative">
+      <article ref={containerRef} className="space-y-6 sm:space-y-8 relative">
         {/* Experience Cards */}
         {experience.map((experience, index) => {
           return (
@@ -34,7 +34,7 @@ export default function ExperienceSection() {
                   dotRefs[index].current = element;
                 }}
                 className="text-purple-500 shrink-0 z-20"
-                strokeWidth={10}
+                strokeWidth={8}
               />
             </ExperienceCard>
           );

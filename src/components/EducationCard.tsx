@@ -15,23 +15,27 @@ export default function EducationCard({
   children,
 }: EducationCardProps) {
   return (
-    <div className="flex items-start gap-3">
+    <div className="flex items-start gap-2 sm:gap-3">
       {/* Timeline Icon */}
       {children}
 
       {/* Title, Grade and Description */}
-      <div className="space-y-1">
-        <div className="flex items-center gap-2">
-          <h4 className="text-blue-600 font-bold">{title}</h4>
-          <span className="text-white bg-green-700 text-xs h-fit px-1 rounded-sm">
+      <div className="space-y-1 flex-1">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
+          <h4 className="text-sm sm:text-base text-blue-600 font-bold">
+            {title}
+          </h4>
+          <span className="text-white bg-green-700 text-xs h-fit px-1 rounded-sm w-fit">
             {grade}
           </span>
         </div>
-        <p className="text-sm text-gray-500">{description}</p>
+        <p className="text-xs sm:text-sm text-gray-500">{description}</p>
       </div>
 
       {/* Year */}
-      <p className="text-gray-400 text-sm ml-auto font-numeric">{year}</p>
+      <p className="text-gray-400 text-xs sm:text-sm font-numeric shrink-0">
+        {year}
+      </p>
     </div>
   );
 }

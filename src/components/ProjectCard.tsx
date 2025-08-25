@@ -34,13 +34,13 @@ export default function ProjectCard({
   };
 
   return (
-    <div className="flex mr-5">
+    <div className="flex">
       <div
-        className="flex-1 px-4 py-3 space-y-2 flex flex-col justify-center relative z-10"
+        className="flex-1 px-3 sm:px-4 py-2 sm:py-3 space-y-2 flex flex-col justify-center relative z-10"
         style={{ backgroundColor: colorInterpolator(0) }}
       >
         {/* Background Gradient Image */}
-        <div className="absolute h-full w-1/4 left-3/4 top-0 -z-10">
+        <div className="absolute h-full w-1/3 sm:w-1/4 left-2/3 sm:left-3/4 top-0 -z-10">
           <img
             src={imageSrc}
             alt={`${title} Project Image`}
@@ -56,23 +56,23 @@ export default function ProjectCard({
           />
         </div>
 
-        <div className="flex justify-between items-center">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 sm:gap-0">
           {/* Title */}
-          <h3 className="text-lg font-bold lowercase">{title}</h3>
+          <h3 className="text-base sm:text-lg font-bold lowercase">{title}</h3>
 
           {/* Time Duration */}
-          <div className="text-xs flex items-center justify-center gap-1 text-gray-300">
+          <div className="text-xs flex items-center justify-start sm:justify-center gap-1 text-gray-300">
             <ClockIcon className="h-3 w-3" />
             {timeDuration ? `Shipped in ${timeDuration}` : "Shipping..."}
           </div>
         </div>
 
         {/* Description */}
-        <p className="text-gray-300 italic text-sm">{description}</p>
+        <p className="text-gray-300 italic text-xs sm:text-sm">{description}</p>
 
-        <div className="flex justify-between items-center gap-4">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 sm:gap-4">
           {/* Tool Badges */}
-          <div className="text-xs mt-2 mb-1 flex gap-2 lowercase flex-wrap">
+          <div className="text-xs mt-2 mb-1 flex gap-1 sm:gap-2 lowercase flex-wrap">
             {tools.map((tool, index) => (
               <span
                 key={`${tool.toLowerCase()}-${index}`}
@@ -85,13 +85,16 @@ export default function ProjectCard({
           </div>
 
           {/* Link / Private */}
-          <div className="mr-1 text-gray-300" {...titleProp}>
+          <div
+            className="text-gray-300 self-start sm:self-center"
+            {...titleProp}
+          >
             {link ? (
               <a href={link} target="_blank">
-                <ExternalLinkIcon className="w-6 h-6" />
+                <ExternalLinkIcon className="w-5 h-5 sm:w-6 sm:h-6" />
               </a>
             ) : (
-              <LockIcon className="w-6 h-6" />
+              <LockIcon className="w-5 h-5 sm:w-6 sm:h-6" />
             )}
           </div>
         </div>
@@ -99,7 +102,7 @@ export default function ProjectCard({
 
       {/* Label */}
       <div
-        className="[writing-mode:vertical-lr] text-xs px-2 py-1 pb-5 rounded-br-3xl z-20"
+        className="[writing-mode:vertical-lr] text-xs px-1 sm:px-2 py-1 pb-3 sm:pb-5 rounded-br-2xl sm:rounded-br-3xl z-20"
         style={{
           boxShadow: "0px 0px 5px 0px #000000aa",
           backgroundColor: colorInterpolator(1),
