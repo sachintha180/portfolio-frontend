@@ -1,13 +1,14 @@
 // components/ui/MagnifierBackground.tsx
 
 import { useLayoutEffect, useRef, type RefObject } from "react";
-import backgroundSrc from "../../assets/background.png";
+import backgroundSrc from "../../assets/background-minified.png";
 import {
   motion,
   useMotionTemplate,
   useMotionValue,
   animate,
 } from "motion/react";
+import ProgressiveImage from "./ProgressiveImage";
 
 type MagnifierBackgroundProps = {
   contentRef: RefObject<HTMLDivElement | null>;
@@ -129,12 +130,10 @@ export default function MagnifierBackground({
       className="absolute inset-0 overflow-hidden pointer-events-none"
     >
       {/* Base Image */}
-      <img
+      <ProgressiveImage
         src={backgroundSrc}
         alt="Background consisting of computer science notes"
         className="absolute inset-0 h-full w-full object-cover blur-sm -z-40"
-        loading="lazy"
-        decoding="async"
       />
 
       {/* Color Tint */}

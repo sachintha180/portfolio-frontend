@@ -1,4 +1,5 @@
 import type { TechStackEntryType } from "../types/miscellaneous";
+import ProgressiveImage from "./ui/ProgressiveImage";
 
 type TechStackCardProps = {
   stack: TechStackEntryType;
@@ -46,12 +47,10 @@ export default function TechStackCard({
 
       {/* Language Logo */}
       {stack.languageLogoSrc && (
-        <img
+        <ProgressiveImage
           src={stack.languageLogoSrc}
           alt={`${label} language logo`}
           className="w-4 h-4 sm:w-5 sm:h-5 absolute right-1 bottom-1 sm:bottom-2 z-20"
-          loading="lazy"
-          decoding="async"
         />
       )}
     </div>

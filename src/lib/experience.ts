@@ -4,12 +4,12 @@ import type { Experience } from "../types/miscellaneous";
 
 export const experience: Experience = [
   {
-    title: "AI Developer",
+    title: "Engineering & IT Lead",
     organization: "Teams Squared",
     year: 2024,
   },
   {
-    title: "Consultant AI Software Developer",
+    title: "AI Software Developer",
     organization: "Amplify Solutions",
     year: 2023,
   },

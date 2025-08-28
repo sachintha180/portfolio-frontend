@@ -4,7 +4,11 @@ import type { ProjectEntryType } from "../types/miscellaneous";
 import { techStackMap } from "../lib/techStack";
 import { ExternalLinkIcon, LockIcon, ClockIcon } from "lucide-react";
 
-import * as d3 from "d3";
+import { interpolate as d3Interpolate } from "d3-interpolate";
+import { color as d3Color } from "d3-color";
+import ProgressiveImage from "./ui/ProgressiveImage";
+
+import placeholderImage from "../assets/project_screenshots/placeholder.jpg";
 
 export default function ProjectCard({
   title,
@@ -16,13 +20,13 @@ export default function ProjectCard({
   timeDuration,
 }: ProjectEntryType) {
   // Initialize D3.js color interpolator
-  const colorInterpolator = d3.interpolate(
+  const colorInterpolator = d3Interpolate(
     techStackMap[stackTypeKey].startColor,
     techStackMap[stackTypeKey].endColor
   );
 
   // Prepare lighter color for badges
-  const badgeColor = d3.color(colorInterpolator(0))?.brighter(1).formatHex();
+  const badgeColor = d3Color(colorInterpolator(0))?.brighter(1).formatHex();
 
   // Get project category label
   const label = techStackMap[stackTypeKey].label;
@@ -42,19 +46,17 @@ export default function ProjectCard({
       >
         {/* Background Gradient Image */}
         <div className="absolute h-full w-1/3 sm:w-1/4 left-2/3 sm:left-3/4 top-0 -z-10">
-          <img
-            src={imageSrc}
+          <ProgressiveImage
+            src={imageSrc || placeholderImage}
             alt={`${title} Project Image`}
             className="object-cover h-full w-full"
-            loading="lazy"
-            decoding="async"
           />
           <div
             className="absolute inset-0"
             style={{
               background: `linear-gradient(to right, ${colorInterpolator(
                 0
-              )} 30%, ${d3.color(colorInterpolator(0))?.formatHex()}cc 100%)`,
+              )} 30%, ${d3Color(colorInterpolator(0))?.formatHex()}cc 100%)`,
             }}
           />
         </div>

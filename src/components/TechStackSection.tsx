@@ -1,12 +1,9 @@
 // components/TechStackSection.tsx
 
-import { lazy, Suspense } from "react";
 import { techStack, techStackMap } from "../lib/techStack";
-import * as d3 from "d3";
 import type { TechStackKeyType } from "../types/miscellaneous";
-import TechStackCardSkeleton from "./skeleton/TechStackCardSkeleton";
-
-const TechStackCard = lazy(() => import("./TechStackCard"));
+import { interpolate as d3Interpolate } from "d3-interpolate";
+import TechStackCard from "./TechStackCard";
 
 type TechStackSectionProps = React.ComponentProps<"section">;
 
@@ -26,25 +23,24 @@ export default function TechStackSection({
 
         {/* Content */}
         <article className="text-white space-y-4 sm:space-y-6">
-          {Object.entries(techStack).map(([key, stack]) => {
+          {Object.entries(techStack).map(([key, stack], index) => {
             // Cast key and get label
             const techStackKey = key as TechStackKeyType;
             const label = techStackMap[techStackKey].label;
 
             // Initialize D3.js color interpolator
-            const colorInterpolator = d3.interpolate(
+            const colorInterpolator = d3Interpolate(
               techStackMap[techStackKey].startColor,
               techStackMap[techStackKey].endColor
             );
 
             return (
-              <Suspense key={key} fallback={<TechStackCardSkeleton />}>
-                <TechStackCard
-                  stack={stack}
-                  colorInterpolator={colorInterpolator}
-                  label={label}
-                />
-              </Suspense>
+              <TechStackCard
+                key={`${label}-${index}`}
+                stack={stack}
+                colorInterpolator={colorInterpolator}
+                label={label}
+              />
             );
           })}
         </article>
