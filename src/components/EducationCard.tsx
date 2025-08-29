@@ -22,14 +22,14 @@ export default function EducationCard({
       {/* Title, Grade and Description */}
       <div className="space-y-1 flex-1">
         <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
-          <h4 className="text-sm sm:text-base text-blue-600 font-bold">
+          <h4 className="text-sm sm:text-base text-blue-400 font-bold">
             {title}
           </h4>
           <span className="text-white bg-green-700 text-xs h-fit px-1 rounded-sm w-fit">
             {grade}
           </span>
         </div>
-        <p className="text-xs sm:text-sm text-gray-500">{description}</p>
+        <p className="text-xs sm:text-sm text-gray-400">{description}</p>
       </div>
 
       {/* Year */}

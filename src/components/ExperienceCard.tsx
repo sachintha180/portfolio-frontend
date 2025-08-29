@@ -20,10 +20,10 @@ export default function ExperienceCard({
 
       {/* Title and Organization */}
       <div className="space-y-1 flex-1">
-        <h4 className="text-sm sm:text-base text-purple-600 font-bold">
+        <h4 className="text-sm sm:text-base text-purple-400 font-bold">
           {title}
         </h4>
-        <p className="text-xs sm:text-sm text-gray-500">{organization}</p>
+        <p className="text-xs sm:text-sm text-gray-400">{organization}</p>
       </div>
 
       {/* Year */}
