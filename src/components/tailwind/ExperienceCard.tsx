@@ -1,6 +1,6 @@
-// components/ExperienceCard.tsx
+// components/tailwind/ExperienceCard.tsx
 
-import type { ExperienceEntryType } from "../types/miscellaneous";
+import type { ExperienceEntryType } from "@/types/miscellaneous";
 import type { ReactNode } from "react";
 
 type ExperienceCardProps = ExperienceEntryType & {

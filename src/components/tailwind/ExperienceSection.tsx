@@ -1,10 +1,10 @@
-// components/ExperienceSection.tsx
+// components/tailwind/ExperienceSection.tsx
 
 import { useMemo, useRef } from "react";
-import { experience } from "../lib/experience";
-import ExperienceCard from "./ExperienceCard";
+import { experience } from "@/lib/experience";
+import ExperienceCard from "@/components/tailwind/ExperienceCard";
 import { DotIcon } from "lucide-react";
-import Connector from "./ui/Connector";
+import Connector from "@/components/ui/Connector";
 
 export default function ExperienceSection() {
   const containerRef = useRef<HTMLDivElement | null>(null);

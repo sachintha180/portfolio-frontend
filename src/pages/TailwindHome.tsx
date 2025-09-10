@@ -1,16 +1,19 @@
-// App.tsx
+// pages/TailwindHome.tsx
 
-import ProfileSection from "./components/ProfileSection";
-import EducationSection from "./components/EducationSection";
-import MagnifierBackground from "./components/ui/MagnifierBackground";
-import Footer from "./components/ui/Footer";
+import ProfileSection from "@/components/tailwind/ProfileSection";
+import EducationSection from "@/components/tailwind/EducationSection";
 import { useRef, useState, useEffect } from "react";
-import ExperienceSection from "./components/ExperienceSection";
-import Header from "./components/Header";
-import ProjectsSection from "./components/ProjectsSection";
-import TechStackSection from "./components/TechStackSection";
+import ExperienceSection from "@/components/tailwind/ExperienceSection";
+import Header from "@/components/tailwind/Header";
+import ProjectsSection from "@/components/tailwind/ProjectsSection";
+import TechStackSection from "@/components/tailwind/TechStackSection";
 
-export default function App() {
+import MagnifierBackground from "@/components/ui/MagnifierBackground";
+import Footer from "@/components/ui/Footer";
+
+import "@/pages/TailwindHome.css";
+
+export default function TailwindHome() {
   const contentRef = useRef<HTMLDivElement>(null);
   const [showMagnifier, setShowMagnifier] = useState(false);
 

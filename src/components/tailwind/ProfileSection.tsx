@@ -1,4 +1,4 @@
-// components/ProfileSection.tsx
+// components/tailwind/ProfileSection.tsx
 
 import { ChevronRightIcon } from "lucide-react";
 

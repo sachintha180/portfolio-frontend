@@ -1,6 +1,6 @@
-// components/EducationCard.tsx
+// components/tailwind/EducationCard.tsx
 
-import type { EducationEntryType } from "../types/miscellaneous";
+import type { EducationEntryType } from "@/types/miscellaneous";
 import type { ReactNode } from "react";
 
 type EducationCardProps = EducationEntryType & {

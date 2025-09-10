@@ -1,7 +1,7 @@
-// components/ProjectsSection.tsx
+// components/tailwind/ProjectsSection.tsx
 
-import { MAX_PROJECT_COUNT, projects } from "../lib/projects";
-import ProjectCard from "./ProjectCard";
+import { MAX_PROJECT_COUNT, projects } from "@/lib/projects";
+import ProjectCard from "@/components/tailwind/ProjectCard";
 
 export default function ProjectsSection() {
   return (

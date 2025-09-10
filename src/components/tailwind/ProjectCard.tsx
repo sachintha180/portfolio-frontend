@@ -1,14 +1,14 @@
-// components/ProjectCard.tsx
+// components/tailwind/ProjectCard.tsx
 
-import type { ProjectEntryType } from "../types/miscellaneous";
-import { techStackMap } from "../lib/techStack";
+import type { ProjectEntryType } from "@/types/miscellaneous";
+import { techStackMap } from "@/lib/techStack";
 import { ExternalLinkIcon, LockIcon, ClockIcon } from "lucide-react";
 
 import { interpolate as d3Interpolate } from "d3-interpolate";
 import { color as d3Color } from "d3-color";
-import ProgressiveImage from "./ui/ProgressiveImage";
+import ProgressiveImage from "@/components/ui/ProgressiveImage";
 
-import placeholderImage from "../assets/project_screenshots/placeholder.jpg";
+import placeholderImage from "@/assets/project_screenshots/placeholder.jpg";
 
 export default function ProjectCard({
   title,

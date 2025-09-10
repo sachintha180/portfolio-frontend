@@ -1,10 +1,10 @@
-// components/EducationSection.tsx
+// components/tailwind/EducationSection.tsx
 
 import { useMemo, useRef } from "react";
-import EducationCard from "./EducationCard";
-import { education } from "../lib/education";
+import EducationCard from "@/components/tailwind/EducationCard";
+import { education } from "@/lib/education";
 import { DotIcon } from "lucide-react";
-import Connector from "./ui/Connector";
+import Connector from "@/components/ui/Connector";
 
 export default function EducationSection() {
   const containerRef = useRef<HTMLDivElement | null>(null);

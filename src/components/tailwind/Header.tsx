@@ -1,8 +1,8 @@
-// components/Header.tsx
+// components/tailwind/Header.tsx
 
 import { ChevronRightIcon } from "lucide-react";
-import SocialIcons from "./ui/SocialIcons";
-import Signature from "./ui/Signature";
+import SocialIcons from "@/components/ui/SocialIcons";
+import Signature from "@/components/ui/Signature";
 
 export default function Header() {
   return (

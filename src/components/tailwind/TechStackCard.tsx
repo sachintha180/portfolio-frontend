@@ -1,5 +1,7 @@
-import type { TechStackEntryType } from "../types/miscellaneous";
-import ProgressiveImage from "./ui/ProgressiveImage";
+// components/tailwind/TechStackCard.tsx
+
+import type { TechStackEntryType } from "@/types/miscellaneous";
+import ProgressiveImage from "@/components/ui/ProgressiveImage";
 
 type TechStackCardProps = {
   stack: TechStackEntryType;

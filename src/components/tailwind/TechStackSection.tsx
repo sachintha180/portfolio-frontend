@@ -1,9 +1,9 @@
-// components/TechStackSection.tsx
+// components/tailwind/TechStackSection.tsx
 
-import { techStack, techStackMap } from "../lib/techStack";
-import type { TechStackKeyType } from "../types/miscellaneous";
+import { techStack, techStackMap } from "@/lib/techStack";
+import type { TechStackKeyType } from "@/types/miscellaneous";
 import { interpolate as d3Interpolate } from "d3-interpolate";
-import TechStackCard from "./TechStackCard";
+import TechStackCard from "@/components/tailwind/TechStackCard";
 
 type TechStackSectionProps = React.ComponentProps<"section">;
 
