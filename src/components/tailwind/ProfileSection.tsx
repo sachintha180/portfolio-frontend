@@ -1,6 +1,6 @@
 // components/tailwind/ProfileSection.tsx
 
-import { ChevronRightIcon } from "lucide-react";
+import { FaChevronRight } from "react-icons/fa";
 
 export default function ProfileSection() {
   return (
@@ -14,8 +14,8 @@ export default function ProfileSection() {
 
       {/* Content */}
       <article className="space-y-2 sm:space-y-3 italic text-gray-700 dark:text-gray-400">
-        <div className="flex items-start gap-1">
-          <ChevronRightIcon className="w-3 h-3 sm:w-4 sm:h-4 shrink-0 mt-1" />
+        <div className="flex items-start gap-2">
+          <FaChevronRight className="w-2 h-2 sm:w-3 sm:h-3 shrink-0 mt-2" />
           <p className="text-sm sm:text-base">
             building data-dense dashboards with interactive charts, tables, and
             forms, favoring server-first delivery, accessible patterns,
@@ -24,8 +24,8 @@ export default function ProfileSection() {
           </p>
         </div>
 
-        <div className="flex items-start gap-1">
-          <ChevronRightIcon className="w-3 h-3 sm:w-4 sm:h-4 shrink-0 mt-1" />
+        <div className="flex items-start gap-2">
+          <FaChevronRight className="w-2 h-2 sm:w-3 sm:h-3 shrink-0 mt-2" />
           <p className="text-sm sm:text-base">
             delivering gen-AI products including chat experiences,
             retrieval-augmented knowledge bases, task agents, and MCP
@@ -33,23 +33,23 @@ export default function ProfileSection() {
           </p>
         </div>
 
-        <div className="flex items-start gap-1">
-          <ChevronRightIcon className="w-3 h-3 sm:w-4 sm:h-4 shrink-0 mt-1" />
+        <div className="flex items-start gap-2">
+          <FaChevronRight className="w-2 h-2 sm:w-3 sm:h-3 shrink-0 mt-2" />
           <p className="text-sm sm:text-base">
             automating with full REST API compatibility for easy orchestration.
           </p>
         </div>
 
-        <div className="flex items-start gap-1">
-          <ChevronRightIcon className="w-3 h-3 sm:w-4 sm:h-4 shrink-0 mt-1" />
+        <div className="flex items-start gap-2">
+          <FaChevronRight className="w-2 h-2 sm:w-3 sm:h-3 shrink-0 mt-2" />
           <p className="text-sm sm:text-base">
             performance sensitive, pragmatic, and tool agnostic; teaching
             computer science in my free time.
           </p>
         </div>
 
-        <div className="flex items-start gap-1">
-          <ChevronRightIcon className="w-3 h-3 sm:w-4 sm:h-4 shrink-0 mt-1" />
+        <div className="flex items-start gap-2">
+          <FaChevronRight className="w-2 h-2 sm:w-3 sm:h-3 shrink-0 mt-2" />
           <p className="text-sm sm:text-base">
             i collaborate closely and ship clean.
           </p>

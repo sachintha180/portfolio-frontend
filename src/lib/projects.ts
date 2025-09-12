@@ -62,7 +62,6 @@ export const projects: Projects = [
     imageSrc: resumeAnalyzerSrc,
     timeDuration: "3 days",
   },
-
   {
     title: "Model Playground",
     stackTypeKey: "mla",

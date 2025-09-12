@@ -2,14 +2,14 @@
 
 import { useMemo, useRef } from "react";
 import ExperienceCard from "@/components/tailwind/ExperienceCard";
-import { DotIcon } from "lucide-react";
 import Connector from "@/components/ui/Connector";
 import { honors } from "@/lib/honors";
+import { GoDotFill } from "react-icons/go";
 
 export default function HonorsSection() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const dotRefs = useMemo(
-    () => honors.map(() => ({ current: null as SVGSVGElement | null })),
+    () => honors.map(() => ({ current: null as HTMLDivElement | null })),
     [honors]
   );
 
@@ -35,13 +35,17 @@ export default function HonorsSection() {
               details={[]}
             >
               {/* Timeline Icon */}
-              <DotIcon
+              <div
                 ref={(element) => {
                   dotRefs[index].current = element;
                 }}
-                className="text-purple-500 shrink-0 z-20"
-                strokeWidth={8}
-              />
+                className="z-20 pt-2"
+              >
+                <GoDotFill
+                  className="text-purple-500 shrink-0 h-3 w-3"
+                  strokeWidth={8}
+                />
+              </div>
             </ExperienceCard>
           );
         })}

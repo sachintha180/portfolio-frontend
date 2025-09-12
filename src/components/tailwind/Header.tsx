@@ -1,11 +1,11 @@
 // components/tailwind/Header.tsx
 
-import { ChevronRightIcon } from "lucide-react";
 import SocialIcons from "@/components/ui/SocialIcons";
 import Signature from "@/components/ui/Signature";
 import ProgressiveImage from "@/components/ui/ProgressiveImage";
 
 import profileImg from "@/assets/profile-img.png";
+import { FaChevronRight } from "react-icons/fa";
 
 type HeaderProps = {
   showImage?: boolean;
@@ -37,8 +37,8 @@ export default function Header({
         </h1>
 
         {/* Job Title */}
-        <div className="text-gray-700 dark:text-gray-400 text-base sm:text-lg font-bold flex items-center justify-start gap-1">
-          <ChevronRightIcon className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+        <div className="text-gray-700 dark:text-gray-400 text-base sm:text-lg font-bold flex items-center justify-start gap-2">
+          <FaChevronRight className="w-3 h-3 sm:w-4 sm:h-4 shrink-0" />
           <h3>full stack and AI developer</h3>
         </div>
 
