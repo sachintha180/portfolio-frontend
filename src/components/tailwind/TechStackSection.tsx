@@ -15,8 +15,8 @@ export default function TechStackSection({
     <section className={className} {...props}>
       <div className="space-y-3 sm:space-y-4">
         {/* Section Header */}
-        <div className="bg-gradient-to-r from-purple-500 via-blue-500 to-gray-900 pb-0.5">
-          <h2 className="text-xl sm:text-2xl text-purple-500 font-bold bg-gray-900 pb-2">
+        <div className="bg-gradient-to-r from-purple-500 via-blue-500 to-white dark:to-gray-900 pb-0.5">
+          <h2 className="text-xl sm:text-2xl text-purple-500 font-bold bg-white dark:bg-gray-900 pb-2">
             tech stack
           </h2>
         </div>

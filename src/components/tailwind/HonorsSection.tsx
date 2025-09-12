@@ -1,42 +1,48 @@
-// components/tailwind/EducationSection.tsx
+// components/tailwind/HonorsSection.tsx
 
 import { useMemo, useRef } from "react";
-import EducationCard from "@/components/tailwind/EducationCard";
-import { education } from "@/lib/education";
+import ExperienceCard from "@/components/tailwind/ExperienceCard";
 import { DotIcon } from "lucide-react";
 import Connector from "@/components/ui/Connector";
+import { honors } from "@/lib/honors";
 
-export default function EducationSection() {
+export default function HonorsSection() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const dotRefs = useMemo(
-    () => education.map(() => ({ current: null as SVGSVGElement | null })),
-    [education]
+    () => honors.map(() => ({ current: null as SVGSVGElement | null })),
+    [honors]
   );
 
   return (
     <div className="space-y-3 sm:space-y-4">
       {/* Section Header */}
-      <div className="bg-gradient-to-r from-blue-500 via-purple-500 to-white dark:to-gray-900 pb-0.5">
-        <h2 className="text-xl sm:text-2xl text-blue-500 font-bold bg-white dark:bg-gray-900 pb-2">
-          education
+      <div className="bg-gradient-to-r from-purple-500 via-blue-500 to-white dark:to-gray-900 pb-0.5">
+        <h2 className="text-xl sm:text-2xl text-purple-500 font-bold bg-white dark:bg-gray-900 pb-2">
+          honors and awards
         </h2>
       </div>
 
       {/* Content */}
       <article ref={containerRef} className="space-y-6 sm:space-y-8 relative">
-        {/* Education Cards */}
-        {education.map((education, index) => {
+        {/* Honor Cards (reusing ExperienceCard) */}
+        {honors.map((honor, index) => {
           return (
-            <EducationCard key={`education-entry-${index}`} {...education}>
+            <ExperienceCard
+              key={`honor-entry-${index}`}
+              title={honor.title}
+              organization={honor.organization}
+              startYear={honor.year}
+              details={[]}
+            >
               {/* Timeline Icon */}
               <DotIcon
                 ref={(element) => {
                   dotRefs[index].current = element;
                 }}
-                className="text-blue-500 shrink-0 z-20"
+                className="text-purple-500 shrink-0 z-20"
                 strokeWidth={8}
               />
-            </EducationCard>
+            </ExperienceCard>
           );
         })}
 
@@ -48,7 +54,7 @@ export default function EducationSection() {
               fromRef={dotRefs[i - 1]}
               toRef={dotRefs[i]}
               containerRef={containerRef}
-              className="text-blue-800 z-10"
+              className="text-purple-800 z-10"
             />
           )
         )}

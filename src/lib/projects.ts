@@ -8,7 +8,7 @@ import theCsClassSrc from "../assets/project_screenshots/the_cs_class.png";
 import llmPipelineDesignerSrc from "../assets/project_screenshots/llm_pipeline_designer.png";
 import resumeAnalyzerSrc from "../assets/project_screenshots/resume_analyzer.png";
 
-export const MAX_PROJECT_COUNT = 5;
+export const MAX_PROJECT_COUNT = 4;
 
 export const projects: Projects = [
   {
@@ -18,6 +18,7 @@ export const projects: Projects = [
       "data-driven dashboard for client and contractor operations with smart API sync, robust data pipelines, and end-to-end typed contracts for a multi-national ALSP",
     tools: ["FastAPI", "PostgreSQL", "Render", "React Hook Form", "shad.cn"],
     imageSrc: clientDashboardSrc,
+    timeDuration: "3 months",
   },
   {
     title: "Estimate Generator",
@@ -29,15 +30,39 @@ export const projects: Projects = [
     timeDuration: "4 days",
   },
   {
-    title: "The CS Class",
+    title: "LLM Pipeline Designer",
+    stackTypeKey: "mla",
+    description:
+      "interactive WYSIWYG editor for prompt workflows with import/export of YAML and simple monolithic packaging",
+    tools: ["Next.js", "Prisma", "OpenAI API", "Agentic Workflows"],
+    imageSrc: llmPipelineDesignerSrc,
+    timeDuration: "2 weeks",
+  },
+  {
+    title: "Enrollment Wizard",
     stackTypeKey: "fullStack",
     description:
-      "student platform for recordings and notes with RBAC, performance tracking, and google drive auto-sync",
-    tools: ["FastAPI", "SQLAlchemy", "GCP", "Render", "Tailwind", "Recharts"],
-    link: "https://the-cs-class.vercel.app/",
-    imageSrc: theCsClassSrc,
-    timeDuration: "4 days",
+      "powershell scripts bundled into a single installer, coupled with a lean dashboard to deploy custom policies and enroll devices managed by a multi-national ALSP",
+    tools: [
+      "PowerShell",
+      "React",
+      "Express.js",
+      "Inno Setup",
+      "Render",
+      "Tailwind",
+    ],
+    timeDuration: "5 days",
   },
+  {
+    title: "Resume Analyzer",
+    stackTypeKey: "fullStack",
+    description:
+      "ML experiment with a gradio dashboard to shortlist candidates from CVs and job descriptions using custom logic, pdf parsing, and gen-AI",
+    tools: ["Flask", "OpenAI API", "LangChain", "BeautifulSoup4", "Jinja2"],
+    imageSrc: resumeAnalyzerSrc,
+    timeDuration: "3 days",
+  },
+
   {
     title: "Model Playground",
     stackTypeKey: "mla",
@@ -46,13 +71,14 @@ export const projects: Projects = [
     tools: ["FastAPI", "Pandas", "Numpy", "React", "Recharts", "Tailwind"],
   },
   {
-    title: "Resume Analyzer",
+    title: "The CS Class",
     stackTypeKey: "fullStack",
     description:
-      "ml experiment with a gradio dashboard to shortlist candidates from CVs and job descriptions using custom logic, pdf parsing, and gen-AI",
-    tools: ["Flask", "OpenAI API", "LangChain", "BeautifulSoup4", "Jinja2"],
-    imageSrc: resumeAnalyzerSrc,
-    timeDuration: "3 days",
+      "student platform for recordings and notes with RBAC, performance tracking, and google drive auto-sync",
+    tools: ["FastAPI", "SQLAlchemy", "GCP", "Render", "Tailwind", "Recharts"],
+    link: "https://the-cs-class.vercel.app/",
+    imageSrc: theCsClassSrc,
+    timeDuration: "4 days",
   },
   {
     title: "Student Discipline System",

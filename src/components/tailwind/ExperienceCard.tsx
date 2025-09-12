@@ -10,7 +10,9 @@ type ExperienceCardProps = ExperienceEntryType & {
 export default function ExperienceCard({
   title,
   organization,
-  year,
+  startYear,
+  endYear,
+  details,
   children,
 }: ExperienceCardProps) {
   return (
@@ -18,17 +20,33 @@ export default function ExperienceCard({
       {/* Timeline Icon */}
       {children}
 
-      {/* Title and Organization */}
       <div className="space-y-1 flex-1">
-        <h4 className="text-sm sm:text-base text-purple-400 font-bold">
+        {/* Title and Organization */}
+        <h4 className="text-sm sm:text-base text-purple-700 dark:text-purple-400 font-bold">
           {title}
         </h4>
-        <p className="text-xs sm:text-sm text-gray-400">{organization}</p>
+        <p className="text-xs sm:text-sm text-gray-700 dark:text-gray-400">
+          {organization}
+        </p>
+
+        {/* Details */}
+        {details.length > 0 && (
+          <ul className="text-sm text-gray-500 list-disc ml-4 mt-4">
+            {details.map((detail, index) => (
+              <li
+                key={`${title}-$detail-${index}`}
+                className={index === 0 ? "font-bold" : "font-normal"}
+              >
+                {detail}
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
 
       {/* Year */}
-      <p className="text-gray-400 text-xs sm:text-sm font-numeric shrink-0">
-        {year}
+      <p className="text-gray-700 dark:text-gray-400 text-xs sm:text-sm shrink-0">
+        {startYear} {endYear && `- ${endYear}`}
       </p>
     </div>
   );
