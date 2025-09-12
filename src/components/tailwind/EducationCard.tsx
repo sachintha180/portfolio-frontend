@@ -15,28 +15,31 @@ export default function EducationCard({
   children,
 }: EducationCardProps) {
   return (
-    <div className="flex items-start gap-2 sm:gap-3">
-      {/* Timeline Icon */}
-      {children}
+    <div className="space-y-2">
+      <div className="flex items-start gap-2 sm:gap-3">
+        {/* Timeline Icon */}
+        {children}
 
-      {/* Title, Grade and Description */}
-      <div className="space-y-1 flex-1">
-        <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
-          <h4 className="text-sm sm:text-base text-blue-700 dark:text-blue-400 font-bold">
-            {title}
-          </h4>
-          <span className="text-white bg-green-800 dark:bg-green-700 text-xs h-fit px-1 rounded-sm w-fit">
-            {grade}
-          </span>
+        {/* Title, Grade and Description */}
+        <div className="space-y-1 flex-1">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
+            <h4 className="text-sm sm:text-base text-blue-700 dark:text-blue-400 font-bold">
+              {title}
+            </h4>
+            <span className="text-white bg-green-800 dark:bg-green-700 text-xs h-fit px-1 rounded-sm w-fit">
+              {grade}
+            </span>
+          </div>
         </div>
-        <p className="text-xs sm:text-sm text-gray-700 dark:text-gray-400">
-          {description}
+
+        {/* Year */}
+        <p className="text-gray-700 dark:text-gray-400 text-xs sm:text-sm shrink-0">
+          {year}
         </p>
       </div>
 
-      {/* Year */}
-      <p className="text-gray-700 dark:text-gray-400 text-xs sm:text-sm shrink-0">
-        {year}
+      <p className="text-xs sm:text-sm text-gray-700 dark:text-gray-400 ml-6">
+        {description}
       </p>
     </div>
   );

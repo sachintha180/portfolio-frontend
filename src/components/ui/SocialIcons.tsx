@@ -1,7 +1,13 @@
 // components/ui/SocialIcons.tsx
 
-import { FaGithub, FaLinkedin, FaYoutube } from "react-icons/fa";
-import { LucideMail, LucidePhone, LucideGlobe } from "lucide-react";
+import {
+  FaEnvelope,
+  FaGithub,
+  FaGlobe,
+  FaLinkedin,
+  FaPhoneAlt,
+  FaYoutube,
+} from "react-icons/fa";
 
 type SocialIconsProps = {
   className?: string;
@@ -53,7 +59,7 @@ export default function SocialIcons({
       key: "email",
       href: `mailto:${email}`,
       label: email,
-      Icon: LucideMail,
+      Icon: FaEnvelope,
       aria: "Send Email",
     },
     {
@@ -79,7 +85,7 @@ export default function SocialIcons({
       key: "phone",
       href: sanitizeTel(phone)!,
       label: phone,
-      Icon: LucidePhone,
+      Icon: FaPhoneAlt,
       aria: "Call Phone",
     });
   }
@@ -89,7 +95,7 @@ export default function SocialIcons({
       key: "website",
       href: website,
       label: "sachintha.net",
-      Icon: LucideGlobe,
+      Icon: FaGlobe,
       aria: "Personal Website",
       external: true,
     });

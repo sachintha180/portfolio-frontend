@@ -16,8 +16,8 @@ type Points = {
 };
 
 type ConnectorProps = {
-  fromRef: RefObject<SVGElement | null>;
-  toRef: RefObject<SVGElement | null>;
+  fromRef: RefObject<HTMLDivElement | null>;
+  toRef: RefObject<HTMLDivElement | null>;
   containerRef: RefObject<HTMLElement | null>;
   className?: string;
 };

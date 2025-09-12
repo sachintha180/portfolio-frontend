@@ -6,7 +6,7 @@ a personal portfolio showcasing full stack and AI development work, built with m
 
 - **frontend**: React 19, TypeScript, Tailwind CSS, Vite
 - **animations**: Framer Motion, D3.js for color interpolation
-- **icons**: Lucide React, React Icons
+- **icons**: React Icons
 - **deployment**: On Render, optimized for performance and mobile responsiveness
 
 ## features

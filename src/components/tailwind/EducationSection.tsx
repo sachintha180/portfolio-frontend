@@ -3,13 +3,13 @@
 import { useMemo, useRef } from "react";
 import EducationCard from "@/components/tailwind/EducationCard";
 import { education } from "@/lib/education";
-import { DotIcon } from "lucide-react";
 import Connector from "@/components/ui/Connector";
+import { GoDotFill } from "react-icons/go";
 
 export default function EducationSection() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const dotRefs = useMemo(
-    () => education.map(() => ({ current: null as SVGSVGElement | null })),
+    () => education.map(() => ({ current: null as HTMLDivElement | null })),
     [education]
   );
 
@@ -29,13 +29,17 @@ export default function EducationSection() {
           return (
             <EducationCard key={`education-entry-${index}`} {...education}>
               {/* Timeline Icon */}
-              <DotIcon
+              <div
                 ref={(element) => {
                   dotRefs[index].current = element;
                 }}
-                className="text-blue-500 shrink-0 z-20"
-                strokeWidth={8}
-              />
+                className="z-20 pt-2"
+              >
+                <GoDotFill
+                  className="text-blue-500 shrink-0 h-3 w-3"
+                  strokeWidth={8}
+                />
+              </div>
             </EducationCard>
           );
         })}

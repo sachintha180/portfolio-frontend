@@ -2,13 +2,13 @@
 
 import type { ProjectEntryType } from "@/types/miscellaneous";
 import { techStackMap } from "@/lib/techStack";
-import { ExternalLinkIcon, LockIcon, ClockIcon } from "lucide-react";
 
 import { interpolate as d3Interpolate } from "d3-interpolate";
 import { color as d3Color } from "d3-color";
 import ProgressiveImage from "@/components/ui/ProgressiveImage";
 
 import placeholderImage from "@/assets/project_screenshots/placeholder.jpg";
+import { FaClock, FaExternalLinkAlt, FaLock } from "react-icons/fa";
 
 type ProjectCardProps = ProjectEntryType & {
   showImage?: boolean;
@@ -88,8 +88,8 @@ export default function ProjectCard({
           </h3>
 
           {/* Time Duration */}
-          <div className="text-xs flex items-center justify-start sm:justify-center gap-1 text-gray-500 dark:text-gray-300">
-            <ClockIcon className="h-3 w-3" />
+          <div className="text-xs flex items-center justify-start sm:justify-center gap-2 text-gray-500 dark:text-gray-300">
+            <FaClock className="h-3 w-3" />
             {timeDuration ? `Shipped in ${timeDuration}` : "Shipping..."}
           </div>
         </div>
@@ -125,10 +125,10 @@ export default function ProjectCard({
           >
             {link ? (
               <a href={link} target="_blank">
-                <ExternalLinkIcon className="w-5 h-5 sm:w-6 sm:h-6" />
+                <FaExternalLinkAlt className="w-5 h-5 sm:w-6 sm:h-6" />
               </a>
             ) : (
-              <LockIcon className="w-5 h-5 sm:w-6 sm:h-6" />
+              <FaLock className="w-5 h-5 sm:w-6 sm:h-6" />
             )}
           </div>
         </div>
