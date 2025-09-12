@@ -43,9 +43,17 @@ export type Education = EducationEntryType[];
 export type ExperienceEntryType = {
   title: string;
   organization: string;
+  startYear: number;
+  endYear?: number | string;
+  details: string[];
+};
+export type Experience = ExperienceEntryType[];
+
+export type HonorEntryType = {
+  title: string;
+  organization: string;
   year: number;
 };
-
-export type Experience = ExperienceEntryType[];
+export type Honors = HonorEntryType[];
 
 export type Coordinates = { x: number; y: number };

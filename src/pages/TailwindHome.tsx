@@ -1,16 +1,18 @@
-// App.tsx
+// pages/TailwindHome.tsx
 
-import ProfileSection from "./components/ProfileSection";
-import EducationSection from "./components/EducationSection";
-import MagnifierBackground from "./components/ui/MagnifierBackground";
-import Footer from "./components/ui/Footer";
+import ProfileSection from "@/components/tailwind/ProfileSection";
+import EducationSection from "@/components/tailwind/EducationSection";
 import { useRef, useState, useEffect } from "react";
-import ExperienceSection from "./components/ExperienceSection";
-import Header from "./components/Header";
-import ProjectsSection from "./components/ProjectsSection";
-import TechStackSection from "./components/TechStackSection";
+import ExperienceSection from "@/components/tailwind/ExperienceSection";
+import Header from "@/components/tailwind/Header";
+import ProjectsSection from "@/components/tailwind/ProjectsSection";
+import TechStackSection from "@/components/tailwind/TechStackSection";
 
-export default function App() {
+import MagnifierBackground from "@/components/ui/MagnifierBackground";
+import Footer from "@/components/ui/Footer";
+import HonorsSection from "@/components/tailwind/HonorsSection";
+
+export default function TailwindHome() {
   const contentRef = useRef<HTMLDivElement>(null);
   const [showMagnifier, setShowMagnifier] = useState(false);
 
@@ -34,10 +36,10 @@ export default function App() {
     <main className="relative">
       <div
         ref={contentRef}
-        className="w-full xl:w-4/5 2xl:w-2/3 mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 py-4 sm:py-6 md:py-8 bg-gray-900 h-full space-y-6 sm:space-y-8 md:space-y-10 z-40"
+        className="w-full xl:w-5/6 2xl:w-3/4 mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 py-4 sm:py-6 md:py-8 bg-white dark:bg-gray-900 h-full space-y-6 sm:space-y-8 md:space-y-10 z-40"
       >
         {/* Header Section */}
-        <Header />
+        <Header showImage={false} />
 
         <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-10">
           {/* Profile and Projects Sections */}
@@ -51,6 +53,7 @@ export default function App() {
           <section className="flex-1 space-y-6 sm:space-y-8 md:space-y-10">
             <TechStackSection className="flex-1" />
             <EducationSection />
+            <HonorsSection />
           </section>
         </div>
 

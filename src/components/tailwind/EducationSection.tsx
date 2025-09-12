@@ -1,10 +1,10 @@
-// components/EducationSection.tsx
+// components/tailwind/EducationSection.tsx
 
 import { useMemo, useRef } from "react";
-import EducationCard from "./EducationCard";
-import { education } from "../lib/education";
+import EducationCard from "@/components/tailwind/EducationCard";
+import { education } from "@/lib/education";
 import { DotIcon } from "lucide-react";
-import Connector from "./ui/Connector";
+import Connector from "@/components/ui/Connector";
 
 export default function EducationSection() {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -16,8 +16,8 @@ export default function EducationSection() {
   return (
     <div className="space-y-3 sm:space-y-4">
       {/* Section Header */}
-      <div className="bg-gradient-to-r from-blue-500 via-purple-500 to-gray-900 pb-0.5">
-        <h2 className="text-xl sm:text-2xl text-blue-500 font-bold bg-gray-900 pb-2">
+      <div className="bg-gradient-to-r from-blue-500 via-purple-500 to-white dark:to-gray-900 pb-0.5">
+        <h2 className="text-xl sm:text-2xl text-blue-500 font-bold bg-white dark:bg-gray-900 pb-2">
           education
         </h2>
       </div>

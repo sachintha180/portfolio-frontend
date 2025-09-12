@@ -1,14 +1,14 @@
 // components/ui/MagnifierBackground.tsx
 
 import { useLayoutEffect, useRef, type RefObject } from "react";
-import backgroundSrc from "../../assets/background-minified.png";
+import backgroundSrc from "@/assets/background-minified.png";
 import {
   motion,
   useMotionTemplate,
   useMotionValue,
   animate,
 } from "motion/react";
-import ProgressiveImage from "./ProgressiveImage";
+import ProgressiveImage from "@/components/ui/ProgressiveImage";
 
 type MagnifierBackgroundProps = {
   contentRef: RefObject<HTMLDivElement | null>;

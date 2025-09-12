@@ -1,9 +1,12 @@
+/* main.css */
+
 @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-sans: "Plus Jakarta Sans", sans-serif;
-  --font-numeric: "Rubik", sans-serif;
+  --font-print: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }

@@ -98,7 +98,7 @@ export default function Connector({
           x2={points.x2}
           y2={points.y2}
           stroke="currentColor"
-          strokeWidth={3}
+          strokeWidth={2}
           strokeLinecap="round"
         />
       )}

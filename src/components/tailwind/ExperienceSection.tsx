@@ -1,10 +1,10 @@
-// components/ExperienceSection.tsx
+// components/tailwind/ExperienceSection.tsx
 
 import { useMemo, useRef } from "react";
-import { experience } from "../lib/experience";
-import ExperienceCard from "./ExperienceCard";
+import { experience } from "@/lib/experience";
+import ExperienceCard from "@/components/tailwind/ExperienceCard";
 import { DotIcon } from "lucide-react";
-import Connector from "./ui/Connector";
+import Connector from "@/components/ui/Connector";
 
 export default function ExperienceSection() {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -12,13 +12,16 @@ export default function ExperienceSection() {
     () => experience.map(() => ({ current: null as SVGSVGElement | null })),
     [experience]
   );
+  const currentYear = new Date().getFullYear();
 
   return (
     <div className="space-y-3 sm:space-y-4">
       {/* Section Header */}
-      <div className="bg-gradient-to-r from-purple-500 via-blue-500 to-gray-900 pb-0.5">
-        <h2 className="text-xl sm:text-2xl text-purple-500 font-bold bg-gray-900 pb-2">
-          experience
+      <div className="bg-gradient-to-r from-purple-500 via-blue-500 to-white dark:to-gray-900 pb-0.5">
+        <h2 className="text-xl sm:text-2xl text-purple-500 font-bold bg-white dark:bg-gray-900 pb-2">
+          experience (+
+          {currentYear - experience[experience.length - 1].startYear}
+          y)
         </h2>
       </div>
 
