@@ -12,7 +12,8 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.1.12",
     "@types/node": "^24.3.1",
-    "d3": "^7.9.0",
+    "d3-color": "^3.1.0",
+    "d3-interpolate": "^3.0.1",
     "motion": "^12.23.12",
     "purecss": "^3.0.0",
     "react": "^19.1.1",
@@ -24,7 +25,8 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
-    "@types/d3": "^7.4.3",
+    "@types/d3-color": "^3.1.3",
+    "@types/d3-interpolate": "^3.0.4",
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",
     "@vitejs/plugin-react": "^5.0.0",
