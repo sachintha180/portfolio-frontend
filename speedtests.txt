@@ -1,0 +1,7 @@
+/:
+https://pagespeed.web.dev/analysis/https-sachintha-net/tldnjsnxa1?form_factor=mobile
+https://pagespeed.web.dev/analysis/https-sachintha-net/tldnjsnxa1?form_factor=desktop
+
+/paper:
+https://pagespeed.web.dev/analysis/https-sachintha-net-paper/8zynr2v8l1?form_factor=mobile
+https://pagespeed.web.dev/analysis/https-sachintha-net-paper/8zynr2v8l1?form_factor=desktop
