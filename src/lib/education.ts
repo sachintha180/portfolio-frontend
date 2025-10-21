@@ -27,4 +27,10 @@ export const education: Education = [
     grade: "Passed",
     year: 2025,
   },
+  {
+    title: "BSc (Hons) Information Technology",
+    description: "Managing Information Systems, Databases & Analytics, BI, ESM",
+    grade: "Pursuing",
+    year: 2026,
+  },
 ].sort((a, b) => b.year - a.year);

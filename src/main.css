@@ -9,4 +9,12 @@
 @theme {
   --font-sans: "Plus Jakarta Sans", sans-serif;
   --font-print: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --font-lego: Arial, Helvetica, sans-serif;
+
+  --color-background: oklch(23.503% 0.00003 271.152);
+  --color-foreground: oklch(100% 0.00011 271.152);
+  --color-primary-pink: oklch(0.6476 0.2042 11.07);
+  --color-primary-green: oklch(77.751% 0.15953 166.602);
+  --color-primary-blue: oklch(59.229% 0.11206 228.004);
+  --color-primary-yellow: oklch(88.03% 0.1347 86.064);
 }
