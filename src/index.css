@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+@import "tailwindcss";
+
+@theme {
+  /* Custom Colors */
+  --color-background: #f4f4f4;
+  --color-surface: #ffffff;
+  --color-primary: #2a2a3c;
+  --color-secondary: #646488;
+  --color-muted: #666666;
+  --color-warm: #e59e55;
+  --color-cool: #369def;
+  --color-success: #5eb575;
+  --color-danger: #e35e8f;
+  --color-link: #0e7ad0;
+
+  /* Custom Fonts */
+  --font-sans: "Manrope", sans-serif;
+  --font-mono: "Space Mono", monospace;
+}
