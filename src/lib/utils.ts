@@ -2,6 +2,8 @@ import type {
   ExperienceItem,
   GroupedExperienceDurations,
   GroupedExperienceItem,
+  TechStackItem,
+  GroupedTechStackItem,
 } from "@/types/miscellaneous";
 
 export function formatTimelineDate(startDate: Date, endDate: Date | number) {
@@ -92,4 +94,29 @@ export function computeGroupedExperienceDurations(
     },
     {}
   );
+}
+
+export function groupTechStackItems(
+  techStackItems: TechStackItem[]
+): GroupedTechStackItem[] {
+  return techStackItems.reduce<GroupedTechStackItem[]>((acc, item) => {
+    // Check if the group already exists
+    const existingGroup = acc.find(
+      (groupItem) => groupItem.group.name === item.group.name
+    );
+
+    // If the group already exists, add the item to the group
+    if (existingGroup) {
+      existingGroup.items.push(item);
+      return acc;
+    }
+
+    // Otherwise, create a new group and add the item to it
+    acc.push({
+      group: item.group,
+      items: [item],
+    });
+
+    return acc;
+  }, []);
 }

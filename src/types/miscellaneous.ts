@@ -1,7 +1,14 @@
 import type { ReactNode } from "react";
 
+export type ColorClasses = {
+  border: string;
+  circle: string;
+  text: string;
+};
+
 export type PageItem = {
-  label: string;
+  buttonLabel: string;
+  nodeLabel: string;
   href: string;
   colorClass: string;
 };
@@ -76,4 +83,19 @@ export type ProjectItem = {
   timeDuration: string;
   link?: string;
   pending?: boolean;
+};
+
+export type TechStackGroup = {
+  label: string;
+  name: string;
+};
+
+export type TechStackItem = {
+  name: string;
+  group: TechStackGroup;
+};
+
+export type GroupedTechStackItem = {
+  group: TechStackGroup;
+  items: TechStackItem[];
 };

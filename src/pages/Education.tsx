@@ -2,7 +2,7 @@ import { FiArrowLeft } from "react-icons/fi";
 import UnderliningLink from "@/components/ui/underlining-link";
 import Seperator from "@/components/ui/seperator";
 import Layout from "@/components/Layout";
-import { EDUCATION_ITEMS } from "@/lib/constants";
+import { EDUCATION_ITEMS } from "@/lib/education";
 import EducationListItem from "@/components/EducationListItem";
 import Header from "@/components/Header";
 

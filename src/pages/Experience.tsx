@@ -3,9 +3,9 @@ import UnderliningLink from "@/components/ui/underlining-link";
 import Seperator from "@/components/ui/seperator";
 import Layout from "@/components/Layout";
 import {
-  GROUPED_EXPERIENCE_DURATIONS,
   GROUPED_EXPERIENCE_ITEMS,
-} from "@/lib/constants";
+  GROUPED_EXPERIENCE_DURATIONS,
+} from "@/lib/experience";
 import { convertMonthsToOptimisticYears } from "@/lib/utils";
 import ExperienceListItem from "@/components/ExperienceListItem";
 import Header from "@/components/Header";
@@ -68,6 +68,7 @@ export default function Experience() {
                     <ExperienceListItem
                       key={`${item.organization.name}-${index}`}
                       organization={item.organization}
+                      label={item.organization.name}
                       roles={item.roles}
                       colorClasses={{
                         border: borderColorClass,

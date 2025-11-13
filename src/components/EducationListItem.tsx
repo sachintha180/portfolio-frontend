@@ -1,52 +1,36 @@
-import type { Organization, Program } from "@/types/miscellaneous";
-import UnderliningLink from "./ui/underlining-link";
-import { FiChevronUp } from "react-icons/fi";
+import type {
+  ColorClasses,
+  Organization,
+  Program,
+} from "@/types/miscellaneous";
+import ListItem from "./ui/list-item";
 
 type EducationItemProps = {
-  label: string;
   institution: Organization;
+  label: string;
   programs: Program[];
   isLastInGroup: boolean;
 };
 
 export default function EducationListItem({
-  label,
   institution,
+  label,
   programs,
   isLastInGroup,
 }: EducationItemProps) {
+  const colorClasses: ColorClasses = {
+    border: "border-danger",
+    circle: "bg-danger",
+    text: "text-danger",
+  };
+
   return (
-    <li id={label} key={institution.name} className="md:mb-10 mb-0">
-      {/* Circle */}
-      <div className="hidden md:block absolute w-4 h-4 rounded-full -left-2 border border-danger bg-danger" />
-
-      {/* Timeline Start Icon */}
-      {isLastInGroup && (
-        <FiChevronUp
-          aria-hidden="true"
-          className="hidden md:block absolute -left-4 -bottom-5 text-danger w-8 h-8 "
-        />
-      )}
-
-      {/* Institution Link */}
-      <UnderliningLink
-        href={institution.url}
-        className="text-muted inline-flex mt-1"
-        variant="text"
-        withIcon={true}
-        target="_blank"
-        rel="noreferrer"
-      >
-        {institution.logo && (
-          <img
-            src={institution.logo.src}
-            alt={institution.logo.alt}
-            className="h-4 grayscale hidden md:block"
-          />
-        )}
-        {institution.name}
-      </UnderliningLink>
-
+    <ListItem
+      id={label}
+      organization={institution}
+      colorClasses={colorClasses}
+      isLastInGroup={isLastInGroup}
+    >
       {/* Programs */}
       <ul>
         {programs.map((program) => (
@@ -80,6 +64,6 @@ export default function EducationListItem({
           </li>
         ))}
       </ul>
-    </li>
+    </ListItem>
   );
 }
