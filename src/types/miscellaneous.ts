@@ -84,3 +84,18 @@ export type ProjectItem = {
   link?: string;
   pending?: boolean;
 };
+
+export type TechStackGroup = {
+  label: string;
+  name: string;
+};
+
+export type TechStackItem = {
+  name: string;
+  group: TechStackGroup;
+};
+
+export type GroupedTechStackItem = {
+  group: TechStackGroup;
+  items: TechStackItem[];
+};

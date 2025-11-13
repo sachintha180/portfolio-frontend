@@ -68,6 +68,7 @@ export default function Experience() {
                     <ExperienceListItem
                       key={`${item.organization.name}-${index}`}
                       organization={item.organization}
+                      label={item.organization.name}
                       roles={item.roles}
                       colorClasses={{
                         border: borderColorClass,
