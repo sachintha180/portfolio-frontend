@@ -71,7 +71,7 @@ const AWARDS_ITEMS: AwardItem[] = [
     },
     year: 2021,
     description:
-      "Secured Silver at SLIIT Codefest, a competitive national coding competition for young developers. Our team built an e-learning platform with Python and vanilla JavaScript.",
+      "Secured Silver at SLIIT Codefest, by building an e-learning platform with Python and vanilla JavaScript.",
   },
   {
     title: "School Category Champion - Hack:AI 2021",

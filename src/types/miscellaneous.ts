@@ -57,7 +57,7 @@ export type Program = {
   field?: string;
   endYear: number;
   pursuing: boolean;
-  description: string;
+  description: string[];
   grade?: string;
 };
 

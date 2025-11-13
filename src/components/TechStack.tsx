@@ -2,11 +2,11 @@ import { TECH_STACK } from "@/lib/tech-stack";
 import { groupTechStackItems } from "@/lib/utils";
 
 const BG_COLOR_PALETTE = [
-  "bg-warm/30",
-  "bg-cool/30",
-  "bg-danger/30",
-  "bg-success/30",
-  "bg-secondary/30",
+  "bg-warm",
+  "bg-cool",
+  "bg-danger",
+  "bg-success",
+  "bg-secondary",
 ];
 const TEXT_COLOR_PALETTE = [
   "text-warm",
@@ -16,11 +16,11 @@ const TEXT_COLOR_PALETTE = [
   "text-secondary",
 ];
 const LIGHT_BG_COLOR_PALETTE = [
-  "bg-warm/10",
-  "bg-cool/10",
-  "bg-danger/10",
-  "bg-success/10",
-  "bg-secondary/10",
+  "bg-warm/20",
+  "bg-cool/20",
+  "bg-danger/20",
+  "bg-success/20",
+  "bg-secondary/20",
 ];
 
 export default function TechStack() {
@@ -51,7 +51,7 @@ export default function TechStack() {
                 {groupItem.items.map((item) => (
                   <div
                     key={item.name}
-                    className={`flex items-center justify-center px-3 py-2 text-sm font-semibold text-center ${bgColorClass} text-muted`}
+                    className={`flex items-center justify-center px-3 py-2 text-sm font-semibold text-center ${bgColorClass} text-surface`}
                   >
                     {item.name}
                   </div>
