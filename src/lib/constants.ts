@@ -16,6 +16,9 @@ export const COLOR_PALETTE: string[] = [
   "danger",
 ];
 
+export const ABOUT_ME =
+  "I'm a full stack and AI developer with over 2 years of experience working across Python, TypeScript and React. I specialize in connecting backend logic to intelligent systems, with UX in mind - from FastAPI and PostgreSQL to AI agent workflows in LangChain and Vercel AI SDK. I'm great at designing APIs and building automations. I'm framework agnostic, with my focus being on writing clear, testable code built for function over form. I'm fascinated by graphs, genetic algorithms and teach computer science to secondary school students during the weekends.";
+
 export const PAGE_ITEMS: PageItem[] = [
   {
     buttonLabel: "experience",

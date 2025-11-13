@@ -1,6 +1,6 @@
 import type { ProjectItem } from "@/types/miscellaneous";
 
-export const MAX_PROJECT_NODE_COUNT = 5;
+export const MAX_PROJECT_NODE_COUNT = 4;
 
 // NOTE: Projects items must be sorted in order of importance when typed, since we slice top n items later
 export const PROJECT_ITEMS: ProjectItem[] = [
@@ -25,15 +25,14 @@ export const PROJECT_ITEMS: ProjectItem[] = [
     timeDuration: "2 weeks",
   },
   {
-    title: "Cybersecurity Report Generator",
-    label: "cybersecurity-reporter",
+    title: "LLM Pipeline Designer",
+    label: "llm-pipeline-designer",
     description: [
-      "Integrated with BitDefender GravityZone's API to retrieve detailed network information, vulnerabilities and risk scores.",
-      "Processed and aggregated security data using Python.",
-      "Generated comprehensive PDF reports by combining all information in a single document.",
+      "WYSIWYG editor for prompt workflow design with over 10 different drag-and-drop components.",
+      "Allows YAML import/export and single-file packaging.",
     ],
-    tools: ["Python", "BitDefender GravityZone API", "PyMuPDF"],
-    timeDuration: "3 days",
+    tools: ["Next.js", "Prisma", "OpenAI API", "LangChain"],
+    timeDuration: "2 weeks",
   },
   {
     title: "Client Dashboard",
@@ -46,6 +45,17 @@ export const PROJECT_ITEMS: ProjectItem[] = [
     timeDuration: "3 months",
   },
   {
+    title: "Cybersecurity Report Generator",
+    label: "cybersecurity-reporter",
+    description: [
+      "Integrated with BitDefender GravityZone's API to retrieve detailed network information, vulnerabilities and risk scores.",
+      "Processed and aggregated security data using Python.",
+      "Generated comprehensive PDF reports by combining all information in a single document.",
+    ],
+    tools: ["Python", "BitDefender GravityZone API", "PyMuPDF"],
+    timeDuration: "3 days",
+  },
+  {
     title: "Resume Shortlisting Agent",
     label: "resume-shortlister",
     description: [
@@ -54,16 +64,6 @@ export const PROJECT_ITEMS: ProjectItem[] = [
     ],
     tools: ["Gradio", "OpenAI API", "PyMuPDF", "NLTK"],
     timeDuration: "3 days",
-  },
-  {
-    title: "LLM Pipeline Designer",
-    label: "llm-pipeline-designer",
-    description: [
-      "WYSIWYG editor for prompt workflow design with over 10 different drag-and-drop components.",
-      "Allows YAML import/export and single-file packaging.",
-    ],
-    tools: ["Next.js", "Prisma", "OpenAI API", "LangChain"],
-    timeDuration: "2 weeks",
   },
   {
     title: "Clara",
