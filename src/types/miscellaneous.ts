@@ -1,7 +1,8 @@
 import type { ReactNode } from "react";
 
 export type PageItem = {
-  label: string;
+  buttonLabel: string;
+  nodeLabel: string;
   href: string;
   colorClass: string;
 };

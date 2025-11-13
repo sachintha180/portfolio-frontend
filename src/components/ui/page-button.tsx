@@ -2,13 +2,13 @@ import type { AnchorHTMLAttributes, ReactNode } from "react";
 import { FiArrowUpRight } from "react-icons/fi";
 
 type PageButtonProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
-  label: string;
+  buttonLabel: string;
   colorClass: string;
   children?: ReactNode;
 };
 
 export default function PageButton({
-  label,
+  buttonLabel,
   colorClass,
   className,
   children,
@@ -26,7 +26,7 @@ export default function PageButton({
         className="h-10 w-10 ml-auto text-surface transition-transform duration-300 group-hover/page-button:translate-x-1 group-hover/page-button:-translate-y-1"
       />
       <div className="flex flex-col gap-3">
-        <span className="text-xl font-semibold">{label}</span>
+        <span className="text-xl font-semibold">{buttonLabel}</span>
         {children}
       </div>
     </a>

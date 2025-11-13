@@ -41,14 +41,6 @@ export default function Error() {
           </UnderliningLink>
         </section>
       </main>
-
-      {/* Force Graph */}
-      {/* <div
-        ref={graphRef}
-        className="hidden lg:block h-full w-2/5 right-0 top-0"
-      >
-        <ForceGraph data={GRAPH_DATA} width={width} height={height} />
-      </div> */}
     </div>
   );
 }

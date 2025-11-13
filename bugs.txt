@@ -1,0 +1,4 @@
+Prevent graph from re-rendering on every page change
+Reduce the file size of all public/ images
+Stop rendering the graph on mobile devices
+Add the tech stack section to the home page

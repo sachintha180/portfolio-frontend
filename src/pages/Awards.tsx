@@ -2,7 +2,7 @@ import { FiArrowLeft } from "react-icons/fi";
 import UnderliningLink from "@/components/ui/underlining-link";
 import Seperator from "@/components/ui/seperator";
 import Layout from "@/components/Layout";
-import { SORTED_AWARD_ITEMS } from "@/lib/constants";
+import { SORTED_AWARD_ITEMS } from "@/lib/awards";
 import AwardListItem from "@/components/AwardListItem";
 import Header from "@/components/Header";
 
