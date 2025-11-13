@@ -1,14 +1,16 @@
+import type { PageItem } from "@/types/miscellaneous";
 import type { AnchorHTMLAttributes, ReactNode } from "react";
 import { FiArrowUpRight } from "react-icons/fi";
 
-type PageButtonProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
-  buttonLabel: string;
-  colorClass: string;
-  children?: ReactNode;
-};
+type PageButtonProps = AnchorHTMLAttributes<HTMLAnchorElement> &
+  PageItem & {
+    children?: ReactNode;
+  };
 
 export default function PageButton({
   buttonLabel,
+  nodeLabel,
+  href,
   colorClass,
   className,
   children,
@@ -20,7 +22,7 @@ export default function PageButton({
     : baseClassName;
 
   return (
-    <a className={combinedClassName} {...props}>
+    <a href={href} className={combinedClassName} {...props}>
       <FiArrowUpRight
         aria-hidden="true"
         className="h-10 w-10 ml-auto text-surface transition-transform duration-300 group-hover/page-button:translate-x-1 group-hover/page-button:-translate-y-1"

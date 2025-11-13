@@ -1,5 +1,11 @@
 import type { ReactNode } from "react";
 
+export type ColorClasses = {
+  border: string;
+  circle: string;
+  text: string;
+};
+
 export type PageItem = {
   buttonLabel: string;
   nodeLabel: string;
