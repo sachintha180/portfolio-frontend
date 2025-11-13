@@ -3,6 +3,7 @@ import Experience from "@/pages/Experience";
 import Education from "@/pages/Education";
 import Awards from "@/pages/Awards";
 import Projects from "@/pages/Projects";
+import CV from "@/pages/CV";
 import Error from "@/components/Error";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
@@ -15,6 +16,7 @@ export default function App() {
         <Route path="/education" element={<Education />} />
         <Route path="/awards" element={<Awards />} />
         <Route path="/projects" element={<Projects />} />
+        <Route path="/cv" element={<CV />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </BrowserRouter>

@@ -1,5 +1,5 @@
 import {
-  FiArrowDown,
+  FiArrowRight,
   FiMail,
   FiMapPin,
   FiPhone,
@@ -12,7 +12,7 @@ import Seperator from "@/components/ui/seperator";
 import ContactItem from "@/components/ContactItem";
 import PageButton from "@/components/ui/page-button";
 import Layout from "@/components/Layout";
-import { PAGE_ITEMS } from "@/lib/constants";
+import { ABOUT_ME, PAGE_ITEMS } from "@/lib/constants";
 import type { ContactItem as ContactItemType } from "@/types/miscellaneous";
 import Header from "@/components/Header";
 import TechStack from "@/components/TechStack";
@@ -63,9 +63,9 @@ export default function Home() {
       <section className="flex flex-col gap-5 mx-5 md:mx-15 my-10">
         {/* Header */}
         <Header subtitle="full-stack &amp; AI developer">
-          <UnderliningLink href="/curriculum_vitae" variant="link" download>
-            <span className="text-lg">download my CV</span>
-            <FiArrowDown aria-hidden="true" className="w-5 h-5" />
+          <UnderliningLink href="/cv" variant="link">
+            <span className="text-lg">read my CV</span>
+            <FiArrowRight aria-hidden="true" className="w-5 h-5" />
           </UnderliningLink>
         </Header>
 
@@ -85,17 +85,7 @@ export default function Home() {
         {/* About Me Section */}
         <section className="flex flex-col gap-2">
           <h3 className="text-secondary text-2xl mb-2">about me</h3>
-          <p className="text-muted text-justify">
-            I'm a full stack and AI developer with over 2 years of experience
-            working across Python, TypeScript and React. I specialize in
-            connecting backend logic to intelligent systems, with UX in mind -
-            from FastAPI and PostgreSQL to AI agent workflows in LangChain and
-            Vercel AI SDK. I'm great at designing APIs and building automations.
-            I'm framework agnostic, with my focus being on writing clear,
-            testable code built for function over form. I'm fascinated by
-            graphs, genetic algorithms and teach computer science to secondary
-            school students during the weekends.
-          </p>
+          <p className="text-muted text-justify">{ABOUT_ME}</p>
         </section>
 
         {/* Seperator */}
