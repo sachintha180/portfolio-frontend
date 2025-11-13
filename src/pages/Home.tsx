@@ -87,7 +87,7 @@ export default function Home() {
           <h3 className="text-secondary text-2xl mb-2">about me</h3>
           <p className="text-muted text-justify">
             I'm a full stack and AI developer with over 2 years of experience
-            working across Python, TypeScript, and React. I specialize in
+            working across Python, TypeScript and React. I specialize in
             connecting backend logic to intelligent systems, with UX in mind -
             from FastAPI and PostgreSQL to AI agent workflows in LangChain and
             Vercel AI SDK. I'm great at designing APIs and building automations.

@@ -57,7 +57,7 @@ export default function EducationListItem({
 
             {/* Program Details */}
             <ul className="list-disc space-y-2 pl-5 text-sm leading-relaxed text-muted mt-3">
-              {program.description.split(",").map((description, index) => (
+              {program.description.map((description, index) => (
                 <li key={index}>{description}</li>
               ))}
             </ul>

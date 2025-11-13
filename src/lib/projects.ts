@@ -11,14 +11,14 @@ export const PROJECT_ITEMS: ProjectItem[] = [
       "Gen-AI-powered assistant for project estimations and quotations in software development.",
       "Produces structured cost breakdowns using custom parsing, structured outputs and NLP.",
     ],
-    tools: ["Gradio", "OpenAI API", "PyMuPDF", "BeautifulSoup4", "NLTK"],
+    tools: ["Flask", "OpenAI API", "Pydantic", "OpenAI API", "Jinja2"],
     timeDuration: "4 days",
   },
   {
     title: "Enrollment Wizard",
     label: "it-wizard",
     description: [
-      "Bundled PowerShell scripts and installer for policy deployment.",
+      "Bundled PowerShell scripts and installer for policy deployment to Windows devices.",
       "Dashboard for device enrollment and management at multi-national ALSP.",
     ],
     tools: ["PowerShell", "React", "Express.js", "Render", "Tailwind"],
@@ -28,9 +28,9 @@ export const PROJECT_ITEMS: ProjectItem[] = [
     title: "Cybersecurity Report Generator",
     label: "cybersecurity-reporter",
     description: [
-      "Integrated with BitDefender GravityZone's API to retrieve detailed network information, vulnerabilities, and risk scores.",
+      "Integrated with BitDefender GravityZone's API to retrieve detailed network information, vulnerabilities and risk scores.",
       "Processed and aggregated security data using Python.",
-      "Generated comprehensive PDF reports combining all information in a single document.",
+      "Generated comprehensive PDF reports by combining all information in a single document.",
     ],
     tools: ["Python", "BitDefender GravityZone API", "PyMuPDF"],
     timeDuration: "3 days",
@@ -40,19 +40,19 @@ export const PROJECT_ITEMS: ProjectItem[] = [
     label: "client-dashboard",
     description: [
       "Data-driven dashboard for client and contractor operations at a multi-national ALSP.",
-      "Integrates with Xero, Clockify, and Zelt with typed contracts to aggregate data and provide insights.",
+      "Integrates with Xero, Clockify and Zelt with typed contracts to aggregate data and provide insights.",
     ],
-    tools: ["FastAPI", "React", "Render", "shad.cn"],
+    tools: ["FastAPI", "TanStack Table", "React", "Render", "shad.cn"],
     timeDuration: "3 months",
   },
   {
     title: "Resume Shortlisting Agent",
     label: "resume-shortlister",
     description: [
-      "AI-powered agent for automated candidate shortlisting using custom logic and GenAI.",
+      "AI-powered agent for automated candidate shortlisting using custom logic and GenAI APIs.",
       "Processes CVs and job descriptions to identify relevant candidates.",
     ],
-    tools: ["Flask", "OpenAI API", "LangChain", "BeautifulSoup4", "Jinja2"],
+    tools: ["Gradio", "OpenAI API", "PyMuPDF", "NLTK"],
     timeDuration: "3 days",
   },
   {
@@ -62,7 +62,7 @@ export const PROJECT_ITEMS: ProjectItem[] = [
       "WYSIWYG editor for prompt workflow design with over 10 different drag-and-drop components.",
       "Allows YAML import/export and single-file packaging.",
     ],
-    tools: ["Next.js", "Prisma", "OpenAI API", "Agentic Workflows"],
+    tools: ["Next.js", "Prisma", "OpenAI API", "LangChain"],
     timeDuration: "2 weeks",
   },
   {
@@ -70,9 +70,17 @@ export const PROJECT_ITEMS: ProjectItem[] = [
     label: "clara-legal-assistant",
     description: [
       "AI-powered SaaS for legal professionals to automate contract management and drafting.",
-      "Uses agentic workflows, graph databases and vector databases.",
+      "Integrates with Google Drive and SharePoint for shared document repositories.",
+      "Utilizes agentic workflows with various prompting techniques and graph/vector databases.",
     ],
-    tools: ["Next.js", "FastAPI", "Azure AI", "LangChain", "PostgreSQL"],
+    tools: [
+      "Next.js",
+      "FastAPI",
+      "tRPC",
+      "Azure AI",
+      "LangChain",
+      "PostgreSQL",
+    ],
     timeDuration: "1 year",
     pending: true,
     link: "https://clara.teamsquared.io/",
@@ -81,7 +89,7 @@ export const PROJECT_ITEMS: ProjectItem[] = [
     title: "NLP Experiments",
     label: "nlp-lab",
     description: [
-      "Exploratory dashboard for NLP preprocessing, modeling, and analyses.",
+      "Exploratory dashboard for NLP preprocessing, modeling and analyses.",
       "Python backend with interactive React frontend.",
     ],
     tools: ["Flask", "Numpy", "NLTK", "TQDM", "React"],
@@ -92,7 +100,7 @@ export const PROJECT_ITEMS: ProjectItem[] = [
     title: "My Portfolio",
     label: "my-portfolio",
     description: [
-      "Personal portfolio website built with React, Tailwind, and TypeScript.",
+      "Personal portfolio website built with React, Tailwind and TypeScript.",
       "Uses React Router for navigation and dynamic routing.",
       "Utilizes D3.js for the force graph visualization.",
     ],
@@ -117,7 +125,7 @@ export const PROJECT_ITEMS: ProjectItem[] = [
     description: [
       "Mobile app analyzing and improving teachers' vocal delivery with on-device speech AI.",
       "Extracts key speaking features to give actionable feedback privately.",
-      "Designed for classroom use; supports offline inference.",
+      "Designed for classroom use and supports offline inference.",
     ],
     tools: [
       "React Native",
@@ -135,7 +143,7 @@ export const PROJECT_ITEMS: ProjectItem[] = [
     description: [
       "VS Code extension and desktop app to visualize and optimize codebase navigation.",
       "Builds code navigation graphs to reduce tab overload and boost workflow productivity.",
-      "Supports focus mode, file tagging, and smart suggestions; proved to cut navigation time.",
+      "Supports focus mode, file tagging and smart suggestions, proved to cut navigation time.",
     ],
     tools: [
       "TypeScript",
@@ -151,8 +159,8 @@ export const PROJECT_ITEMS: ProjectItem[] = [
     title: "The CS Class",
     label: "cs-class",
     description: [
-      "Student platform for recordings, notes, and Google Drive auto-sync.",
-      "RBAC-enabled system and performance tracking integrated.",
+      "Student platform for recordings, notes and Google Drive sync.",
+      "RBAC-enabled system with performance tracking.",
     ],
     tools: ["FastAPI", "SQLAlchemy", "GCP", "Render", "Tailwind"],
     link: "https://the-cs-class.vercel.app/",
@@ -163,7 +171,7 @@ export const PROJECT_ITEMS: ProjectItem[] = [
     label: "discipline",
     description: [
       "Discipline management system for an international school.",
-      "RBAC, searchable database, and violation processing.",
+      "RBAC, searchable database and violation processing.",
     ],
     tools: ["Flask", "PostgreSQL", "Prisma", "Jinja2", "Bulma"],
     link: "https://gateway-sms.vercel.app/",
@@ -173,8 +181,8 @@ export const PROJECT_ITEMS: ProjectItem[] = [
     title: "SwiftCab Booking Service",
     label: "swiftcab",
     description: [
-      "Diploma project featuring a booking and search solution for ops teams on MS-SQL.",
-      "Handles complex JOINs and pyodbc connections; fast queries for pickup and drop-off management.",
+      "Diploma project featuring a booking and search solution for operational teams on MS-SQL.",
+      "Handles complex JOINs, pyodbc connections and fast queries for pickup and drop-off management.",
     ],
     tools: ["Flask", "MSSQL", "pyodbc", "Jinja2"],
     link: "https://github.com/sachintha180/swiftcab-search",

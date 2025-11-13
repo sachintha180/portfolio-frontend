@@ -34,6 +34,7 @@ export const TECH_STACK: TechStackItem[] = [
   { name: "TanStack Table", group: GROUPS.frontend },
   { name: "Recharts", group: GROUPS.frontend },
   { name: "D3.js", group: GROUPS.frontend },
+  { name: "Vitest", group: GROUPS.frontend },
 
   // Backend
   { name: "FastAPI", group: GROUPS.backend },
@@ -43,6 +44,7 @@ export const TECH_STACK: TechStackItem[] = [
   { name: "Prisma ORM", group: GROUPS.backend },
   { name: "Redis", group: GROUPS.backend },
   { name: "OpenAPI", group: GROUPS.backend },
+  { name: "PyTest", group: GROUPS.backend },
 
   // Data & DevOps
   { name: "Azure", group: GROUPS.data },
