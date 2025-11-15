@@ -99,3 +99,20 @@ export type GroupedTechStackItem = {
   group: TechStackGroup;
   items: TechStackItem[];
 };
+
+export type ClassItem = PageItem;
+
+export type UploadType = "note" | "video" | "code" | "quiz";
+
+export type UploadMapItem = {
+  icon: ReactNode;
+  colorClass: string;
+};
+
+export type UploadItem = {
+  type: UploadType;
+  url: string;
+  title: string;
+  itemCategoryLabel: string;
+  relativeUploadTime: string;
+};

@@ -1,7 +1,13 @@
 import type { GraphData, GraphSize } from "@/types/force-graph";
 import type { PageItem } from "@/types/miscellaneous";
-import { MAX_PROJECT_NODE_COUNT, SLICED_PROJECT_ITEMS } from "@/lib/projects";
-import { MAX_AWARD_NODE_COUNT, SLICED_AWARD_ITEMS } from "@/lib/awards";
+import {
+  MAX_PROJECT_NODE_COUNT,
+  SLICED_PROJECT_ITEMS,
+} from "@/lib/portfolio/projects";
+import {
+  MAX_AWARD_NODE_COUNT,
+  SLICED_AWARD_ITEMS,
+} from "@/lib/portfolio/awards";
 import { GROUPED_EXPERIENCE_ITEMS } from "./experience";
 import { EDUCATION_ITEMS } from "./education";
 

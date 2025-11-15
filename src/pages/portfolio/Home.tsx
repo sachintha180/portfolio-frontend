@@ -9,13 +9,12 @@ import {
 } from "react-icons/fi";
 import UnderliningLink from "@/components/ui/underlining-link";
 import Seperator from "@/components/ui/seperator";
-import ContactItem from "@/components/ContactItem";
+import ContactItem from "@/components/portfolio/ContactItem";
 import PageButton from "@/components/ui/page-button";
-import Layout from "@/components/Layout";
-import { ABOUT_ME, PAGE_ITEMS } from "@/lib/constants";
+import { ABOUT_ME, PAGE_ITEMS } from "@/lib/portfolio/constants";
 import type { ContactItem as ContactItemType } from "@/types/miscellaneous";
-import Header from "@/components/Header";
-import TechStack from "@/components/TechStack";
+import Header from "@/components/portfolio/Header";
+import TechStack from "@/components/portfolio/TechStack";
 
 export default function Home() {
   const contacts: ContactItemType[] = [
@@ -58,55 +57,55 @@ export default function Home() {
   ];
 
   return (
-    <Layout>
-      {/* Content Container */}
-      <section className="flex flex-col gap-5 mx-5 md:mx-15 my-10">
-        {/* Header */}
-        <Header subtitle="full-stack &amp; AI developer">
-          <UnderliningLink href="/cv" variant="link">
-            <span className="text-lg">read my CV</span>
-            <FiArrowRight aria-hidden="true" className="w-5 h-5" />
-          </UnderliningLink>
-        </Header>
+    <section className="flex-1 flex flex-col gap-5 mx-5 md:mx-15 my-10">
+      {/* Header */}
+      <Header
+        title="sachintha senanayake"
+        subtitle="full-stack &amp; AI developer"
+      >
+        <UnderliningLink href="/cv" variant="link">
+          <span className="text-lg">read my CV</span>
+          <FiArrowRight aria-hidden="true" className="w-5 h-5" />
+        </UnderliningLink>
+      </Header>
 
-        {/* Seperator */}
-        <Seperator />
+      {/* Seperator */}
+      <Seperator />
 
-        {/* Contact Section */}
-        <section className="grid md:grid-flow-col md:grid-rows-3 grid-flow-row gap-2">
-          {contacts.map((contact) => (
-            <ContactItem key={contact.href} {...contact} />
-          ))}
-        </section>
-
-        {/* Seperator */}
-        <Seperator />
-
-        {/* About Me Section */}
-        <section className="flex flex-col gap-2">
-          <h3 className="text-secondary text-2xl mb-2">about me</h3>
-          <p className="text-muted text-justify">{ABOUT_ME}</p>
-        </section>
-
-        {/* Seperator */}
-        <Seperator />
-
-        {/* Tech Stack Section */}
-        <TechStack />
-
-        {/* Seperator */}
-        <Seperator />
-
-        {/* Pages Buttons */}
-        <section className="flex flex-col gap-2">
-          <h3 className="text-secondary text-2xl mb-5">pages</h3>
-          <div className="grid md:grid-cols-2 grid-cols-1 gap-5">
-            {PAGE_ITEMS.map((page) => (
-              <PageButton key={page.href} {...page} />
-            ))}
-          </div>
-        </section>
+      {/* Contact Section */}
+      <section className="grid md:grid-flow-col md:grid-rows-3 grid-flow-row gap-2">
+        {contacts.map((contact) => (
+          <ContactItem key={contact.href} {...contact} />
+        ))}
       </section>
-    </Layout>
+
+      {/* Seperator */}
+      <Seperator />
+
+      {/* About Me Section */}
+      <section className="flex flex-col gap-2">
+        <h3 className="text-secondary text-2xl mb-2">about me</h3>
+        <p className="text-muted text-justify">{ABOUT_ME}</p>
+      </section>
+
+      {/* Seperator */}
+      <Seperator />
+
+      {/* Tech Stack Section */}
+      <TechStack />
+
+      {/* Seperator */}
+      <Seperator />
+
+      {/* Pages Buttons */}
+      <section className="flex flex-col gap-2">
+        <h3 className="text-secondary text-2xl mb-5">pages</h3>
+        <div className="grid md:grid-cols-2 grid-cols-1 gap-5">
+          {PAGE_ITEMS.map((page) => (
+            <PageButton key={page.href} {...page} />
+          ))}
+        </div>
+      </section>
+    </section>
   );
 }

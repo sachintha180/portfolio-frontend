@@ -3,7 +3,7 @@ import type {
   Organization,
   Program,
 } from "@/types/miscellaneous";
-import ListItem from "./ui/list-item";
+import ListItem from "@/components/ui/list-item";
 
 type EducationItemProps = {
   institution: Organization;

@@ -70,12 +70,12 @@ export default function ProjectButton({ project }: { project: ProjectItem }) {
       {project.link ? (
         <FiArrowUpRight
           aria-hidden="true"
-          className="hidden md:block h-10 w-10 ml-auto text-surface transition-transform duration-300 group-hover/page-button:translate-x-1 group-hover/page-button:-translate-y-1"
+          className="h-7 w-7 md:h-10 md:w-10 ml-auto text-surface transition-transform duration-300 group-hover/page-button:translate-x-1 group-hover/page-button:-translate-y-1"
         />
       ) : (
         <FiLock
           aria-hidden="true"
-          className="hidden md:block h-7 w-7 ml-auto text-surface"
+          className="h-6 w-6 md:h-10 md:w-10 ml-auto text-surface"
         />
       )}
     </a>

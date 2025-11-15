@@ -1,6 +1,6 @@
 import type { ColorClasses, Organization, Role } from "@/types/miscellaneous";
-import { formatTimelineDate } from "@/lib/utils";
-import ListItem from "./ui/list-item";
+import { formatTimelineDate } from "@/lib/portfolio/utils";
+import ListItem from "@/components/ui/list-item";
 
 type ExperienceItemProps = {
   organization: Organization;

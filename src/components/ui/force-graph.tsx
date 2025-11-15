@@ -172,7 +172,8 @@ export default function ForceGraph({ data, width, height }: ForceGraphProps) {
         });
     });
 
-    typedNode.on("click", (_event: MouseEvent, node: NodeDatum) => {
+    typedNode.on("click", (event: MouseEvent, node: NodeDatum) => {
+      event.preventDefault();
       navigate(node.href ?? "/");
     });
 
@@ -226,7 +227,7 @@ export default function ForceGraph({ data, width, height }: ForceGraphProps) {
     return () => {
       simulation.stop();
     };
-  }, [data, height, width, navigate]);
+  }, [data, height, width]);
 
   return (
     <svg
