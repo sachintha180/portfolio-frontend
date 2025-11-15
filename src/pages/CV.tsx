@@ -12,6 +12,7 @@ import {
   FiMail,
   FiGithub,
   FiLinkedin,
+  FiGlobe,
 } from "react-icons/fi";
 
 export default function CV() {
@@ -85,6 +86,20 @@ export default function CV() {
                 rel="noreferrer"
               >
                 @sachinthasenanayake180
+              </a>
+            </p>
+          </div>
+          <div className="flex flex-row gap-2 items-center">
+            <FiGlobe aria-hidden="true" className="w-4 h-4 text-muted" />
+            <p>
+              <strong>Website:</strong>{" "}
+              <a
+                className="text-link underline"
+                href="https://sachintha.net"
+                target="_blank"
+                rel="noreferrer"
+              >
+                sachintha.net
               </a>
             </p>
           </div>
