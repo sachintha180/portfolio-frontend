@@ -1,4 +1,4 @@
-import { useEffect, useState, type RefObject } from "react";
+import { useLayoutEffect, useState, type RefObject } from "react";
 import type { GraphSize } from "@/types/force-graph";
 
 type useElementSizeProps = {
@@ -9,7 +9,9 @@ type useElementSizeProps = {
 export function useElementSize({ ref, initialSize }: useElementSizeProps) {
   const [size, setSize] = useState(initialSize);
 
-  useEffect(() => {
+  // NOTE: useLayoutEffect is used to run before the browser paints the DOM,
+  // so that the graph doesn't flicker on initialization.
+  useLayoutEffect(() => {
     const el = ref.current;
     if (!el) return;
 
@@ -19,6 +21,7 @@ export function useElementSize({ ref, initialSize }: useElementSizeProps) {
     });
 
     observer.observe(el);
+
     return () => observer.disconnect();
   }, [ref, initialSize]);
 
