@@ -5,6 +5,8 @@ import { MAX_AWARD_NODE_COUNT, SLICED_AWARD_ITEMS } from "@/lib/awards";
 import { GROUPED_EXPERIENCE_ITEMS } from "./experience";
 import { EDUCATION_ITEMS } from "./education";
 
+export const LAYOUT_GRAPHICS_BREAKPOINT = 1280;
+
 export const DEFAULT_GRAPH_SIZE: GraphSize = { width: 600, height: 600 };
 
 export const COLOR_PALETTE: string[] = [
