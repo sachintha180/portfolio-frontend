@@ -1,4 +1,25 @@
-import type { ClassItem } from "@/types/miscellaneous";
+import type { ClassItem, PageItem } from "@/types/miscellaneous";
+
+export const PAGE_ITEMS: PageItem[] = [
+  {
+    buttonLabel: "Watch Last Recording",
+    nodeLabel: "watch-last-recording",
+    href: "/cs-class/watch-last-recording",
+    colorClass: "bg-cool",
+  },
+  {
+    buttonLabel: "Read Notes",
+    nodeLabel: "read-notes",
+    href: "/cs-class/read-notes",
+    colorClass: "bg-success",
+  },
+  {
+    buttonLabel: "View Marks",
+    nodeLabel: "view-marks",
+    href: "/cs-class/view-marks",
+    colorClass: "bg-danger",
+  },
+];
 
 export const CLASS_ITEMS: ClassItem[] = [
   {
@@ -29,12 +50,12 @@ export const CLASS_ITEMS: ClassItem[] = [
     buttonLabel: "Edexcel IAL IT (X/YIT11)",
     nodeLabel: "edexcel-ial-it",
     href: "/cs-class/edexcel-ial-it",
-    colorClass: "bg-primary",
+    colorClass: "bg-secondary",
   },
   {
     buttonLabel: "IB Diploma CS (HL, 2014)",
     nodeLabel: "ib-diploma-cs",
     href: "/cs-class/ib-diploma-cs",
-    colorClass: "bg-secondary",
+    colorClass: "bg-link",
   },
 ];

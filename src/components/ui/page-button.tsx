@@ -5,6 +5,7 @@ import { FiArrowUpRight } from "react-icons/fi";
 type PageButtonProps = AnchorHTMLAttributes<HTMLAnchorElement> &
   PageItem & {
     children?: ReactNode;
+    customIcon?: ReactNode;
   };
 
 export default function PageButton({
