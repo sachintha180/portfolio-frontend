@@ -9,13 +9,13 @@ import {
 } from "react-icons/fi";
 import UnderliningLink from "@/components/ui/underlining-link";
 import Seperator from "@/components/ui/seperator";
-import ContactItem from "@/components/ContactItem";
+import ContactItem from "@/components/portfolio/ContactItem";
 import PageButton from "@/components/ui/page-button";
-import Layout from "@/components/Layout";
-import { ABOUT_ME, PAGE_ITEMS } from "@/lib/constants";
+import PortfolioLayout from "@/components/layouts/PortfolioLayout";
+import { ABOUT_ME, PAGE_ITEMS } from "@/lib/portfolio/constants";
 import type { ContactItem as ContactItemType } from "@/types/miscellaneous";
-import Header from "@/components/Header";
-import TechStack from "@/components/TechStack";
+import Header from "@/components/portfolio/Header";
+import TechStack from "@/components/portfolio/TechStack";
 
 export default function Home() {
   const contacts: ContactItemType[] = [
@@ -58,7 +58,7 @@ export default function Home() {
   ];
 
   return (
-    <Layout>
+    <PortfolioLayout>
       {/* Content Container */}
       <section className="flex flex-col gap-5 mx-5 md:mx-15 my-10">
         {/* Header */}
@@ -107,6 +107,6 @@ export default function Home() {
           </div>
         </section>
       </section>
-    </Layout>
+    </PortfolioLayout>
   );
 }

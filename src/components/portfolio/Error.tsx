@@ -1,5 +1,5 @@
-import { COLOR_PALETTE } from "@/lib/constants";
-import UnderliningLink from "./ui/underlining-link";
+import { COLOR_PALETTE } from "@/lib/portfolio/constants";
+import UnderliningLink from "@/components/ui/underlining-link";
 import { FiArrowLeft } from "react-icons/fi";
 
 export default function Error() {

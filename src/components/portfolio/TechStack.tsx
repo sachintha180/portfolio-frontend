@@ -1,5 +1,5 @@
-import { TECH_STACK } from "@/lib/tech-stack";
-import { groupTechStackItems } from "@/lib/utils";
+import { TECH_STACK } from "@/lib/portfolio/tech-stack";
+import { groupTechStackItems } from "@/lib/portfolio/utils";
 
 const BG_COLOR_PALETTE = [
   "bg-warm",

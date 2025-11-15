@@ -1,5 +1,5 @@
 import type { AwardItem, ColorClasses } from "@/types/miscellaneous";
-import ListItem from "./ui/list-item";
+import ListItem from "@/components/ui/list-item";
 
 type AwardItemProps = AwardItem & {
   isLastInGroup: boolean;

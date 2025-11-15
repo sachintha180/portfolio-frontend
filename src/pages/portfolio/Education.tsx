@@ -1,14 +1,14 @@
 import { FiArrowLeft } from "react-icons/fi";
 import UnderliningLink from "@/components/ui/underlining-link";
 import Seperator from "@/components/ui/seperator";
-import Layout from "@/components/Layout";
-import { EDUCATION_ITEMS } from "@/lib/education";
-import EducationListItem from "@/components/EducationListItem";
-import Header from "@/components/Header";
+import PortfolioLayout from "@/components/layouts/PortfolioLayout";
+import { EDUCATION_ITEMS } from "@/lib/portfolio/education";
+import EducationListItem from "@/components/portfolio/EducationListItem";
+import Header from "@/components/portfolio/Header";
 
 export default function Education() {
   return (
-    <Layout>
+    <PortfolioLayout>
       {/* Content Container */}
       <section className="flex flex-col gap-5 mx-5 md:mx-15 my-10">
         {/* Header */}
@@ -36,6 +36,6 @@ export default function Education() {
           </ol>
         </section>
       </section>
-    </Layout>
+    </PortfolioLayout>
   );
 }

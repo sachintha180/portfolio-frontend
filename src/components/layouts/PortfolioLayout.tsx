@@ -6,14 +6,14 @@ import {
   DEFAULT_GRAPH_SIZE,
   GRAPH_DATA,
   LAYOUT_GRAPHICS_BREAKPOINT,
-} from "@/lib/constants";
+} from "@/lib/portfolio/constants";
 import { useWindowSize } from "@/hooks/useWindowSize";
 
-type LayoutProps = {
+type PortfolioLayoutProps = {
   children: ReactNode;
 };
 
-export default function Layout({ children }: LayoutProps) {
+export default function PortfolioLayout({ children }: PortfolioLayoutProps) {
   const graphRef = useRef<HTMLDivElement>(null);
 
   const { width, height } = useElementSize({

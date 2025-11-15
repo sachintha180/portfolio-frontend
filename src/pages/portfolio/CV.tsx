@@ -1,11 +1,17 @@
 import { useEffect } from "react";
-import { EXPERIENCE_ITEMS } from "@/lib/experience";
-import { EDUCATION_ITEMS } from "@/lib/education";
-import { SLICED_PROJECT_ITEMS, MAX_PROJECT_NODE_COUNT } from "@/lib/projects";
-import { MAX_AWARD_NODE_COUNT, SLICED_AWARD_ITEMS } from "@/lib/awards";
-import { TECH_STACK } from "@/lib/tech-stack";
-import { formatTimelineDate, groupTechStackItems } from "@/lib/utils";
-import { ABOUT_ME } from "@/lib/constants";
+import { EXPERIENCE_ITEMS } from "@/lib/portfolio/experience";
+import { EDUCATION_ITEMS } from "@/lib/portfolio/education";
+import {
+  SLICED_PROJECT_ITEMS,
+  MAX_PROJECT_NODE_COUNT,
+} from "@/lib/portfolio/projects";
+import {
+  MAX_AWARD_NODE_COUNT,
+  SLICED_AWARD_ITEMS,
+} from "@/lib/portfolio/awards";
+import { TECH_STACK } from "@/lib/portfolio/tech-stack";
+import { formatTimelineDate, groupTechStackItems } from "@/lib/portfolio/utils";
+import { ABOUT_ME } from "@/lib/portfolio/constants";
 import {
   FiMapPin,
   FiPhone,

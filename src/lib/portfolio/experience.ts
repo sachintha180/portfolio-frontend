@@ -3,8 +3,8 @@ import type {
   GroupedExperienceItem,
   GroupedExperienceDurations,
 } from "@/types/miscellaneous";
-import { groupExperienceItems } from "@/lib/utils";
-import { computeGroupedExperienceDurations } from "@/lib/utils";
+import { groupExperienceItems } from "@/lib/portfolio/utils";
+import { computeGroupedExperienceDurations } from "@/lib/portfolio/utils";
 
 export const EXPERIENCE_ITEMS: ExperienceItem[] = [
   {

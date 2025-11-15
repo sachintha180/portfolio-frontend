@@ -1,10 +1,10 @@
-import Home from "@/pages/Home";
-import Experience from "@/pages/Experience";
-import Education from "@/pages/Education";
-import Awards from "@/pages/Awards";
-import Projects from "@/pages/Projects";
-import CV from "@/pages/CV";
-import Error from "@/components/Error";
+import Home from "@/pages/portfolio/Home";
+import Experience from "@/pages/portfolio/Experience";
+import Education from "@/pages/portfolio/Education";
+import Awards from "@/pages/portfolio/Awards";
+import Projects from "@/pages/portfolio/Projects";
+import CV from "@/pages/portfolio/CV";
+import Error from "@/components/portfolio/Error";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 export default function App() {

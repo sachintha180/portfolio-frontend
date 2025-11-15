@@ -1,14 +1,14 @@
 import { FiArrowLeft } from "react-icons/fi";
 import UnderliningLink from "@/components/ui/underlining-link";
 import Seperator from "@/components/ui/seperator";
-import Layout from "@/components/Layout";
+import PortfolioLayout from "@/components/layouts/PortfolioLayout";
 import {
   GROUPED_EXPERIENCE_ITEMS,
   GROUPED_EXPERIENCE_DURATIONS,
-} from "@/lib/experience";
-import { convertMonthsToOptimisticYears } from "@/lib/utils";
-import ExperienceListItem from "@/components/ExperienceListItem";
-import Header from "@/components/Header";
+} from "@/lib/portfolio/experience";
+import { convertMonthsToOptimisticYears } from "@/lib/portfolio/utils";
+import ExperienceListItem from "@/components/portfolio/ExperienceListItem";
+import Header from "@/components/portfolio/Header";
 
 const BORDER_COLOR_PALETTE = ["border-cool", "border-success"];
 const CIRCLE_COLOR_PALETTE = ["bg-cool", "bg-success"];
@@ -16,7 +16,7 @@ const TEXT_COLOR_PALETTE = ["text-cool", "text-success"];
 
 export default function Experience() {
   return (
-    <Layout>
+    <PortfolioLayout>
       {/* Content Container */}
       <section className="flex flex-col gap-5 mx-5 md:mx-15 my-10">
         {/* Header */}
@@ -84,6 +84,6 @@ export default function Experience() {
           })}
         </section>
       </section>
-    </Layout>
+    </PortfolioLayout>
   );
 }
