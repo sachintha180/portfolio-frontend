@@ -1,24 +1,11 @@
-import { lazy, useRef } from "react";
-import { useElementSize } from "@/hooks/useElementSize";
 import {
   COLOR_PALETTE,
-  DEFAULT_GRAPH_SIZE,
-  GRAPH_DATA,
   LAYOUT_GRAPHICS_BREAKPOINT,
 } from "@/lib/portfolio/constants";
 import { useWindowSize } from "@/hooks/useWindowSize";
 import { Outlet } from "react-router-dom";
 
-const ForceGraph = lazy(() => import("@/components/ui/force-graph"));
-
-export default function PortfolioLayout() {
-  const graphRef = useRef<HTMLDivElement>(null);
-
-  const { width, height } = useElementSize({
-    ref: graphRef,
-    initialSize: DEFAULT_GRAPH_SIZE,
-  });
-
+export default function CSClassLayout() {
   // NOTE: We're selectively rendering the graphics to improve mobile performance.
   const { width: windowWidth } = useWindowSize();
   const renderGraphics = windowWidth >= LAYOUT_GRAPHICS_BREAKPOINT;
@@ -61,22 +48,11 @@ export default function PortfolioLayout() {
         <Outlet />
 
         {/* Copyright */}
-        <div className="mx-5 md:mx-15 sm:mb-8 mb-5 text-muted text-sm sm:flex sm:flex-row sm:justify-between block mt-auto">
+        <div className="mx-5 md:mx-15 sm:mb-8 mb-5 text-muted text-sm sm:flex sm:flex-row sm:justify-between block">
           <p>© {currentYear} Sachintha Senanayake</p>
           <p className="text-muted/70">All rights reserved.</p>
         </div>
       </main>
-
-      {/* Force Graph */}
-      {/* NOTE: We're rendering the container either way because graphRef is required to be present in the DOM for the graph to be initialized correctly.*/}
-      <div
-        ref={graphRef}
-        className="hidden xl:block h-full w-2/5 right-0 top-0"
-      >
-        {renderGraphics && (
-          <ForceGraph data={GRAPH_DATA} width={width} height={height} />
-        )}
-      </div>
     </div>
   );
 }

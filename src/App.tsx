@@ -1,4 +1,5 @@
 import PortfolioLayout from "@/components/layouts/PortfolioLayout";
+import CSClassLayout from "@/components/layouts/CSClassLayout";
 
 import PortfolioHome from "@/pages/portfolio/Home";
 import Experience from "@/pages/portfolio/Experience";
@@ -8,6 +9,8 @@ import Projects from "@/pages/portfolio/Projects";
 import Error from "@/components/portfolio/Error";
 
 import CVHome from "@/pages/cv/Home";
+
+import CSClassHome from "@/pages/cs-class/Home";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
@@ -22,6 +25,11 @@ export default function App() {
           <Route path="/education" element={<Education />} />
           <Route path="/awards" element={<Awards />} />
           <Route path="/projects" element={<Projects />} />
+        </Route>
+
+        {/* CS Class Routes */}
+        <Route element={<CSClassLayout />}>
+          <Route path="/cs-class" element={<CSClassHome />} />
         </Route>
 
         {/* CV Routes */}

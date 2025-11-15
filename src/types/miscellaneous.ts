@@ -13,6 +13,8 @@ export type PageItem = {
   colorClass: string;
 };
 
+export type ClassItem = PageItem;
+
 export type ContactItem = {
   icon: ReactNode;
   href: string;

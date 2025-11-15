@@ -57,9 +57,12 @@ export default function Home() {
   ];
 
   return (
-    <section className="flex flex-col gap-5 mx-5 md:mx-15 my-10">
+    <section className="flex-1 flex flex-col gap-5 mx-5 md:mx-15 my-10">
       {/* Header */}
-      <Header subtitle="full-stack &amp; AI developer">
+      <Header
+        title="sachintha senanayake"
+        subtitle="full-stack &amp; AI developer"
+      >
         <UnderliningLink href="/cv" variant="link">
           <span className="text-lg">read my CV</span>
           <FiArrowRight aria-hidden="true" className="w-5 h-5" />

@@ -7,9 +7,9 @@ import Header from "@/components/portfolio/Header";
 
 export default function Awards() {
   return (
-    <section className="flex flex-col gap-5 mx-5 md:mx-15 my-10">
+    <section className="flex-1 flex flex-col gap-5 mx-5 md:mx-15 my-10">
       {/* Header */}
-      <Header subtitle="honors and awards">
+      <Header title="sachintha senanayake" subtitle="honors and awards">
         <UnderliningLink href="/" variant="link">
           <FiArrowLeft aria-hidden="true" className="w-5 h-5" />
           <span className="text-lg">back to home</span>

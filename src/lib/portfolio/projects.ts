@@ -156,14 +156,14 @@ export const PROJECT_ITEMS: ProjectItem[] = [
     pending: true,
   },
   {
-    title: "The CS Class",
+    title: "CS Class",
     label: "cs-class",
     description: [
       "Student platform for recordings, notes and Google Drive sync.",
       "RBAC-enabled system with performance tracking.",
     ],
     tools: ["FastAPI", "SQLAlchemy", "GCP", "Render", "Tailwind"],
-    link: "https://the-cs-class.vercel.app/",
+    link: "/cs-class",
     timeDuration: "4 days",
   },
   {
