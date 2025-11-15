@@ -1,5 +1,4 @@
-import ForceGraph from "@/components/ui/force-graph";
-import { useRef, type ReactNode } from "react";
+import { lazy, useRef, type ReactNode } from "react";
 import { useElementSize } from "@/hooks/useElementSize";
 import {
   COLOR_PALETTE,
@@ -12,6 +11,8 @@ import { useWindowSize } from "@/hooks/useWindowSize";
 type PortfolioLayoutProps = {
   children: ReactNode;
 };
+
+const ForceGraph = lazy(() => import("@/components/ui/force-graph"));
 
 export default function PortfolioLayout({ children }: PortfolioLayoutProps) {
   const graphRef = useRef<HTMLDivElement>(null);
