@@ -42,7 +42,7 @@ export default function PortfolioLayout() {
 
       {/* Color Palette */}
       {renderGraphics && (
-        <section className="justify-end absolute top-0 right-0 z-20">
+        <section className="flex flex-row justify-end absolute top-0 right-0 z-20">
           {COLOR_PALETTE.map((color) => {
             const backgroundColorClass = `bg-${color}`;
             return (
