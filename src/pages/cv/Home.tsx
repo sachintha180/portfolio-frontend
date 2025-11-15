@@ -21,16 +21,13 @@ import {
   FiGlobe,
 } from "react-icons/fi";
 
-export default function CV() {
-  // Automatically open print dialog when component mounts
+export default function Home() {
   useEffect(() => {
     window.print();
   }, []);
 
-  // Group tech stack items
   const groupedTechStack = groupTechStackItems(TECH_STACK);
 
-  // Find software sector experience
   const softwareSectorExperienceItems = EXPERIENCE_ITEMS.filter(
     (item) => item.group === "Software Sector"
   );

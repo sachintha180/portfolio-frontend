@@ -1,4 +1,4 @@
-import { lazy, useRef, type ReactNode } from "react";
+import { lazy, useRef } from "react";
 import { useElementSize } from "@/hooks/useElementSize";
 import {
   COLOR_PALETTE,
@@ -7,14 +7,11 @@ import {
   LAYOUT_GRAPHICS_BREAKPOINT,
 } from "@/lib/portfolio/constants";
 import { useWindowSize } from "@/hooks/useWindowSize";
-
-type PortfolioLayoutProps = {
-  children: ReactNode;
-};
+import { Outlet } from "react-router-dom";
 
 const ForceGraph = lazy(() => import("@/components/ui/force-graph"));
 
-export default function PortfolioLayout({ children }: PortfolioLayoutProps) {
+export default function PortfolioLayout() {
   const graphRef = useRef<HTMLDivElement>(null);
 
   const { width, height } = useElementSize({
@@ -60,7 +57,7 @@ export default function PortfolioLayout({ children }: PortfolioLayoutProps) {
 
       {/* Main Container */}
       <main className="w-full xl:w-3/5 h-full bg-background overflow-y-auto relative z-10">
-        {children}
+        <Outlet />
       </main>
 
       {/* Force Graph */}
