@@ -2,7 +2,6 @@ import {
   FiArrowRight,
   FiMail,
   FiMapPin,
-  FiPhone,
   FiGithub,
   FiLinkedin,
   FiYoutube,
@@ -22,18 +21,12 @@ export default function Home() {
       icon: <FiMail aria-hidden="true" className="w-5 h-5 text-surface" />,
       href: "mailto:sachinthasenanayake180@gmail.com",
       text: "sachinthasenanayake180@gmail.com",
-      iconColorClass: "bg-primary",
+      iconColorClass: "bg-secondary",
     },
     {
       icon: <FiMapPin aria-hidden="true" className="w-5 h-5 text-surface" />,
       href: "https://www.google.com/maps/place/Colombo,+Sri+Lanka",
       text: "Colombo, Sri Lanka",
-      iconColorClass: "bg-secondary",
-    },
-    {
-      icon: <FiPhone aria-hidden="true" className="w-5 h-5 text-surface" />,
-      href: "tel:+94724559912",
-      text: "+94 72 455 9912",
       iconColorClass: "bg-warm",
     },
     {
