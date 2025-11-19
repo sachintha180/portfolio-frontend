@@ -1,10 +1,8 @@
 import { useState } from "react";
 
 export function useAuthState() {
-  // State management for authentication
-  const [token, setToken] = useState<string | null>(
-    localStorage.getItem("access_token")
-  );
+  // State management for authentication status
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   // State management for loading
   const [isLoading, setIsLoading] = useState(false);
@@ -14,13 +12,12 @@ export function useAuthState() {
 
   return {
     // State
-    token,
-    isAuthenticated: !!token,
+    isAuthenticated,
     isLoading,
     error,
 
     // Setters
-    setToken,
+    setIsAuthenticated,
     setIsLoading,
     setError,
   };

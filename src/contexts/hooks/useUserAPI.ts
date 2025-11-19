@@ -1,19 +1,26 @@
 import { api } from "@/lib/api";
-import type { User, UserUpdate } from "@/types/api";
+import type {
+  UserUpdateRequest,
+  UserGetResponse,
+  UserUpdateResponse,
+} from "@/types/api";
 
 export function useUserAPI() {
   // Get user by ID
-  const getUser = async (userId: string): Promise<User> => {
-    const { data } = await api.get<User>(`/users/${userId}`);
+  const getUser = async (userId: string): Promise<UserGetResponse> => {
+    const { data } = await api.get<UserGetResponse>(`/users/${userId}`);
     return data;
   };
 
   // Update user
   const updateUser = async (
     userId: string,
-    payload: UserUpdate
-  ): Promise<User> => {
-    const { data } = await api.patch<User>(`/users/${userId}`, payload);
+    payload: UserUpdateRequest
+  ): Promise<UserUpdateResponse> => {
+    const { data } = await api.patch<UserUpdateResponse>(
+      `/users/${userId}`,
+      payload
+    );
     return data;
   };
 

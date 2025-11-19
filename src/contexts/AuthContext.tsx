@@ -1,15 +1,15 @@
 import { createContext, useContext, type ReactNode } from "react";
-import type { AuthLogin, AuthRegister, AuthToken } from "@/types/api";
+import type { AuthLoginRequest, AuthRegisterRequest } from "@/types/api";
 import { useAuthState } from "@/contexts/hooks/useAuthState";
 import { useAuthAPI } from "@/contexts/hooks/useAuthAPI";
 import { useAuthOperations } from "@/contexts/hooks/useAuthOperations";
 
 interface AuthContextType {
-  token: string | null;
   isAuthenticated: boolean;
-  register: (data: AuthRegister) => Promise<AuthToken | null>;
-  login: (credentials: AuthLogin) => Promise<AuthToken | null>;
-  logout: () => void;
+  register: (data: AuthRegisterRequest) => Promise<boolean>;
+  login: (credentials: AuthLoginRequest) => Promise<boolean>;
+  logout: () => Promise<void>;
+  verify: () => Promise<boolean>;
   isLoading: boolean;
   error: string | null;
 }
@@ -24,13 +24,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   return (
     <AuthContext.Provider
       value={{
-        token: state.token,
         isAuthenticated: state.isAuthenticated,
         isLoading: state.isLoading,
         error: state.error,
         register: operations.register,
         login: operations.login,
         logout: operations.logout,
+        verify: operations.verify,
       }}
     >
       {children}

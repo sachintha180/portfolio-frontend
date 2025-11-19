@@ -1,5 +1,5 @@
 import { createContext, useContext, type ReactNode } from "react";
-import type { User, UserUpdate } from "@/types/api";
+import type { User, UserUpdateRequest } from "@/types/api";
 import { useUserState } from "@/contexts/hooks/useUserState";
 import { useUserAPI } from "@/contexts/hooks/useUserAPI";
 import { useUserOperations } from "@/contexts/hooks/useUserOperations";
@@ -9,7 +9,7 @@ interface UserContextType {
   isLoading: boolean;
   error: string | null;
   getUser: (userId: string) => Promise<User | null>;
-  updateUser: (userId: string, data: UserUpdate) => Promise<User | null>;
+  updateUser: (userId: string, data: UserUpdateRequest) => Promise<User | null>;
   deleteUser: (userId: string) => Promise<void>;
 }
 

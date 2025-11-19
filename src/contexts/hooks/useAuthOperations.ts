@@ -1,4 +1,7 @@
-import type { AuthLogin, AuthRegister, AuthToken } from "@/types/api";
+import type {
+  AuthLoginRequest,
+  AuthRegisterRequest,
+} from "@/types/api";
 import type { useAuthAPI } from "@/contexts/hooks/useAuthAPI";
 import type { useAuthState } from "@/contexts/hooks/useAuthState";
 
@@ -7,70 +10,96 @@ export function useAuthOperations(
   api: ReturnType<typeof useAuthAPI>
 ) {
   // Get access to the state
-  const { setToken, setIsLoading, setError } = state;
+  const { setIsAuthenticated, setIsLoading, setError } = state;
 
   // Get access to the API
-  const { register: apiRegister, login: apiLogin } = api;
+  const {
+    register: apiRegister,
+    login: apiLogin,
+    logout: apiLogout,
+    verify: apiVerify,
+  } = api;
 
-  // Register new user
-  const register = async (data: AuthRegister): Promise<AuthToken | null> => {
+  // Verify authentication status
+  const verify = async (): Promise<boolean> => {
     setIsLoading(true);
     setError(null);
 
     try {
-      // Register user and get the token
-      const result = await apiRegister(data);
-      setToken(result.access_token);
-      localStorage.setItem("access_token", result.access_token);
-      return result;
+      const result = await apiVerify();
+      setIsAuthenticated(result.authenticated);
+      return result.authenticated;
     } catch (error) {
-      // Handle registration error
+      console.error("Verification error:", error);
+      setIsAuthenticated(false);
+      return false;
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  // Register new user
+  const register = async (data: AuthRegisterRequest): Promise<boolean> => {
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      await apiRegister(data);
+      setIsAuthenticated(true);
+      return true;
+    } catch (error) {
       console.error("Registration error:", error);
       const errorMessage =
         error instanceof Error ? error.message : "Registration failed";
       setError(errorMessage);
-      return null;
+      setIsAuthenticated(false);
+      return false;
     } finally {
-      // Reset loading state
       setIsLoading(false);
     }
   };
 
   // Login user
-  const login = async (credentials: AuthLogin): Promise<AuthToken | null> => {
+  const login = async (credentials: AuthLoginRequest): Promise<boolean> => {
     setIsLoading(true);
     setError(null);
 
     try {
-      // Login user and get the token
-      const result = await apiLogin(credentials);
-      setToken(result.access_token);
-      localStorage.setItem("access_token", result.access_token);
-      return result;
+      await apiLogin(credentials);
+      setIsAuthenticated(true);
+      return true;
     } catch (error) {
-      // Handle login error
       console.error("Login error:", error);
       const errorMessage =
         error instanceof Error ? error.message : "Login failed";
       setError(errorMessage);
-      return null;
+      setIsAuthenticated(false);
+      return false;
     } finally {
-      // Reset loading state
       setIsLoading(false);
     }
   };
 
   // Logout user
-  const logout = () => {
-    // Clear the token and remove it from localStorage
-    setToken(null);
-    localStorage.removeItem("access_token");
+  const logout = async (): Promise<void> => {
+    setIsLoading(true);
     setError(null);
+
+    try {
+      await apiLogout();
+      setIsAuthenticated(false);
+    } catch (error) {
+      console.error("Logout error:", error);
+      setIsAuthenticated(false);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return {
     register,
     login,
     logout,
+    verify,
   };
 }
