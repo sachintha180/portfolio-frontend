@@ -26,7 +26,6 @@ export function useUserOperations(
       setUser(result.user);
       return result.user;
     } catch (error) {
-      console.error("Get user error:", error);
       const errorMessage =
         error instanceof Error ? error.message : "Failed to get user";
       setError(errorMessage);
@@ -49,7 +48,6 @@ export function useUserOperations(
       setUser(result.user);
       return result.user;
     } catch (error) {
-      console.error("Update user error:", error);
       const errorMessage =
         error instanceof Error ? error.message : "Failed to update user";
       setError(errorMessage);
@@ -68,7 +66,6 @@ export function useUserOperations(
       await apiDeleteUser(userId);
       setUser(null);
     } catch (error) {
-      console.error("Delete user error:", error);
       const errorMessage =
         error instanceof Error ? error.message : "Failed to delete user";
       setError(errorMessage);

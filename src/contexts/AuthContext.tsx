@@ -6,12 +6,12 @@ import { useAuthOperations } from "@/contexts/hooks/useAuthOperations";
 
 interface AuthContextType {
   isAuthenticated: boolean;
+  isLoading: boolean;
+  error: string | null;
   register: (data: AuthRegisterRequest) => Promise<boolean>;
   login: (credentials: AuthLoginRequest) => Promise<boolean>;
   logout: () => Promise<void>;
   verify: () => Promise<boolean>;
-  isLoading: boolean;
-  error: string | null;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);

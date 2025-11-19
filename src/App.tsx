@@ -1,5 +1,7 @@
 import PortfolioLayout from "@/components/layouts/PortfolioLayout";
 import CSClassLayout from "@/components/layouts/CSClassLayout";
+import ProtectedRoute from "@/components/layouts/ProtectedRoute";
+import RedirectRoute from "@/components/layouts/RedirectRoute";
 
 import PortfolioHome from "@/pages/portfolio/Home";
 import Experience from "@/pages/portfolio/Experience";
@@ -10,16 +12,19 @@ import Error from "@/components/portfolio/Error";
 
 import CVHome from "@/pages/cv/Home";
 
-import CSClassHome from "@/pages/cs-class/Home";
+import CSClassDashboard from "@/pages/cs-class/Dashboard";
 import CSClassLogin from "@/pages/cs-class/Login";
+import CSClassRegister from "@/pages/cs-class/Register";
+import CSClassLogout from "@/pages/cs-class/Logout";
 
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { AuthProvider, UserProvider } from "@/contexts";
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Portfolio Routes (with shared layout) */}
+        {/* Portfolio Routes */}
         <Route element={<PortfolioLayout />}>
           <Route path="/" element={<PortfolioHome />} />
           <Route path="/experience" element={<Experience />} />
@@ -28,10 +33,33 @@ export default function App() {
           <Route path="/projects" element={<Projects />} />
         </Route>
 
-        {/* CS Class Routes (with Auth and User contexts) */}
-        <Route element={<CSClassLayout />}>
-          <Route path="/cs-class" element={<CSClassHome />} />
-          <Route path="/cs-class/login" element={<CSClassLogin />} />
+        {/* CS Class Routes */}
+        <Route
+          element={
+            <AuthProvider>
+              <UserProvider>
+                <CSClassLayout />
+              </UserProvider>
+            </AuthProvider>
+          }
+        >
+          {/* Protected Routes */}
+          <Route element={<ProtectedRoute redirectTo="/cs-class/login" />}>
+            <Route path="/cs-class/dashboard" element={<CSClassDashboard />} />
+          </Route>
+
+          {/* Public Routes */}
+          <Route element={<RedirectRoute redirectTo="/cs-class/dashboard" />}>
+            <Route path="/cs-class/login" element={<CSClassLogin />} />
+            <Route path="/cs-class/register" element={<CSClassRegister />} />
+            <Route path="/cs-class/logout" element={<CSClassLogout />} />
+          </Route>
+
+          {/* Default Route */}
+          <Route
+            path="/cs-class"
+            element={<Navigate to="/cs-class/dashboard" replace />}
+          />
         </Route>
 
         {/* CV Routes */}

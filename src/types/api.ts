@@ -9,6 +9,7 @@ export type AuthVerifyResponse = components["schemas"]["AuthVerifyResponse"];
 
 // User-related schemas
 export type User = components["schemas"]["User"];
+export type UserType = components["schemas"]["UserType"];
 export type UserUpdateRequest = components["schemas"]["UserUpdateRequest"];
 export type UserGetResponse = components["schemas"]["UserGetResponse"];
 export type UserUpdateResponse = components["schemas"]["UserUpdateResponse"];

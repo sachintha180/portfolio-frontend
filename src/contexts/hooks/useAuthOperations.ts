@@ -1,7 +1,4 @@
-import type {
-  AuthLoginRequest,
-  AuthRegisterRequest,
-} from "@/types/api";
+import type { AuthLoginRequest, AuthRegisterRequest } from "@/types/api";
 import type { useAuthAPI } from "@/contexts/hooks/useAuthAPI";
 import type { useAuthState } from "@/contexts/hooks/useAuthState";
 
@@ -30,7 +27,9 @@ export function useAuthOperations(
       setIsAuthenticated(result.authenticated);
       return result.authenticated;
     } catch (error) {
-      console.error("Verification error:", error);
+      const errorMessage =
+        error instanceof Error ? error.message : "Verification failed";
+      setError(errorMessage);
       setIsAuthenticated(false);
       return false;
     } finally {
@@ -48,7 +47,6 @@ export function useAuthOperations(
       setIsAuthenticated(true);
       return true;
     } catch (error) {
-      console.error("Registration error:", error);
       const errorMessage =
         error instanceof Error ? error.message : "Registration failed";
       setError(errorMessage);
@@ -69,7 +67,6 @@ export function useAuthOperations(
       setIsAuthenticated(true);
       return true;
     } catch (error) {
-      console.error("Login error:", error);
       const errorMessage =
         error instanceof Error ? error.message : "Login failed";
       setError(errorMessage);
@@ -89,7 +86,9 @@ export function useAuthOperations(
       await apiLogout();
       setIsAuthenticated(false);
     } catch (error) {
-      console.error("Logout error:", error);
+      const errorMessage =
+        error instanceof Error ? error.message : "Logout failed";
+      setError(errorMessage);
       setIsAuthenticated(false);
     } finally {
       setIsLoading(false);
