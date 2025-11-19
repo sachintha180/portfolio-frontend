@@ -11,6 +11,7 @@ import Error from "@/components/portfolio/Error";
 import CVHome from "@/pages/cv/Home";
 
 import CSClassHome from "@/pages/cs-class/Home";
+import CSClassLogin from "@/pages/cs-class/Login";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
@@ -27,9 +28,10 @@ export default function App() {
           <Route path="/projects" element={<Projects />} />
         </Route>
 
-        {/* CS Class Routes */}
+        {/* CS Class Routes (with Auth and User contexts) */}
         <Route element={<CSClassLayout />}>
           <Route path="/cs-class" element={<CSClassHome />} />
+          <Route path="/cs-class/login" element={<CSClassLogin />} />
         </Route>
 
         {/* CV Routes */}

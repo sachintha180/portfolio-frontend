@@ -1,10 +1,14 @@
 import type { components } from "./openapi";
 
 // Auth-related schemas
-export type AuthLogin = components["schemas"]["AuthLogin"];
-export type AuthRegister = components["schemas"]["AuthRegister"];
-export type AuthToken = components["schemas"]["AuthToken"];
+export type AuthLoginRequest = components["schemas"]["AuthLoginRequest"];
+export type AuthLoginResponse = components["schemas"]["AuthLoginResponse"];
+export type AuthRegisterRequest = components["schemas"]["AuthRegisterRequest"];
+export type AuthRegisterResponse = components["schemas"]["AuthRegisterResponse"];
+export type AuthVerifyResponse = components["schemas"]["AuthVerifyResponse"];
 
 // User-related schemas
 export type User = components["schemas"]["User"];
-export type UserUpdate = components["schemas"]["UserUpdate"];
+export type UserUpdateRequest = components["schemas"]["UserUpdateRequest"];
+export type UserGetResponse = components["schemas"]["UserGetResponse"];
+export type UserUpdateResponse = components["schemas"]["UserUpdateResponse"];

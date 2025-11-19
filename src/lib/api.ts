@@ -1,9 +1,5 @@
 import axios from "axios";
-import type {
-  AxiosResponse,
-  AxiosError,
-  InternalAxiosRequestConfig,
-} from "axios";
+import type { AxiosResponse, AxiosError } from "axios";
 
 // Initialize axios instance
 export const api = axios.create({
@@ -11,19 +7,8 @@ export const api = axios.create({
   headers: {
     "Content-Type": "application/json",
   },
+  withCredentials: true, // Required for HTTP-only cookies
 });
-
-// Request interceptor for adding auth token
-api.interceptors.request.use(
-  (config: InternalAxiosRequestConfig) => {
-    const token = localStorage.getItem("access_token");
-    if (token && config.headers) {
-      config.headers.Authorization = `Bearer ${token}`;
-    }
-    return config;
-  },
-  (error: AxiosError) => Promise.reject(error)
-);
 
 // Response interceptor for handling errors
 api.interceptors.response.use(
