@@ -3,6 +3,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FiLoader } from "react-icons/fi";
+import UnderliningLink from "../ui/underlining-link";
 
 export default function LoginModal() {
   const [email, setEmail] = useState("");
@@ -52,7 +53,7 @@ export default function LoginModal() {
             type="email"
             id="email"
             name="email"
-            className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-link"
+            className="w-full border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-link"
             required
             autoComplete="email"
             placeholder="Enter your email address"
@@ -73,7 +74,7 @@ export default function LoginModal() {
             type="password"
             id="password"
             name="password"
-            className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-link"
+            className="w-full border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-link"
             required
             autoComplete="current-password"
             placeholder="Enter your password"
@@ -85,7 +86,7 @@ export default function LoginModal() {
         {/* Login Button */}
         <button
           type="submit"
-          className="mt-2 w-full bg-link text-white rounded px-3 py-2 font-semibold hover:bg-link/80 cursor-pointer transition duration-150"
+          className="mt-2 w-full bg-link text-white px-3 py-2 font-semibold hover:bg-link/80 cursor-pointer transition duration-150"
         >
           {isLoggingIn ? (
             <div className="flex gap-2 items-center justify-center">
@@ -97,6 +98,18 @@ export default function LoginModal() {
           )}
         </button>
       </form>
+
+      {/* Register Link */}
+      <div className="flex flex-row gap-1 items-center justify-center text-sm text-muted">
+        <span>Don't have an account? </span>
+        <UnderliningLink
+          href="/cs-class/register"
+          variant="link"
+          className="self-center"
+        >
+          <span>Register here</span>
+        </UnderliningLink>
+      </div>
     </div>
   );
 }

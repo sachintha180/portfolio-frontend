@@ -112,6 +112,74 @@ export interface paths {
         patch: operations["update_user_api_users__user_id__patch"];
         trace?: never;
     };
+    "/api/syllabus/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Create Syllabus
+         * @description Create a new syllabus.
+         */
+        post: operations["create_syllabus_api_syllabus__post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/syllabus/{syllabus_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Syllabus
+         * @description Get a syllabus by ID.
+         */
+        get: operations["get_syllabus_api_syllabus__syllabus_id__get"];
+        put?: never;
+        post?: never;
+        /**
+         * Delete Syllabus
+         * @description Delete a syllabus.
+         */
+        delete: operations["delete_syllabus_api_syllabus__syllabus_id__delete"];
+        options?: never;
+        head?: never;
+        /**
+         * Update Syllabus
+         * @description Update a syllabus.
+         */
+        patch: operations["update_syllabus_api_syllabus__syllabus_id__patch"];
+        trace?: never;
+    };
+    "/api/syllabus/all": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Syllabuses
+         * @description Get all syllabuses.
+         */
+        get: operations["get_syllabuses_api_syllabus_all_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/": {
         parameters: {
             query?: never;
@@ -173,7 +241,7 @@ export interface components {
         AuthVerifyResponse: {
             /** Authenticated */
             authenticated: boolean;
-            user: components["schemas"]["AuthVerifyUser"];
+            user: components["schemas"]["AuthVerifyUser"] | null;
         };
         /** AuthVerifyUser */
         AuthVerifyUser: {
@@ -197,6 +265,87 @@ export interface components {
         HTTPValidationError: {
             /** Detail */
             detail?: components["schemas"]["ValidationError"][];
+        };
+        /**
+         * SubjectCode
+         * @enum {string}
+         */
+        SubjectCode: "4CP0" | "41T1" | "X/YIT11" | "2210" | "9618" | "HL, 2014";
+        /** Syllabus */
+        Syllabus: {
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /**
+             * Updated At
+             * Format: date-time
+             */
+            updated_at: string;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id?: string;
+            /** Name */
+            name: string;
+            /** Description */
+            description: string;
+            code: components["schemas"]["SubjectCode"];
+            level: components["schemas"]["SyllabusLevel"];
+            /**
+             * Examination Date
+             * Format: date
+             */
+            examination_date: string;
+        };
+        /** SyllabusCreateRequest */
+        SyllabusCreateRequest: {
+            /** Name */
+            name: string;
+            /** Description */
+            description: string;
+            code: components["schemas"]["SubjectCode"];
+            level: components["schemas"]["SyllabusLevel"];
+            /**
+             * Examination Date
+             * Format: date
+             */
+            examination_date: string;
+        };
+        /** SyllabusCreateResponse */
+        SyllabusCreateResponse: {
+            syllabus: components["schemas"]["Syllabus"];
+        };
+        /** SyllabusGetResponse */
+        SyllabusGetResponse: {
+            syllabus: components["schemas"]["Syllabus"];
+        };
+        /**
+         * SyllabusLevel
+         * @enum {string}
+         */
+        SyllabusLevel: "igcse" | "olevel" | "alevel" | "diploma";
+        /** SyllabusUpdateRequest */
+        SyllabusUpdateRequest: {
+            /** Name */
+            name?: string | null;
+            /** Description */
+            description?: string | null;
+            code?: components["schemas"]["SubjectCode"] | null;
+            level?: components["schemas"]["SyllabusLevel"] | null;
+            /** Examination Date */
+            examination_date?: string | null;
+        };
+        /** SyllabusUpdateResponse */
+        SyllabusUpdateResponse: {
+            syllabus: components["schemas"]["Syllabus"];
+        };
+        /** SyllabusesGetResponse */
+        SyllabusesGetResponse: {
+            /** Syllabuses */
+            syllabuses: components["schemas"]["Syllabus"][];
         };
         /** User */
         User: {
@@ -464,6 +613,154 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    create_syllabus_api_syllabus__post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SyllabusCreateRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SyllabusCreateResponse"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_syllabus_api_syllabus__syllabus_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                syllabus_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SyllabusGetResponse"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    delete_syllabus_api_syllabus__syllabus_id__delete: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                syllabus_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    update_syllabus_api_syllabus__syllabus_id__patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                syllabus_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SyllabusUpdateRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SyllabusUpdateResponse"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_syllabuses_api_syllabus_all_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SyllabusesGetResponse"];
                 };
             };
         };
