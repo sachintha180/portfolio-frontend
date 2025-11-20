@@ -63,7 +63,7 @@ export default function PortfolioLayout() {
         {/* Copyright */}
         <div className="mx-5 md:mx-15 sm:mb-8 mb-5 text-muted text-sm sm:flex sm:flex-row sm:justify-between block mt-auto">
           <p>© {currentYear} Sachintha Senanayake</p>
-          <p className="text-muted/70">All rights reserved.</p>
+          <p className="text-muted/70">All rights reserved</p>
         </div>
       </main>
 

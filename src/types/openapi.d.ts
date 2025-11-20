@@ -173,7 +173,7 @@ export interface components {
         AuthVerifyResponse: {
             /** Authenticated */
             authenticated: boolean;
-            user: components["schemas"]["AuthVerifyUser"];
+            user: components["schemas"]["AuthVerifyUser"] | null;
         };
         /** AuthVerifyUser */
         AuthVerifyUser: {

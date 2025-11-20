@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FiLoader } from "react-icons/fi";
 import type { UserType } from "@/types/api";
+import UnderliningLink from "../ui/underlining-link";
 
 export default function RegisterModal() {
   const [firstName, setFirstName] = useState("");
@@ -69,7 +70,7 @@ export default function RegisterModal() {
             type="text"
             id="firstName"
             name="firstName"
-            className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-link"
+            className="w-full border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-link"
             required
             autoComplete="given-name"
             placeholder="Enter your first name"
@@ -90,7 +91,7 @@ export default function RegisterModal() {
             type="text"
             id="lastName"
             name="lastName"
-            className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-link"
+            className="w-full border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-link"
             required
             autoComplete="family-name"
             placeholder="Enter your last name"
@@ -111,7 +112,7 @@ export default function RegisterModal() {
             type="email"
             id="email"
             name="email"
-            className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-link"
+            className="w-full border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-link"
             required
             autoComplete="email"
             placeholder="Enter your email address"
@@ -132,7 +133,7 @@ export default function RegisterModal() {
             type="password"
             id="password"
             name="password"
-            className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-link"
+            className="w-full border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-link"
             required
             autoComplete="new-password"
             placeholder="Enter your password"
@@ -152,7 +153,7 @@ export default function RegisterModal() {
           <select
             id="userType"
             name="userType"
-            className="w-full border text-secondary border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-link"
+            className="w-full border text-secondary border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-link"
             required
             value={userType}
             onChange={(e) => setUserType(e.target.value as UserType)}
@@ -165,7 +166,7 @@ export default function RegisterModal() {
         {/* Register Button */}
         <button
           type="submit"
-          className="mt-2 w-full bg-link text-white rounded px-3 py-2 font-semibold hover:bg-link/80 cursor-pointer transition duration-150"
+          className="mt-2 w-full bg-link text-white px-3 py-2 font-semibold hover:bg-link/80 cursor-pointer transition duration-150"
         >
           {isRegistering ? (
             <div className="flex gap-2 items-center justify-center">
@@ -177,6 +178,18 @@ export default function RegisterModal() {
           )}
         </button>
       </form>
+
+      {/* Login Link */}
+      <div className="flex flex-row gap-1 items-center justify-center text-sm text-muted">
+        <span>Already have an account? </span>
+        <UnderliningLink
+          href="/cs-class/login"
+          variant="link"
+          className="self-center"
+        >
+          <span>Login here</span>
+        </UnderliningLink>
+      </div>
     </div>
   );
 }
