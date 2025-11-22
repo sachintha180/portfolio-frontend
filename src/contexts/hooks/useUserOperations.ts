@@ -1,3 +1,4 @@
+import { useCallback, useMemo } from "react";
 import type { User, UserUpdateRequest } from "@/types/api";
 import type { useUserAPI } from "@/contexts/hooks/useUserAPI";
 import type { useUserState } from "@/contexts/hooks/useUserState";
@@ -17,66 +18,75 @@ export function useUserOperations(
   } = api;
 
   // Get user by ID
-  const getUser = async (userId: string): Promise<User | null> => {
-    setIsLoading(true);
-    setError(null);
+  const getUser = useCallback(
+    async (userId: string): Promise<User | null> => {
+      setIsLoading(true);
+      setError(null);
 
-    try {
-      const result = await apiGetUser(userId);
-      setUser(result.user);
-      return result.user;
-    } catch (error) {
-      const errorMessage =
-        error instanceof Error ? error.message : "Failed to get user";
-      setError(errorMessage);
-      return null;
-    } finally {
-      setIsLoading(false);
-    }
-  };
+      try {
+        const result = await apiGetUser(userId);
+        setUser(result.user);
+        return result.user;
+      } catch (error) {
+        const errorMessage =
+          error instanceof Error ? error.message : "Failed to get user";
+        setError(errorMessage);
+        return null;
+      } finally {
+        setIsLoading(false);
+      }
+    },
+    [apiGetUser, setUser, setIsLoading, setError]
+  );
 
   // Update user
-  const updateUser = async (
-    userId: string,
-    data: UserUpdateRequest
-  ): Promise<User | null> => {
-    setIsLoading(true);
-    setError(null);
+  const updateUser = useCallback(
+    async (userId: string, data: UserUpdateRequest): Promise<User | null> => {
+      setIsLoading(true);
+      setError(null);
 
-    try {
-      const result = await apiUpdateUser(userId, data);
-      setUser(result.user);
-      return result.user;
-    } catch (error) {
-      const errorMessage =
-        error instanceof Error ? error.message : "Failed to update user";
-      setError(errorMessage);
-      return null;
-    } finally {
-      setIsLoading(false);
-    }
-  };
+      try {
+        const result = await apiUpdateUser(userId, data);
+        setUser(result.user);
+        return result.user;
+      } catch (error) {
+        const errorMessage =
+          error instanceof Error ? error.message : "Failed to update user";
+        setError(errorMessage);
+        return null;
+      } finally {
+        setIsLoading(false);
+      }
+    },
+    [apiUpdateUser, setUser, setIsLoading, setError]
+  );
 
   // Delete user
-  const deleteUser = async (userId: string): Promise<void> => {
-    setIsLoading(true);
-    setError(null);
+  const deleteUser = useCallback(
+    async (userId: string): Promise<void> => {
+      setIsLoading(true);
+      setError(null);
 
-    try {
-      await apiDeleteUser(userId);
-      setUser(null);
-    } catch (error) {
-      const errorMessage =
-        error instanceof Error ? error.message : "Failed to delete user";
-      setError(errorMessage);
-    } finally {
-      setIsLoading(false);
-    }
-  };
+      try {
+        await apiDeleteUser(userId);
+        setUser(null);
+      } catch (error) {
+        const errorMessage =
+          error instanceof Error ? error.message : "Failed to delete user";
+        setError(errorMessage);
+      } finally {
+        setIsLoading(false);
+      }
+    },
+    [apiDeleteUser, setUser, setIsLoading, setError]
+  );
 
-  return {
-    getUser,
-    updateUser,
-    deleteUser,
-  };
+  return useMemo(
+    () => ({
+      getUser,
+      updateUser,
+      deleteUser,
+    }),
+    [getUser, updateUser, deleteUser]
+  );
 }

@@ -6,37 +6,43 @@ import type {
   AuthLoginResponse,
   AuthVerifyResponse,
 } from "@/types/api";
+import { useCallback } from "react";
 
 export function useAuthAPI() {
   // Register new user
-  const register = async (
-    payload: AuthRegisterRequest
-  ): Promise<AuthRegisterResponse> => {
-    const { data } = await api.post<AuthRegisterResponse>(
-      "/auth/register",
-      payload
-    );
-    return data;
-  };
+  const register = useCallback(
+    async (payload: AuthRegisterRequest): Promise<AuthRegisterResponse> => {
+      const { data } = await api.post<AuthRegisterResponse>(
+        "/auth/register",
+        payload
+      );
+      return data;
+    },
+    []
+  );
 
   // Login user
-  const login = async (
-    payload: AuthLoginRequest
-  ): Promise<AuthLoginResponse> => {
-    const { data } = await api.post<AuthLoginResponse>("/auth/login", payload);
-    return data;
-  };
+  const login = useCallback(
+    async (payload: AuthLoginRequest): Promise<AuthLoginResponse> => {
+      const { data } = await api.post<AuthLoginResponse>(
+        "/auth/login",
+        payload
+      );
+      return data;
+    },
+    []
+  );
 
   // Logout user
-  const logout = async (): Promise<void> => {
+  const logout = useCallback(async (): Promise<void> => {
     await api.post("/auth/logout");
-  };
+  }, []);
 
   // Verify authentication status
-  const verify = async (): Promise<AuthVerifyResponse> => {
+  const verify = useCallback(async (): Promise<AuthVerifyResponse> => {
     const { data } = await api.get<AuthVerifyResponse>("/auth/verify");
     return data;
-  };
+  }, []);
 
   return {
     register,
