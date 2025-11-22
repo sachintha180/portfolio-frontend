@@ -23,9 +23,9 @@ export default function LoginModal() {
   };
 
   return (
-    <div className="w-full sm:max-w-md flex-1 mx-auto flex flex-col gap-5">
+    <div className="mx-auto flex w-full flex-1 flex-col gap-5 sm:max-w-md">
       {/* Header */}
-      <h2 className="text-secondary text-2xl text-center lg:text-left">
+      <h2 className="text-secondary text-center text-2xl lg:text-left">
         login to your account
       </h2>
 
@@ -34,7 +34,7 @@ export default function LoginModal() {
 
       {/* Login Error */}
       {loginError && (
-        <div className="bg-red-500 text-white p-2 text-center">
+        <div className="bg-red-500 p-2 text-center text-white">
           {loginError}
         </div>
       )}
@@ -45,7 +45,7 @@ export default function LoginModal() {
         <div>
           <label
             htmlFor="email"
-            className="block text-secondary font-medium mb-1"
+            className="text-secondary mb-1 block font-medium"
           >
             Email Address
           </label>
@@ -53,7 +53,7 @@ export default function LoginModal() {
             type="email"
             id="email"
             name="email"
-            className="w-full border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-link"
+            className="focus:ring-link w-full border border-gray-300 px-3 py-2 focus:ring-2 focus:outline-none"
             required
             autoComplete="email"
             placeholder="Enter your email address"
@@ -66,7 +66,7 @@ export default function LoginModal() {
         <div>
           <label
             htmlFor="password"
-            className="block text-secondary font-medium mb-1"
+            className="text-secondary mb-1 block font-medium"
           >
             Password
           </label>
@@ -74,7 +74,7 @@ export default function LoginModal() {
             type="password"
             id="password"
             name="password"
-            className="w-full border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-link"
+            className="focus:ring-link w-full border border-gray-300 px-3 py-2 focus:ring-2 focus:outline-none"
             required
             autoComplete="current-password"
             placeholder="Enter your password"
@@ -86,12 +86,12 @@ export default function LoginModal() {
         {/* Login Button */}
         <button
           type="submit"
-          className="mt-2 w-full bg-link text-white px-3 py-2 font-semibold hover:bg-link/80 cursor-pointer transition duration-150"
+          className="bg-link hover:bg-link/80 mt-2 w-full cursor-pointer px-3 py-2 font-semibold text-white transition duration-150"
         >
           {isLoggingIn ? (
-            <div className="flex gap-2 items-center justify-center">
+            <div className="flex items-center justify-center gap-2">
               <span>Logging in</span>
-              <FiLoader className="w-5 h-5 animate-spin" />
+              <FiLoader className="h-5 w-5 animate-spin" />
             </div>
           ) : (
             "Login"
@@ -100,7 +100,7 @@ export default function LoginModal() {
       </form>
 
       {/* Register Link */}
-      <div className="flex flex-row gap-1 items-center justify-center text-sm text-muted">
+      <div className="text-muted flex flex-row items-center justify-center gap-1 text-sm">
         <span>Don't have an account? </span>
         <UnderliningLink
           href="/cs-class/register"

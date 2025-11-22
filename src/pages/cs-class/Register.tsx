@@ -4,7 +4,7 @@ import RegisterModal from "@/components/cs-class/RegisterModal";
 
 export default function Register() {
   return (
-    <section className="flex-1 flex flex-col gap-5 mx-5 md:mx-15 my-10">
+    <section className="mx-5 my-10 flex flex-1 flex-col gap-5 md:mx-15">
       {/* Header */}
       <Header title="cs class" subtitle="notes, videos, and more" />
 
@@ -12,7 +12,7 @@ export default function Register() {
       <Seperator />
 
       {/* Register Modal */}
-      <div className="flex-1 flex items-center justify-center">
+      <div className="flex flex-1 items-center justify-center">
         <RegisterModal />
       </div>
     </section>

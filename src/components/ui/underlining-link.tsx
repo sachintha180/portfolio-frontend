@@ -34,7 +34,9 @@ export default function UnderliningLink({
   return (
     <a className={combinedClassName} {...props}>
       {children}
-      {withIcon && <FiArrowUpRight aria-hidden="true" className="w-4 h-4 shrink-0" />}
+      {withIcon && (
+        <FiArrowUpRight aria-hidden="true" className="h-4 w-4 shrink-0" />
+      )}
     </a>
   );
 }

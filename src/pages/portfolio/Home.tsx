@@ -18,31 +18,31 @@ import TechStack from "@/components/portfolio/TechStack";
 export default function Home() {
   const contacts: ContactItemType[] = [
     {
-      icon: <FiMail aria-hidden="true" className="w-5 h-5 text-surface" />,
+      icon: <FiMail aria-hidden="true" className="text-surface h-5 w-5" />,
       href: "mailto:sachinthasenanayake180@gmail.com",
       text: "sachinthasenanayake180@gmail.com",
       iconColorClass: "bg-secondary",
     },
     {
-      icon: <FiMapPin aria-hidden="true" className="w-5 h-5 text-surface" />,
+      icon: <FiMapPin aria-hidden="true" className="text-surface h-5 w-5" />,
       href: "https://www.google.com/maps/place/Colombo,+Sri+Lanka",
       text: "Colombo, Sri Lanka",
       iconColorClass: "bg-warm",
     },
     {
-      icon: <FiGithub aria-hidden="true" className="w-5 h-5 text-surface" />,
+      icon: <FiGithub aria-hidden="true" className="text-surface h-5 w-5" />,
       href: "https://github.com/sachintha180",
       text: "@sachintha180",
       iconColorClass: "bg-success",
     },
     {
-      icon: <FiLinkedin aria-hidden="true" className="w-5 h-5 text-surface" />,
+      icon: <FiLinkedin aria-hidden="true" className="text-surface h-5 w-5" />,
       href: "https://www.linkedin.com/in/sachinthasenanayake180/",
       text: "@sachinthasenanayake180",
       iconColorClass: "bg-cool",
     },
     {
-      icon: <FiYoutube aria-hidden="true" className="w-5 h-5 text-surface" />,
+      icon: <FiYoutube aria-hidden="true" className="text-surface h-5 w-5" />,
       href: "https://www.youtube.com/@siby18",
       text: "@siby18",
       iconColorClass: "bg-danger",
@@ -50,7 +50,7 @@ export default function Home() {
   ];
 
   return (
-    <section className="flex-1 flex flex-col gap-5 mx-5 md:mx-15 my-10">
+    <section className="mx-5 my-10 flex flex-1 flex-col gap-5 md:mx-15">
       {/* Header */}
       <Header
         title="sachintha senanayake"
@@ -58,7 +58,7 @@ export default function Home() {
       >
         <UnderliningLink href="/cv" variant="link">
           <span className="text-lg">read my CV</span>
-          <FiArrowRight aria-hidden="true" className="w-5 h-5" />
+          <FiArrowRight aria-hidden="true" className="h-5 w-5" />
         </UnderliningLink>
       </Header>
 
@@ -66,7 +66,7 @@ export default function Home() {
       <Seperator />
 
       {/* Contact Section */}
-      <section className="grid md:grid-flow-col md:grid-rows-3 grid-flow-row gap-2">
+      <section className="grid grid-flow-row gap-2 md:grid-flow-col md:grid-rows-3">
         {contacts.map((contact) => (
           <ContactItem key={contact.href} {...contact} />
         ))}
@@ -77,7 +77,7 @@ export default function Home() {
 
       {/* About Me Section */}
       <section className="flex flex-col gap-2">
-        <h3 className="text-secondary text-2xl mb-2">about me</h3>
+        <h3 className="text-secondary mb-2 text-2xl">about me</h3>
         <p className="text-muted text-justify">{ABOUT_ME}</p>
       </section>
 
@@ -92,8 +92,8 @@ export default function Home() {
 
       {/* Pages Buttons */}
       <section className="flex flex-col gap-2">
-        <h3 className="text-secondary text-2xl mb-5">pages</h3>
-        <div className="grid md:grid-cols-2 grid-cols-1 gap-5">
+        <h3 className="text-secondary mb-5 text-2xl">pages</h3>
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
           {PAGE_ITEMS.map((page) => (
             <PageButton key={page.href} {...page} />
           ))}

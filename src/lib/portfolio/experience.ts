@@ -143,7 +143,9 @@ export const EXPERIENCE_ITEMS: ExperienceItem[] = [
     group: "Education Sector",
   },
 ].sort(
-  (a, b) => b.roles[0].startDate.getTime() - a.roles[0].startDate.getTime()
+  (a, b) =>
+    (b.roles[0]?.startDate.getTime() ?? 0) -
+    (a.roles[0]?.startDate.getTime() ?? 0)
 );
 
 export const GROUPED_EXPERIENCE_ITEMS: GroupedExperienceItem[] =

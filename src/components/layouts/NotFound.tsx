@@ -15,11 +15,11 @@ export default function NotFound({
   linkHref = "/",
 }: NotFoundProps) {
   return (
-    <section className="flex flex-col gap-5 h-full items-center justify-center">
-      <h1 className="text-7xl font-bold text-primary">{title}</h1>
-      <p className="text-lg text-secondary">{description}</p>
+    <section className="flex h-full flex-col items-center justify-center gap-5">
+      <h1 className="text-primary text-7xl font-bold">{title}</h1>
+      <p className="text-secondary text-lg">{description}</p>
       <UnderliningLink href={linkHref} variant="link">
-        <FiArrowLeft aria-hidden="true" className="w-5 h-5" />
+        <FiArrowLeft aria-hidden="true" className="h-5 w-5" />
         <span className="text-lg">{linkText}</span>
       </UnderliningLink>
     </section>

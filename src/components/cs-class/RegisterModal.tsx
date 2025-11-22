@@ -40,9 +40,9 @@ export default function RegisterModal() {
   };
 
   return (
-    <div className="w-full sm:max-w-md flex-1 mx-auto flex flex-col gap-5">
+    <div className="mx-auto flex w-full flex-1 flex-col gap-5 sm:max-w-md">
       {/* Header */}
-      <h2 className="text-secondary text-2xl text-center lg:text-left">
+      <h2 className="text-secondary text-center text-2xl lg:text-left">
         create your account
       </h2>
 
@@ -51,7 +51,7 @@ export default function RegisterModal() {
 
       {/* Register Error */}
       {registerError && (
-        <div className="bg-red-500 text-white p-2 text-center">
+        <div className="bg-red-500 p-2 text-center text-white">
           {registerError}
         </div>
       )}
@@ -62,7 +62,7 @@ export default function RegisterModal() {
         <div>
           <label
             htmlFor="firstName"
-            className="block text-secondary font-medium mb-1"
+            className="text-secondary mb-1 block font-medium"
           >
             First Name
           </label>
@@ -70,7 +70,7 @@ export default function RegisterModal() {
             type="text"
             id="firstName"
             name="firstName"
-            className="w-full border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-link"
+            className="focus:ring-link w-full border border-gray-300 px-3 py-2 focus:ring-2 focus:outline-none"
             required
             autoComplete="given-name"
             placeholder="Enter your first name"
@@ -83,7 +83,7 @@ export default function RegisterModal() {
         <div>
           <label
             htmlFor="lastName"
-            className="block text-secondary font-medium mb-1"
+            className="text-secondary mb-1 block font-medium"
           >
             Last Name
           </label>
@@ -91,7 +91,7 @@ export default function RegisterModal() {
             type="text"
             id="lastName"
             name="lastName"
-            className="w-full border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-link"
+            className="focus:ring-link w-full border border-gray-300 px-3 py-2 focus:ring-2 focus:outline-none"
             required
             autoComplete="family-name"
             placeholder="Enter your last name"
@@ -104,7 +104,7 @@ export default function RegisterModal() {
         <div>
           <label
             htmlFor="email"
-            className="block text-secondary font-medium mb-1"
+            className="text-secondary mb-1 block font-medium"
           >
             Email Address
           </label>
@@ -112,7 +112,7 @@ export default function RegisterModal() {
             type="email"
             id="email"
             name="email"
-            className="w-full border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-link"
+            className="focus:ring-link w-full border border-gray-300 px-3 py-2 focus:ring-2 focus:outline-none"
             required
             autoComplete="email"
             placeholder="Enter your email address"
@@ -125,7 +125,7 @@ export default function RegisterModal() {
         <div>
           <label
             htmlFor="password"
-            className="block text-secondary font-medium mb-1"
+            className="text-secondary mb-1 block font-medium"
           >
             Password
           </label>
@@ -133,7 +133,7 @@ export default function RegisterModal() {
             type="password"
             id="password"
             name="password"
-            className="w-full border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-link"
+            className="focus:ring-link w-full border border-gray-300 px-3 py-2 focus:ring-2 focus:outline-none"
             required
             autoComplete="new-password"
             placeholder="Enter your password"
@@ -146,14 +146,14 @@ export default function RegisterModal() {
         <div>
           <label
             htmlFor="userType"
-            className="block text-secondary font-medium mb-1"
+            className="text-secondary mb-1 block font-medium"
           >
             Account Type
           </label>
           <select
             id="userType"
             name="userType"
-            className="w-full border text-secondary border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-link"
+            className="text-secondary focus:ring-link w-full border border-gray-300 px-3 py-2 focus:ring-2 focus:outline-none"
             required
             value={userType}
             onChange={(e) => setUserType(e.target.value as UserType)}
@@ -166,12 +166,12 @@ export default function RegisterModal() {
         {/* Register Button */}
         <button
           type="submit"
-          className="mt-2 w-full bg-link text-white px-3 py-2 font-semibold hover:bg-link/80 cursor-pointer transition duration-150"
+          className="bg-link hover:bg-link/80 mt-2 w-full cursor-pointer px-3 py-2 font-semibold text-white transition duration-150"
         >
           {isRegistering ? (
-            <div className="flex gap-2 items-center justify-center">
+            <div className="flex items-center justify-center gap-2">
               <span>Creating account</span>
-              <FiLoader className="w-5 h-5 animate-spin" />
+              <FiLoader className="h-5 w-5 animate-spin" />
             </div>
           ) : (
             "Register"
@@ -180,7 +180,7 @@ export default function RegisterModal() {
       </form>
 
       {/* Login Link */}
-      <div className="flex flex-row gap-1 items-center justify-center text-sm text-muted">
+      <div className="text-muted flex flex-row items-center justify-center gap-1 text-sm">
         <span>Already have an account? </span>
         <UnderliningLink
           href="/cs-class/login"

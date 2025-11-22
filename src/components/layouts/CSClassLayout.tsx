@@ -25,30 +25,30 @@ export default function CSClassLayout() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <div className="w-screen h-screen flex items-center leading-relaxed relative">
+    <div className="relative flex h-screen w-screen items-center leading-relaxed">
       {/* Background Image */}
       {renderGraphics && (
         <img
           src="/background.png"
           alt="Background image consisting of handwritten computer science notes"
-          className="absolute top-0 left-4/6 w-2/6 h-full object-cover -z-10 opacity-30"
+          className="absolute top-0 left-4/6 -z-10 h-full w-2/6 object-cover opacity-30"
         />
       )}
 
       {/* Background Overlay */}
       {renderGraphics && (
-        <div className="absolute top-0 left-4/6 w-2/6 h-full bg-primary/80 -z-10"></div>
+        <div className="bg-primary/80 absolute top-0 left-4/6 -z-10 h-full w-2/6"></div>
       )}
 
       {/* Color Palette */}
       {renderGraphics && (
-        <section className="flex flex-row justify-end absolute top-0 right-0 z-20">
+        <section className="absolute top-0 right-0 z-20 flex flex-row justify-end">
           {COLOR_PALETTE.map((color) => {
             const backgroundColorClass = `bg-${color}`;
             return (
               <div
                 key={color}
-                className={`${backgroundColorClass} w-5 h-5`}
+                className={`${backgroundColorClass} h-5 w-5`}
               ></div>
             );
           })}
@@ -56,11 +56,11 @@ export default function CSClassLayout() {
       )}
 
       {/* Main Container */}
-      <main className="flex flex-col w-full xl:w-4/6 h-full bg-background overflow-y-auto relative z-10">
+      <main className="bg-background relative z-10 flex h-full w-full flex-col overflow-y-auto xl:w-4/6">
         <Outlet />
 
         {/* Copyright */}
-        <div className="mx-5 md:mx-15 sm:mb-8 mb-5 text-muted text-sm sm:flex sm:flex-row sm:justify-between block">
+        <div className="text-muted mx-5 mb-5 block text-sm sm:mb-8 sm:flex sm:flex-row sm:justify-between md:mx-15">
           <p>© {currentYear} Sachintha Senanayake</p>
           <p className="text-muted/70">All rights reserved</p>
         </div>

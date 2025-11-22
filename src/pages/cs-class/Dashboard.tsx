@@ -6,14 +6,22 @@ import UnderliningLink from "@/components/ui/underlining-link";
 import { FiLogOut } from "react-icons/fi";
 import RecentUploads from "@/components/cs-class/RecentUploads";
 import { PAGE_ITEMS } from "@/lib/cs-class/constants";
+import { useSyllabus } from "@/contexts";
+import { useEffect } from "react";
 
 export default function Dashboard() {
+  const { getAllSyllabuses } = useSyllabus();
+
+  useEffect(() => {
+    getAllSyllabuses();
+  }, [getAllSyllabuses]);
+
   return (
-    <section className="flex-1 flex flex-col gap-5 mx-5 md:mx-15 my-10">
+    <section className="mx-5 my-10 flex flex-1 flex-col gap-5 md:mx-15">
       {/* Header  */}
       <Header title="cs class" subtitle="welcome to class, sachintha">
         <UnderliningLink href="/cs-class/logout" variant="link">
-          <FiLogOut aria-hidden="true" className="w-5 h-5" />
+          <FiLogOut aria-hidden="true" className="h-5 w-5" />
           <span className="text-lg">logout</span>
         </UnderliningLink>
       </Header>
@@ -23,8 +31,8 @@ export default function Dashboard() {
 
       {/* Quick Links */}
       <section className="flex flex-col gap-2">
-        <h3 className="text-secondary text-2xl mb-5">quick links</h3>
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
+        <h3 className="text-secondary mb-5 text-2xl">quick links</h3>
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
           {PAGE_ITEMS.map((pageItem) => (
             <PageButton key={pageItem.nodeLabel} {...pageItem} />
           ))}
@@ -40,10 +48,10 @@ export default function Dashboard() {
       {/* Seperator */}
       <Seperator />
 
-      {/* All Classes Buttons */}
+      {/* All Syllabuses Buttons */}
       <section className="flex flex-col gap-2">
-        <h3 className="text-secondary text-2xl mb-5">all classes</h3>
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
+        <h3 className="text-secondary mb-5 text-2xl">all syllabuses</h3>
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
           {CLASS_ITEMS.map((classItem) => (
             <PageButton key={classItem.nodeLabel} {...classItem} />
           ))}

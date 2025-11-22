@@ -42,13 +42,13 @@ export default function EducationListItem({
               </h4>
 
               {/* Program Duration & Grades */}
-              <div className="flex flex-row gap-1 items-center">
-                <p className="text-sm text-muted/80">
+              <div className="flex flex-row items-center gap-1">
+                <p className="text-muted/80 text-sm">
                   {program.pursuing && "Present - "}
                   {program.endYear}
                 </p>
                 {program.grade && (
-                  <p className="text-sm text-center text-success font-bold">
+                  <p className="text-success text-center text-sm font-bold">
                     - {program.grade}
                   </p>
                 )}
@@ -56,7 +56,7 @@ export default function EducationListItem({
             </div>
 
             {/* Program Details */}
-            <ul className="list-disc space-y-2 pl-5 text-sm leading-relaxed text-muted mt-3">
+            <ul className="text-muted mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed">
               {program.description.map((description, index) => (
                 <li key={index}>{description}</li>
               ))}

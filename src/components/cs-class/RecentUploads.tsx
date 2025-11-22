@@ -3,7 +3,7 @@ import UploadItem from "@/components/ui/upload-item";
 export default function RecentUploads() {
   return (
     <section className="flex flex-col gap-2">
-      <h3 className="text-secondary text-2xl mb-5">recent uploads</h3>
+      <h3 className="text-secondary mb-5 text-2xl">recent uploads</h3>
       <div className="space-y-2">
         <UploadItem
           type="note"

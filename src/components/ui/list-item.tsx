@@ -19,24 +19,24 @@ export default function ListItem({
   id,
 }: ListItemProps) {
   return (
-    <li id={id} className="md:mb-10 mb-5">
+    <li id={id} className="mb-5 md:mb-10">
       {/* Circle */}
       <div
-        className={`absolute h-2 w-2 md:w-4 md:h-4 rounded-full -left-1 md:-left-2 border ${colorClasses.border} ${colorClasses.circle}`}
+        className={`absolute -left-1 h-2 w-2 rounded-full border md:-left-2 md:h-4 md:w-4 ${colorClasses.border} ${colorClasses.circle}`}
       />
 
       {/* Timeline Start Icon */}
       {isLastInGroup && (
         <FiChevronUp
           aria-hidden="true"
-          className={`hidden md:block absolute -left-4 -bottom-5 ${colorClasses.text} w-8 h-8 `}
+          className={`absolute -bottom-5 -left-4 hidden md:block ${colorClasses.text} h-8 w-8`}
         />
       )}
 
       {/* Organization Link */}
       <UnderliningLink
         href={organization.url}
-        className="text-muted inline-flex mt-1"
+        className="text-muted mt-1 inline-flex"
         variant="text"
         withIcon={true}
         target="_blank"
@@ -46,7 +46,7 @@ export default function ListItem({
           <img
             src={organization.logo.src}
             alt={organization.logo.alt}
-            className="h-4 grayscale hidden md:block"
+            className="hidden h-4 grayscale md:block"
           />
         )}
         {organization.name}

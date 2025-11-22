@@ -26,30 +26,30 @@ export default function PortfolioLayout() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <div className="w-screen h-screen flex items-center leading-relaxed relative">
+    <div className="relative flex h-screen w-screen items-center leading-relaxed">
       {/* Background Image */}
       {renderGraphics && (
         <img
           src="/background.png"
           alt="Background image consisting of handwritten computer science notes"
-          className="absolute top-0 left-3/5 w-2/5 h-full object-cover -z-10 opacity-50"
+          className="absolute top-0 left-3/5 -z-10 h-full w-2/5 object-cover opacity-50"
         />
       )}
 
       {/* Background Overlay */}
       {renderGraphics && (
-        <div className="absolute top-0 left-3/5 w-2/5 h-full bg-primary/95 -z-10"></div>
+        <div className="bg-primary/95 absolute top-0 left-3/5 -z-10 h-full w-2/5"></div>
       )}
 
       {/* Color Palette */}
       {renderGraphics && (
-        <section className="flex flex-row justify-end absolute top-0 right-0 z-20">
+        <section className="absolute top-0 right-0 z-20 flex flex-row justify-end">
           {COLOR_PALETTE.map((color) => {
             const backgroundColorClass = `bg-${color}`;
             return (
               <div
                 key={color}
-                className={`${backgroundColorClass} w-5 h-5`}
+                className={`${backgroundColorClass} h-5 w-5`}
               ></div>
             );
           })}
@@ -57,11 +57,11 @@ export default function PortfolioLayout() {
       )}
 
       {/* Main Container */}
-      <main className="flex flex-col w-full xl:w-3/5 h-full bg-background overflow-y-auto relative z-10">
+      <main className="bg-background relative z-10 flex h-full w-full flex-col overflow-y-auto xl:w-3/5">
         <Outlet />
 
         {/* Copyright */}
-        <div className="mx-5 md:mx-15 sm:mb-8 mb-5 text-muted text-sm sm:flex sm:flex-row sm:justify-between block mt-auto">
+        <div className="text-muted mx-5 mt-auto mb-5 block text-sm sm:mb-8 sm:flex sm:flex-row sm:justify-between md:mx-15">
           <p>© {currentYear} Sachintha Senanayake</p>
           <p className="text-muted/70">All rights reserved</p>
         </div>
@@ -71,7 +71,7 @@ export default function PortfolioLayout() {
       {/* NOTE: We're rendering the container either way because graphRef is required to be present in the DOM for the graph to be initialized correctly.*/}
       <div
         ref={graphRef}
-        className="hidden xl:block h-full w-2/5 right-0 top-0"
+        className="top-0 right-0 hidden h-full w-2/5 xl:block"
       >
         {renderGraphics && (
           <ForceGraph data={GRAPH_DATA} width={width} height={height} />

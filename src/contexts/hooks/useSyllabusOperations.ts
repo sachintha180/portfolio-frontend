@@ -1,3 +1,4 @@
+import { useCallback, useMemo } from "react";
 import type {
   Syllabus,
   SyllabusCreateRequest,
@@ -23,63 +24,67 @@ export function useSyllabusOperations(
   } = api;
 
   // Create a new syllabus
-  const createSyllabus = async (
-    data: SyllabusCreateRequest
-  ): Promise<Syllabus | null> => {
-    setIsLoading(true);
-    setError(null);
+  const createSyllabus = useCallback(
+    async (data: SyllabusCreateRequest): Promise<Syllabus | null> => {
+      setIsLoading(true);
+      setError(null);
 
-    try {
-      const result = await apiCreateSyllabus(data);
-      const newSyllabus = result.syllabus;
-      if (!newSyllabus.id) {
-        throw new Error("Syllabus ID is undefined");
+      try {
+        const result = await apiCreateSyllabus(data);
+        const newSyllabus = result.syllabus;
+        if (!newSyllabus.id) {
+          throw new Error("Syllabus ID is undefined");
+        }
+        const id = newSyllabus.id;
+        setSyllabuses((prev) => ({
+          ...prev,
+          [id]: newSyllabus,
+        }));
+        return newSyllabus;
+      } catch (error) {
+        const errorMessage =
+          error instanceof Error ? error.message : "Failed to create syllabus";
+        setError(errorMessage);
+        return null;
+      } finally {
+        setIsLoading(false);
       }
-      const id = newSyllabus.id;
-      setSyllabuses((prev) => ({
-        ...prev,
-        [id]: newSyllabus,
-      }));
-      return newSyllabus;
-    } catch (error) {
-      const errorMessage =
-        error instanceof Error ? error.message : "Failed to create syllabus";
-      setError(errorMessage);
-      return null;
-    } finally {
-      setIsLoading(false);
-    }
-  };
+    },
+    [apiCreateSyllabus, setSyllabuses, setIsLoading, setError]
+  );
 
   // Get syllabus by ID
-  const getSyllabus = async (syllabusId: string): Promise<Syllabus | null> => {
-    setIsLoading(true);
-    setError(null);
+  const getSyllabus = useCallback(
+    async (syllabusId: string): Promise<Syllabus | null> => {
+      setIsLoading(true);
+      setError(null);
 
-    try {
-      const result = await apiGetSyllabus(syllabusId);
-      const syllabus = result.syllabus;
-      if (!syllabus.id) {
-        throw new Error("Syllabus ID is undefined");
+      try {
+        const result = await apiGetSyllabus(syllabusId);
+        const syllabus = result.syllabus;
+        if (!syllabus.id) {
+          throw new Error("Syllabus ID is undefined");
+        }
+        const id = syllabus.id;
+        setSyllabuses((prev) => ({
+          ...prev,
+          [id]: syllabus,
+        }));
+        return syllabus;
+      } catch (error) {
+        const errorMessage =
+          error instanceof Error ? error.message : "Failed to get syllabus";
+        setError(errorMessage);
+        return null;
+      } finally {
+        setIsLoading(false);
       }
-      const id = syllabus.id;
-      setSyllabuses((prev) => ({
-        ...prev,
-        [id]: syllabus,
-      }));
-      return syllabus;
-    } catch (error) {
-      const errorMessage =
-        error instanceof Error ? error.message : "Failed to get syllabus";
-      setError(errorMessage);
-      return null;
-    } finally {
-      setIsLoading(false);
-    }
-  };
+    },
+    [apiGetSyllabus, setSyllabuses, setIsLoading, setError]
+  );
 
   // Get all syllabuses
-  const getAllSyllabuses = async (): Promise<Syllabus[] | null> => {
+  const getAllSyllabuses = useCallback(async (): Promise<Syllabus[] | null> => {
     setIsLoading(true);
     setError(null);
 
@@ -104,63 +109,78 @@ export function useSyllabusOperations(
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [apiGetAllSyllabuses, setSyllabuses, setIsLoading, setError]);
 
   // Update syllabus
-  const updateSyllabus = async (
-    syllabusId: string,
-    data: SyllabusUpdateRequest
-  ): Promise<Syllabus | null> => {
-    setIsLoading(true);
-    setError(null);
+  const updateSyllabus = useCallback(
+    async (
+      syllabusId: string,
+      data: SyllabusUpdateRequest
+    ): Promise<Syllabus | null> => {
+      setIsLoading(true);
+      setError(null);
 
-    try {
-      const result = await apiUpdateSyllabus(syllabusId, data);
-      const updatedSyllabus = result.syllabus;
-      if (!updatedSyllabus.id) {
-        throw new Error("Syllabus ID is undefined");
+      try {
+        const result = await apiUpdateSyllabus(syllabusId, data);
+        const updatedSyllabus = result.syllabus;
+        if (!updatedSyllabus.id) {
+          throw new Error("Syllabus ID is undefined");
+        }
+        const id = updatedSyllabus.id;
+        setSyllabuses((prev) => ({
+          ...prev,
+          [id]: updatedSyllabus,
+        }));
+        return updatedSyllabus;
+      } catch (error) {
+        const errorMessage =
+          error instanceof Error ? error.message : "Failed to update syllabus";
+        setError(errorMessage);
+        return null;
+      } finally {
+        setIsLoading(false);
       }
-      const id = updatedSyllabus.id;
-      setSyllabuses((prev) => ({
-        ...prev,
-        [id]: updatedSyllabus,
-      }));
-      return updatedSyllabus;
-    } catch (error) {
-      const errorMessage =
-        error instanceof Error ? error.message : "Failed to update syllabus";
-      setError(errorMessage);
-      return null;
-    } finally {
-      setIsLoading(false);
-    }
-  };
+    },
+    [apiUpdateSyllabus, setSyllabuses, setIsLoading, setError]
+  );
 
   // Delete syllabus
-  const deleteSyllabus = async (syllabusId: string): Promise<void> => {
-    setIsLoading(true);
-    setError(null);
+  const deleteSyllabus = useCallback(
+    async (syllabusId: string): Promise<void> => {
+      setIsLoading(true);
+      setError(null);
 
-    try {
-      await apiDeleteSyllabus(syllabusId);
-      setSyllabuses((prev) => {
-        const { [syllabusId]: _, ...rest } = prev;
-        return rest;
-      });
-    } catch (error) {
-      const errorMessage =
-        error instanceof Error ? error.message : "Failed to delete syllabus";
-      setError(errorMessage);
-    } finally {
-      setIsLoading(false);
-    }
-  };
+      try {
+        await apiDeleteSyllabus(syllabusId);
+        setSyllabuses((prev) => {
+          const { [syllabusId]: _, ...rest } = prev;
+          return rest;
+        });
+      } catch (error) {
+        const errorMessage =
+          error instanceof Error ? error.message : "Failed to delete syllabus";
+        setError(errorMessage);
+      } finally {
+        setIsLoading(false);
+      }
+    },
+    [apiDeleteSyllabus, setSyllabuses, setIsLoading, setError]
+  );
 
-  return {
-    createSyllabus,
-    getSyllabus,
-    getAllSyllabuses,
-    updateSyllabus,
-    deleteSyllabus,
-  };
+  return useMemo(
+    () => ({
+      createSyllabus,
+      getSyllabus,
+      getAllSyllabuses,
+      updateSyllabus,
+      deleteSyllabus,
+    }),
+    [
+      createSyllabus,
+      getSyllabus,
+      getAllSyllabuses,
+      updateSyllabus,
+      deleteSyllabus,
+    ]
+  );
 }

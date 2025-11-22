@@ -13,9 +13,9 @@ export default function RedirectRoute({
 
   if (isLoading) {
     return (
-      <div className="flex-1 flex gap-2 items-center justify-center">
+      <div className="flex flex-1 items-center justify-center gap-2">
         <div className="text-muted">Loading</div>
-        <FiLoader className="w-5 h-5 animate-spin" />
+        <FiLoader className="h-5 w-5 animate-spin" />
       </div>
     );
   }

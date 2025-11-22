@@ -18,7 +18,7 @@ import CSClassRegister from "@/pages/cs-class/Register";
 import CSClassLogout from "@/pages/cs-class/Logout";
 
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import { AuthProvider, UserProvider } from "@/contexts";
+import { AuthProvider, UserProvider, SyllabusProvider } from "@/contexts";
 
 export default function App() {
   return (
@@ -48,7 +48,9 @@ export default function App() {
           element={
             <AuthProvider>
               <UserProvider>
-                <CSClassLayout />
+                <SyllabusProvider>
+                  <CSClassLayout />
+                </SyllabusProvider>
               </UserProvider>
             </AuthProvider>
           }
@@ -80,6 +82,7 @@ export default function App() {
         </Route>
 
         {/* Catch-all Route */}
+        {/* BUG: NotFound component is not being rendered within a suitable layout */}
         <Route path="*" element={<NotFound linkHref="/portfolio" />} />
       </Routes>
     </BrowserRouter>

@@ -10,7 +10,7 @@ export default function ContactItem({
   return (
     <div className="flex flex-row gap-3">
       <div
-        className={`flex items-center mt-1 justify-center ${iconColorClass} w-6 h-6 p-1`}
+        className={`mt-1 flex items-center justify-center ${iconColorClass} h-6 w-6 p-1`}
       >
         {icon}
       </div>

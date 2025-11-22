@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import type {
   Syllabus,
   SyllabusCreateRequest,
@@ -31,8 +32,13 @@ export function SyllabusProvider({ children }: { children: ReactNode }) {
   const api = useSyllabusAPI();
   const operations = useSyllabusOperations(state, api);
 
+  const value = useMemo(
+    () => ({ ...state, ...operations }),
+    [state.syllabuses, state.isLoading, state.error, operations]
+  );
+
   return (
-    <SyllabusContext.Provider value={{ ...state, ...operations }}>
+    <SyllabusContext.Provider value={value}>
       {children}
     </SyllabusContext.Provider>
   );
