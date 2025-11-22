@@ -163,7 +163,7 @@ export const PROJECT_ITEMS: ProjectItem[] = [
       "RBAC-enabled system with performance tracking.",
     ],
     tools: ["FastAPI", "SQLAlchemy", "GCP", "Render", "Tailwind"],
-    link: "/cs-class",
+    link: "/cs-class/dashboard",
     timeDuration: "4 days",
   },
   {

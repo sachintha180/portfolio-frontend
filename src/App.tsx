@@ -8,7 +8,7 @@ import Experience from "@/pages/portfolio/Experience";
 import Education from "@/pages/portfolio/Education";
 import Awards from "@/pages/portfolio/Awards";
 import Projects from "@/pages/portfolio/Projects";
-import Error from "@/components/portfolio/Error";
+import NotFound from "@/components/layouts/NotFound";
 
 import CVHome from "@/pages/cv/Home";
 
@@ -24,17 +24,27 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
+        {/* Index Route */}
+        <Route index element={<Navigate to="/portfolio" />} />
+
         {/* Portfolio Routes */}
-        <Route element={<PortfolioLayout />}>
-          <Route path="/" element={<PortfolioHome />} />
-          <Route path="/experience" element={<Experience />} />
-          <Route path="/education" element={<Education />} />
-          <Route path="/awards" element={<Awards />} />
-          <Route path="/projects" element={<Projects />} />
+        <Route path="/portfolio/*" element={<PortfolioLayout />}>
+          {/* Index Route */}
+          <Route index element={<PortfolioHome />} />
+
+          {/* Public Routes */}
+          <Route path="experience" element={<Experience />} />
+          <Route path="education" element={<Education />} />
+          <Route path="awards" element={<Awards />} />
+          <Route path="projects" element={<Projects />} />
+
+          {/* Catch-all Route */}
+          <Route path="*" element={<NotFound linkHref="/portfolio" />} />
         </Route>
 
         {/* CS Class Routes */}
         <Route
+          path="/cs-class/*"
           element={
             <AuthProvider>
               <UserProvider>
@@ -45,28 +55,32 @@ export default function App() {
         >
           {/* Protected Routes */}
           <Route element={<ProtectedRoute redirectTo="/cs-class/login" />}>
-            <Route path="/cs-class/dashboard" element={<CSClassDashboard />} />
+            {/* Index Route */}
+            <Route index element={<CSClassDashboard />} />
           </Route>
 
           {/* Public Routes */}
-          <Route element={<RedirectRoute redirectTo="/cs-class/dashboard" />}>
-            <Route path="/cs-class/login" element={<CSClassLogin />} />
-            <Route path="/cs-class/register" element={<CSClassRegister />} />
-            <Route path="/cs-class/logout" element={<CSClassLogout />} />
+          <Route element={<RedirectRoute redirectTo="/cs-class" />}>
+            <Route path="login" element={<CSClassLogin />} />
+            <Route path="register" element={<CSClassRegister />} />
+            <Route path="logout" element={<CSClassLogout />} />
           </Route>
 
-          {/* Default Route */}
-          <Route
-            path="/cs-class"
-            element={<Navigate to="/cs-class/dashboard" replace />}
-          />
+          {/* Catch-all Route */}
+          <Route path="*" element={<NotFound linkHref="/cs-class" />} />
         </Route>
 
         {/* CV Routes */}
-        <Route path="/cv" element={<CVHome />} />
+        <Route path="/cv/*">
+          {/* Index Route */}
+          <Route index element={<CVHome />} />
+
+          {/* Catch-all Route */}
+          <Route path="*" element={<NotFound linkHref="/cv" />} />
+        </Route>
 
         {/* Catch-all Route */}
-        <Route path="*" element={<Error />} />
+        <Route path="*" element={<NotFound linkHref="/portfolio" />} />
       </Routes>
     </BrowserRouter>
   );

@@ -31,32 +31,32 @@ export const PAGE_ITEMS: PageItem[] = [
   {
     buttonLabel: "experience",
     nodeLabel: "experience",
-    href: "/experience",
+    href: "/portfolio/experience",
     colorClass: "bg-warm",
   },
   {
     buttonLabel: "education",
     nodeLabel: "education",
-    href: "/education",
+    href: "/portfolio/education",
     colorClass: "bg-cool",
   },
   {
     buttonLabel: "projects",
     nodeLabel: `top ${MAX_PROJECT_NODE_COUNT} projects`,
-    href: "/projects",
+    href: "/portfolio/projects",
     colorClass: "bg-success",
   },
   {
     buttonLabel: "awards",
     nodeLabel: `top ${MAX_AWARD_NODE_COUNT} awards`,
-    href: "/awards",
+    href: "/portfolio/awards",
     colorClass: "bg-danger",
   },
 ];
 
 export const GRAPH_DATA: GraphData = {
   nodes: [
-    { id: "home", label: "portfolio", href: "/", group: 0, size: 2 },
+    { id: "home", label: "portfolio", href: "/portfolio", group: 0, size: 2 },
     ...PAGE_ITEMS.map((page, index) => ({
       id: page.nodeLabel,
       label: page.nodeLabel.toLowerCase(),
@@ -67,28 +67,28 @@ export const GRAPH_DATA: GraphData = {
     ...GROUPED_EXPERIENCE_ITEMS.map((groupItem) => ({
       id: groupItem.group,
       label: groupItem.group.toLowerCase(),
-      href: `/experience#${groupItem.group}`,
+      href: `/portfolio/experience#${groupItem.group}`,
       group: 2,
       size: 1,
     })),
     ...EDUCATION_ITEMS.map((educationItem) => ({
       id: educationItem.label,
       label: educationItem.label.toLowerCase(),
-      href: `/education#${educationItem.label}`,
+      href: `/portfolio/education#${educationItem.label}`,
       group: 3,
       size: 1,
     })),
     ...SLICED_AWARD_ITEMS.map((awardItem) => ({
       id: awardItem.label,
       label: awardItem.label.toLowerCase(),
-      href: `/awards#${awardItem.label}`,
+      href: `/portfolio/awards#${awardItem.label}`,
       group: 1,
       size: 1,
     })),
     ...SLICED_PROJECT_ITEMS.map((projectItem) => ({
       id: projectItem.label,
       label: projectItem.label.toLowerCase(),
-      href: `/projects#${projectItem.label}`,
+      href: `/portfolio/projects#${projectItem.label}`,
       group: 5,
       size: 1,
     })),

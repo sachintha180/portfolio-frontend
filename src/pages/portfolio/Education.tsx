@@ -10,7 +10,7 @@ export default function Education() {
     <section className="flex-1 flex flex-col gap-5 mx-5 md:mx-15 my-10">
       {/* Header */}
       <Header title="sachintha senanayake" subtitle="my education">
-        <UnderliningLink href="/" variant="link">
+        <UnderliningLink href="/portfolio" variant="link">
           <FiArrowLeft aria-hidden="true" className="w-5 h-5" />
           <span className="text-lg">back to home</span>
         </UnderliningLink>
