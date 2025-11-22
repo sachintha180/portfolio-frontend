@@ -35,7 +35,7 @@ export default function RegisterModal() {
       setEmail("");
       setPassword("");
       setUserType("student");
-      navigate("/cs-class/dashboard");
+      navigate("/cs-class");
     }
   };
 

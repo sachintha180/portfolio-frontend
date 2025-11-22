@@ -4,7 +4,7 @@ import { useAuthState } from "@/contexts/hooks/useAuthState";
 import { useAuthAPI } from "@/contexts/hooks/useAuthAPI";
 import { useAuthOperations } from "@/contexts/hooks/useAuthOperations";
 
-interface AuthContextType {
+type AuthContextType = {
   isAuthenticated: boolean;
   isLoading: boolean;
   error: string | null;
@@ -12,7 +12,7 @@ interface AuthContextType {
   login: (credentials: AuthLoginRequest) => Promise<boolean>;
   logout: () => Promise<void>;
   verify: () => Promise<boolean>;
-}
+};
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
@@ -22,17 +22,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const operations = useAuthOperations(state, api);
 
   return (
-    <AuthContext.Provider
-      value={{
-        isAuthenticated: state.isAuthenticated,
-        isLoading: state.isLoading,
-        error: state.error,
-        register: operations.register,
-        login: operations.login,
-        logout: operations.logout,
-        verify: operations.verify,
-      }}
-    >
+    <AuthContext.Provider value={{ ...state, ...operations }}>
       {children}
     </AuthContext.Provider>
   );

@@ -7,7 +7,7 @@ type RedirectRouteProps = {
 };
 
 export default function RedirectRoute({
-  redirectTo = "/cs-class/dashboard",
+  redirectTo = "/cs-class",
 }: RedirectRouteProps) {
   const { isAuthenticated, isLoading } = useAuth();
 

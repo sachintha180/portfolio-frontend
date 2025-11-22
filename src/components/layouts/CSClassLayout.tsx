@@ -31,13 +31,13 @@ export default function CSClassLayout() {
         <img
           src="/background.png"
           alt="Background image consisting of handwritten computer science notes"
-          className="absolute top-0 left-3/5 w-2/5 h-full object-cover -z-10 opacity-30"
+          className="absolute top-0 left-4/6 w-2/6 h-full object-cover -z-10 opacity-30"
         />
       )}
 
       {/* Background Overlay */}
       {renderGraphics && (
-        <div className="absolute top-0 left-3/5 w-2/5 h-full bg-primary/80 -z-10"></div>
+        <div className="absolute top-0 left-4/6 w-2/6 h-full bg-primary/80 -z-10"></div>
       )}
 
       {/* Color Palette */}
@@ -56,7 +56,7 @@ export default function CSClassLayout() {
       )}
 
       {/* Main Container */}
-      <main className="flex flex-col w-full xl:w-3/5 h-full bg-background overflow-y-auto relative z-10">
+      <main className="flex flex-col w-full xl:w-4/6 h-full bg-background overflow-y-auto relative z-10">
         <Outlet />
 
         {/* Copyright */}

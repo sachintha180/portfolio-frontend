@@ -18,7 +18,7 @@ export default function LoginModal() {
     if (success) {
       setEmail("");
       setPassword("");
-      navigate("/cs-class/dashboard");
+      navigate("/cs-class");
     }
   };
 
