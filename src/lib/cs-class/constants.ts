@@ -1,5 +1,7 @@
 import type { PageItem } from "@/types/miscellaneous";
 
+export const PUBLIC_ROUTES = ["/cs-class/login", "/cs-class/register"];
+
 // The following constants must have keys that match api.ts
 export const USER_TYPES = {
   admin: "Admin",

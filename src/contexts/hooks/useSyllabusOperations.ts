@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from "react";
+import { useCallback } from "react";
 import type {
   Syllabus,
   SyllabusCreateRequest,
@@ -167,20 +167,11 @@ export function useSyllabusOperations(
     [apiDeleteSyllabus, setSyllabuses, setIsLoading, setError]
   );
 
-  return useMemo(
-    () => ({
-      createSyllabus,
-      getSyllabus,
-      getAllSyllabuses,
-      updateSyllabus,
-      deleteSyllabus,
-    }),
-    [
-      createSyllabus,
-      getSyllabus,
-      getAllSyllabuses,
-      updateSyllabus,
-      deleteSyllabus,
-    ]
-  );
+  return {
+    createSyllabus,
+    getSyllabus,
+    getAllSyllabuses,
+    updateSyllabus,
+    deleteSyllabus,
+  };
 }

@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from "react";
+import { useCallback } from "react";
 import type { AuthLoginRequest, AuthRegisterRequest } from "@/types/api";
 import type { useAuthAPI } from "@/contexts/hooks/useAuthAPI";
 import type { useAuthState } from "@/contexts/hooks/useAuthState";
@@ -20,6 +20,7 @@ export function useAuthOperations(
   } = api;
 
   // Verify authentication status
+  // NOTE: Don't set error here, otherwise will show up in the login / register modal
   const verify = useCallback(async (): Promise<boolean> => {
     setIsLoading(true);
     setError(null);
@@ -29,9 +30,6 @@ export function useAuthOperations(
       setIsAuthenticated(result.authenticated);
       return result.authenticated;
     } catch (error) {
-      const errorMessage =
-        error instanceof Error ? error.message : "Verification failed";
-      setError(errorMessage);
       setIsAuthenticated(false);
       return false;
     } finally {
@@ -123,14 +121,11 @@ export function useAuthOperations(
     }
   }, [apiRefresh, setIsAuthenticated, setIsLoading, setError]);
 
-  return useMemo(
-    () => ({
-      register,
-      login,
-      logout,
-      verify,
-      refresh,
-    }),
-    [register, login, logout, verify, refresh]
-  );
+  return {
+    register,
+    login,
+    logout,
+    verify,
+    refresh,
+  };
 }

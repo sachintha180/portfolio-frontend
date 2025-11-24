@@ -16,7 +16,11 @@ import CSClassDashboard from "@/pages/cs-class/Dashboard";
 import CSClassLogin from "@/pages/cs-class/Login";
 import CSClassRegister from "@/pages/cs-class/Register";
 import CSClassLogout from "@/pages/cs-class/Logout";
-import CSClassAddSyllabus from "@/pages/cs-class/AddSyllabus";
+
+import CSClassAddSyllabus from "@/pages/cs-class/syllabus/AddSyllabus";
+import CSClassViewSyllabus from "@/pages/cs-class/syllabus/ViewSyllabus";
+import CSClassEditSyllabus from "@/pages/cs-class/syllabus/EditSyllabus";
+import CSClassDeleteSyllabus from "@/pages/cs-class/syllabus/DeleteSyllabus";
 
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { AuthProvider, UserProvider, SyllabusProvider } from "@/contexts";
@@ -61,8 +65,25 @@ export default function App() {
             {/* Index Route */}
             <Route index element={<CSClassDashboard />} />
 
-            {/* Specific Routes */}
-            <Route path="add-syllabus" element={<CSClassAddSyllabus />} />
+            {/* Syllabus Routes */}
+            <Route path="syllabus/*">
+              {/* Add Syllabus Route */}
+              <Route path="add" element={<CSClassAddSyllabus />} />
+
+              {/* Edit Syllabus Route */}
+              <Route path=":id/edit" element={<CSClassEditSyllabus />} />
+
+              {/* View Syllabus Route */}
+              <Route path=":id" element={<CSClassViewSyllabus />} />
+
+              {/* Delete Syllabus Route */}
+              <Route path=":id/delete" element={<CSClassDeleteSyllabus />} />
+
+              {/* Catch-all Route */}
+              <Route path="*" element={<NotFound linkHref="/cs-class" />} />
+            </Route>
+
+            {/* Logout Route */}
             <Route path="logout" element={<CSClassLogout />} />
           </Route>
 
@@ -88,8 +109,9 @@ export default function App() {
         </Route>
 
         {/* Catch-all Route */}
-        {/* BUG: NotFound component is not being rendered within a suitable layout */}
-        <Route path="*" element={<NotFound linkHref="/portfolio" />} />
+        <Route path="*" element={<PortfolioLayout />}>
+          <Route path="*" element={<NotFound linkHref="/" />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );

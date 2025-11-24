@@ -33,7 +33,7 @@ export default function LoginModal() {
   };
 
   return (
-    <div className="mx-auto mt-5 flex w-full flex-1 flex-col gap-5 sm:max-w-md">
+    <div className="mx-auto mt-3 flex w-full flex-1 flex-col gap-5 sm:max-w-md">
       {/* Header */}
       <h2 className="text-center text-2xl lg:text-left">
         login to your account
@@ -68,6 +68,7 @@ export default function LoginModal() {
             }`}
             placeholder="Enter your email address"
             disabled={isLoggingIn}
+            autoComplete="email"
           />
           {form.formState.errors.email && (
             <p className="mt-1 text-sm text-red-500">
@@ -95,6 +96,7 @@ export default function LoginModal() {
             }`}
             placeholder="Enter your password"
             disabled={isLoggingIn}
+            autoComplete="current-password"
           />
           {form.formState.errors.password && (
             <p className="mt-1 text-sm text-red-500">
