@@ -2,8 +2,8 @@ import Seperator from "@/components/ui/seperator";
 import PageButton from "@/components/ui/page-button";
 import Header from "@/components/portfolio/Header";
 import UnderliningLink from "@/components/ui/underlining-link";
-import { FiLogOut, FiPlus } from "react-icons/fi";
-import { PAGE_ITEMS } from "@/lib/cs-class/constants";
+import { FiEdit, FiLogOut, FiPlus, FiTrash } from "react-icons/fi";
+import { PAGE_ITEMS, SYLLABUS_LEVELS } from "@/lib/cs-class/constants";
 import { useSyllabus } from "@/contexts";
 import { useEffect } from "react";
 import LoadingSkeleton from "@/components/skeletons/LoadingSkeleton";
@@ -128,6 +128,7 @@ export default function Dashboard() {
               const colorClass =
                 SYLLABUS_COLOR_PALETTE[index % SYLLABUS_COLOR_PALETTE.length] ??
                 "bg-secondary";
+              const syllabusLevel = SYLLABUS_LEVELS[syllabus.level];
 
               return (
                 <PageButton
@@ -136,7 +137,33 @@ export default function Dashboard() {
                   nodeLabel={syllabus.code}
                   href={`/cs-class/syllabus/${syllabus.id}`}
                   colorClass={colorClass}
-                />
+                >
+                  <div className="flex items-center justify-between">
+                    {/* Syllabus Level and Code */}
+                    <span className="text-sm">{`${syllabusLevel} - ${syllabus.code}`}</span>
+
+                    {/* Action Buttons */}
+                    <div className="flex items-center justify-between gap-2">
+                      {/* Delete Syllabus Button */}
+                      <UnderliningLink
+                        href={`/cs-class/delete-syllabus/${syllabus.id}`}
+                        variant="surface"
+                        className="mr-2 pb-1"
+                      >
+                        <FiTrash aria-hidden="true" className="h-5 w-5" />
+                      </UnderliningLink>
+
+                      {/* Edit Syllabus Button */}
+                      <UnderliningLink
+                        href={`/cs-class/edit-syllabus/${syllabus.id}`}
+                        variant="surface"
+                        className="mr-2 pb-1"
+                      >
+                        <FiEdit aria-hidden="true" className="h-5 w-5" />
+                      </UnderliningLink>
+                    </div>
+                  </div>
+                </PageButton>
               );
             })
           ) : (

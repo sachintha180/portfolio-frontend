@@ -1,7 +1,7 @@
 import type { AnchorHTMLAttributes } from "react";
 import { FiArrowUpRight } from "react-icons/fi";
 
-type UnderliningLinkVariant = "link" | "text";
+type UnderliningLinkVariant = "link" | "text" | "surface";
 
 const variantClasses = {
   link: {
@@ -11,6 +11,10 @@ const variantClasses = {
   text: {
     base: "text-muted",
     after: "after:bg-muted",
+  },
+  surface: {
+    base: "text-surface",
+    after: "after:bg-surface",
   },
 };
 

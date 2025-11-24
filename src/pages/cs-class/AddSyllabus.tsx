@@ -9,7 +9,7 @@ export default function AddSyllabus() {
     <section className="mx-5 my-10 flex flex-1 flex-col gap-5 md:mx-15">
       {/* Header */}
       <Header title="cs class" subtitle="notes, videos, and more">
-        <UnderliningLink href="/cs-class/dashboard" variant="link">
+        <UnderliningLink href="/cs-class" variant="link">
           <FiArrowLeft aria-hidden="true" className="h-5 w-5" />
           <span className="text-lg">go back</span>
         </UnderliningLink>
