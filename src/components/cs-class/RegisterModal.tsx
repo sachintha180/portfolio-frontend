@@ -50,7 +50,7 @@ export default function RegisterModal() {
   };
 
   return (
-    <div className="mx-auto mt-5 flex w-full flex-1 flex-col gap-5 sm:max-w-md">
+    <div className="mx-auto mt-3 flex w-full flex-1 flex-col gap-5 sm:max-w-md">
       {/* Header */}
       <h2 className="text-center text-2xl lg:text-left">create your account</h2>
 

@@ -5,6 +5,7 @@ import type {
   UserUpdateResponse,
 } from "@/types/api";
 import { useCallback } from "react";
+
 export function useUserAPI() {
   // Get user by ID
   const getUser = useCallback(

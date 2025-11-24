@@ -1,11 +1,11 @@
 import axios from "axios";
+import { PUBLIC_ROUTES } from "./cs-class/constants";
 import type {
   AxiosResponse,
   AxiosError,
   InternalAxiosRequestConfig,
 } from "axios";
 
-// Initialize axios instance
 export const api = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api",
   headers: {
@@ -79,7 +79,12 @@ api.interceptors.response.use(
         return api(originalRequest);
       } catch (refreshError) {
         processQueue(refreshError as AxiosError);
-        // Refresh failed - user needs to re-authenticate
+        // Redirect to login page if not a public route
+        const currentPath = window.location.pathname;
+        const isPublicRoute = PUBLIC_ROUTES.includes(currentPath);
+        if (!isPublicRoute) {
+          window.location.href = PUBLIC_ROUTES[0] ?? "/cs-class/login";
+        }
         return Promise.reject(refreshError);
       } finally {
         isRefreshing = false;

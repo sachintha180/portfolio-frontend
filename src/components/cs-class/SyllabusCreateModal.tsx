@@ -54,7 +54,7 @@ export default function SyllabusCreateModal() {
   };
 
   return (
-    <div className="mt-5 flex w-full flex-1 flex-col gap-5">
+    <div className="flex w-full flex-1 flex-col gap-5">
       {/* Header */}
       <h2 className="text-center text-2xl lg:text-left">create syllabus</h2>
 
@@ -94,6 +94,7 @@ export default function SyllabusCreateModal() {
             }`}
             placeholder="Enter syllabus name"
             disabled={isCreating}
+            autoComplete="off"
           />
           {form.formState.errors.name && (
             <p className="mt-1 text-sm text-red-500">
@@ -121,6 +122,7 @@ export default function SyllabusCreateModal() {
             placeholder="Enter syllabus description"
             rows={4}
             disabled={isCreating}
+            autoComplete="off"
           />
           {form.formState.errors.description && (
             <p className="mt-1 text-sm text-red-500">
@@ -144,6 +146,7 @@ export default function SyllabusCreateModal() {
               form.formState.errors.code ? "border-red-500" : "border-gray-300"
             }`}
             disabled={isCreating}
+            autoComplete="off"
           >
             {SUBJECT_CODES.map((code) => (
               <option key={code} value={code}>
@@ -173,6 +176,7 @@ export default function SyllabusCreateModal() {
               form.formState.errors.level ? "border-red-500" : "border-gray-300"
             }`}
             disabled={isCreating}
+            autoComplete="off"
           >
             {Object.keys(SYLLABUS_LEVELS).map((level) => (
               <option key={level} value={level}>
@@ -205,6 +209,7 @@ export default function SyllabusCreateModal() {
                 : "border-gray-300"
             }`}
             disabled={isCreating}
+            autoComplete="off"
           />
           {form.formState.errors.examination_date && (
             <p className="mt-1 text-sm text-red-500">

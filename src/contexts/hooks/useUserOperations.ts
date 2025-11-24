@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from "react";
+import { useCallback } from "react";
 import type { User, UserUpdateRequest } from "@/types/api";
 import type { useUserAPI } from "@/contexts/hooks/useUserAPI";
 import type { useUserState } from "@/contexts/hooks/useUserState";
@@ -81,12 +81,9 @@ export function useUserOperations(
     [apiDeleteUser, setUser, setIsLoading, setError]
   );
 
-  return useMemo(
-    () => ({
-      getUser,
-      updateUser,
-      deleteUser,
-    }),
-    [getUser, updateUser, deleteUser]
-  );
+  return {
+    getUser,
+    updateUser,
+    deleteUser,
+  };
 }
