@@ -4,23 +4,11 @@ import {
 } from "@/lib/portfolio/constants";
 import { useWindowSize } from "@/hooks/useWindowSize";
 import { Outlet } from "react-router-dom";
-import { useEffect, useRef } from "react";
-import { useAuth } from "@/contexts/AuthContext";
 
 export default function CSClassLayout() {
   // NOTE: We're selectively rendering the graphics to improve mobile performance.
   const { width: windowWidth } = useWindowSize();
   const renderGraphics = windowWidth >= LAYOUT_GRAPHICS_BREAKPOINT;
-
-  const { verify } = useAuth();
-  const hasVerified = useRef(false);
-
-  useEffect(() => {
-    if (!hasVerified.current) {
-      verify();
-      hasVerified.current = true;
-    }
-  }, [verify]);
 
   const currentYear = new Date().getFullYear();
 

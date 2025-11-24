@@ -1,6 +1,6 @@
 import { Navigate, Outlet } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
-import { FiLoader } from "react-icons/fi";
+import LoadingSkeleton from "@/components/skeletons/LoadingSkeleton";
 
 type ProtectedRouteProps = {
   redirectTo?: string;
@@ -12,12 +12,7 @@ export default function ProtectedRoute({
   const { isAuthenticated, isLoading } = useAuth();
 
   if (isLoading) {
-    return (
-      <div className="flex flex-1 items-center justify-center gap-2">
-        <div className="text-muted">Loading</div>
-        <FiLoader className="h-5 w-5 animate-spin" />
-      </div>
-    );
+    return <LoadingSkeleton className="flex-1 justify-center" />;
   }
 
   if (!isAuthenticated) {
