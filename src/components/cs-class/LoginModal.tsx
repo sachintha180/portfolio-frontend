@@ -1,38 +1,45 @@
-import Seperator from "@/components/ui/seperator";
 import { useAuth } from "@/contexts/AuthContext";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FiLoader } from "react-icons/fi";
 import UnderliningLink from "../ui/underlining-link";
+import * as z from "zod";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+const LoginFormSchema = z.object({
+  email: z.email("Please enter a valid email address"),
+  password: z.string().trim().min(1, "Password is required"),
+});
+type LoginFormValues = z.infer<typeof LoginFormSchema>;
 
 export default function LoginModal() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const form = useForm<LoginFormValues>({
+    resolver: zodResolver(LoginFormSchema),
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
 
   const { login, isLoading: isLoggingIn, error: loginError } = useAuth();
   const navigate = useNavigate();
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const success = await login({ email, password });
+  const onSubmit = async (data: LoginFormValues) => {
+    const success = await login(data);
     if (success) {
-      setEmail("");
-      setPassword("");
+      form.reset();
       navigate("/cs-class");
     }
   };
 
   return (
-    <div className="mx-auto flex w-full flex-1 flex-col gap-5 sm:max-w-md">
+    <div className="mx-auto mt-5 flex w-full flex-1 flex-col gap-5 sm:max-w-md">
       {/* Header */}
-      <h2 className="text-secondary text-center text-2xl lg:text-left">
+      <h2 className="text-center text-2xl lg:text-left">
         login to your account
       </h2>
 
-      {/* Seperator */}
-      <Seperator />
-
-      {/* Login Error */}
+      {/* Login Error (API errors only) */}
       {loginError && (
         <div className="bg-red-500 p-2 text-center text-white">
           {loginError}
@@ -40,7 +47,10 @@ export default function LoginModal() {
       )}
 
       {/* Form */}
-      <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+      <form
+        className="flex flex-col gap-4"
+        onSubmit={form.handleSubmit(onSubmit)}
+      >
         {/* Email Input */}
         <div>
           <label
@@ -50,16 +60,20 @@ export default function LoginModal() {
             Email Address
           </label>
           <input
-            type="email"
             id="email"
-            name="email"
-            className="focus:ring-link w-full border border-gray-300 px-3 py-2 focus:ring-2 focus:outline-none"
-            required
-            autoComplete="email"
+            type="email"
+            {...form.register("email")}
+            className={`focus:ring-link w-full border px-3 py-2 focus:ring-2 focus:outline-none ${
+              form.formState.errors.email ? "border-red-500" : "border-gray-300"
+            }`}
             placeholder="Enter your email address"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            disabled={isLoggingIn}
           />
+          {form.formState.errors.email && (
+            <p className="mt-1 text-sm text-red-500">
+              {form.formState.errors.email.message}
+            </p>
+          )}
         </div>
 
         {/* Password Input */}
@@ -71,22 +85,29 @@ export default function LoginModal() {
             Password
           </label>
           <input
-            type="password"
             id="password"
-            name="password"
-            className="focus:ring-link w-full border border-gray-300 px-3 py-2 focus:ring-2 focus:outline-none"
-            required
-            autoComplete="current-password"
+            type="password"
+            {...form.register("password")}
+            className={`focus:ring-link w-full border px-3 py-2 focus:ring-2 focus:outline-none ${
+              form.formState.errors.password
+                ? "border-red-500"
+                : "border-gray-300"
+            }`}
             placeholder="Enter your password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            disabled={isLoggingIn}
           />
+          {form.formState.errors.password && (
+            <p className="mt-1 text-sm text-red-500">
+              {form.formState.errors.password.message}
+            </p>
+          )}
         </div>
 
         {/* Login Button */}
         <button
           type="submit"
-          className="bg-link hover:bg-link/80 mt-2 w-full cursor-pointer px-3 py-2 font-semibold text-white transition duration-150"
+          disabled={isLoggingIn}
+          className="bg-link hover:bg-link/80 disabled:bg-link/50 mt-2 w-full cursor-pointer px-3 py-2 font-semibold text-white transition duration-150 disabled:cursor-not-allowed"
         >
           {isLoggingIn ? (
             <div className="flex items-center justify-center gap-2">
