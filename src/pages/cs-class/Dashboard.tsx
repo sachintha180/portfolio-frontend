@@ -24,8 +24,17 @@ export default function Dashboard() {
     isLoading: isLoadingSyllabuses,
   } = useSyllabus();
 
+  // NOTE: The syllabuses state is not referentially stable, so we don't include it in the dependency array.
+  //       If can be made stable using useMemo + deep comparision (since syllabuses is an object), but this is
+  //       computationally expensive.
   useEffect(() => {
-    getAllSyllabuses();
+    const fetchSyllabuses = async () => {
+      if (Object.keys(syllabuses).length) {
+        return;
+      }
+      await getAllSyllabuses();
+    };
+    fetchSyllabuses();
   }, [getAllSyllabuses]);
 
   return (
@@ -61,7 +70,7 @@ export default function Dashboard() {
           <h3 className="text-secondary text-2xl">recent uploads</h3>
 
           {/* Add Syllabus Button */}
-          <UnderliningLink href="/cs-class/add-file" variant="link">
+          <UnderliningLink href="/cs-class/file/add" variant="link">
             <FiPlus aria-hidden="true" className="h-5 w-5" />
             <span className="hidden text-lg sm:block">add file</span>
           </UnderliningLink>
@@ -113,7 +122,7 @@ export default function Dashboard() {
           <h3 className="text-secondary text-2xl">all syllabuses</h3>
 
           {/* Add Syllabus Button */}
-          <UnderliningLink href="/cs-class/add-syllabus" variant="link">
+          <UnderliningLink href="/cs-class/syllabus/add" variant="link">
             <FiPlus aria-hidden="true" className="h-5 w-5" />
             <span className="hidden text-lg sm:block">add syllabus</span>
           </UnderliningLink>
@@ -146,7 +155,7 @@ export default function Dashboard() {
                     <div className="flex items-center justify-between gap-2">
                       {/* Delete Syllabus Button */}
                       <UnderliningLink
-                        href={`/cs-class/delete-syllabus/${syllabus.id}`}
+                        href={`/cs-class/syllabus/${syllabus.id}/delete`}
                         variant="surface"
                         className="mr-2 pb-1"
                       >
@@ -155,7 +164,7 @@ export default function Dashboard() {
 
                       {/* Edit Syllabus Button */}
                       <UnderliningLink
-                        href={`/cs-class/edit-syllabus/${syllabus.id}`}
+                        href={`/cs-class/syllabus/${syllabus.id}/edit`}
                         variant="surface"
                         className="mr-2 pb-1"
                       >
