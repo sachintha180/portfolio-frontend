@@ -4,785 +4,829 @@
  */
 
 export interface paths {
-  "/api/auth/register": {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
+    "/api/auth/register": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Register
+         * @description Register a new user and set access and refresh tokens as HTTP-only cookies.
+         */
+        post: operations["register_api_auth_register_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
-    get?: never;
-    put?: never;
-    /**
-     * Register
-     * @description Register a new user and set access and refresh tokens as HTTP-only cookies.
-     */
-    post: operations["register_api_auth_register_post"];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  "/api/auth/login": {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
+    "/api/auth/login": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Login
+         * @description Authenticate a user and set access and refresh tokens as HTTP-only cookies.
+         */
+        post: operations["login_api_auth_login_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
-    get?: never;
-    put?: never;
-    /**
-     * Login
-     * @description Authenticate a user and set access and refresh tokens as HTTP-only cookies.
-     */
-    post: operations["login_api_auth_login_post"];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  "/api/auth/logout": {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
+    "/api/auth/logout": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Logout
+         * @description Logout user by clearing HTTP-only cookies.
+         */
+        post: operations["logout_api_auth_logout_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
-    get?: never;
-    put?: never;
-    /**
-     * Logout
-     * @description Logout user by clearing HTTP-only cookies.
-     */
-    post: operations["logout_api_auth_logout_post"];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  "/api/auth/verify": {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
+    "/api/auth/verify": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Verify
+         * @description Verify the current user's authentication status from HTTP-only cookie.
+         */
+        get: operations["verify_api_auth_verify_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
-    /**
-     * Verify
-     * @description Verify the current user's authentication status from HTTP-only cookie.
-     */
-    get: operations["verify_api_auth_verify_get"];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  "/api/users/{user_id}": {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
+    "/api/auth/refresh": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Refresh
+         * @description Refresh the current user's access token using refresh token from HTTP-only cookie.
+         */
+        post: operations["refresh_api_auth_refresh_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
-    /**
-     * Get User
-     * @description Get a user by ID.
-     */
-    get: operations["get_user_api_users__user_id__get"];
-    put?: never;
-    post?: never;
-    /**
-     * Delete User
-     * @description Delete a user.
-     */
-    delete: operations["delete_user_api_users__user_id__delete"];
-    options?: never;
-    head?: never;
-    /**
-     * Update User
-     * @description Update a user.
-     */
-    patch: operations["update_user_api_users__user_id__patch"];
-    trace?: never;
-  };
-  "/api/syllabus/": {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
+    "/api/users/{user_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get User
+         * @description Get a user by ID.
+         */
+        get: operations["get_user_api_users__user_id__get"];
+        put?: never;
+        post?: never;
+        /**
+         * Delete User
+         * @description Delete a user.
+         */
+        delete: operations["delete_user_api_users__user_id__delete"];
+        options?: never;
+        head?: never;
+        /**
+         * Update User
+         * @description Update a user.
+         */
+        patch: operations["update_user_api_users__user_id__patch"];
+        trace?: never;
     };
-    get?: never;
-    put?: never;
-    /**
-     * Create Syllabus
-     * @description Create a new syllabus.
-     */
-    post: operations["create_syllabus_api_syllabus__post"];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  "/api/syllabus/{syllabus_id}": {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
+    "/api/syllabus/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Create Syllabus
+         * @description Create a new syllabus.
+         */
+        post: operations["create_syllabus_api_syllabus__post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
-    /**
-     * Get Syllabus
-     * @description Get a syllabus by ID.
-     */
-    get: operations["get_syllabus_api_syllabus__syllabus_id__get"];
-    put?: never;
-    post?: never;
-    /**
-     * Delete Syllabus
-     * @description Delete a syllabus.
-     */
-    delete: operations["delete_syllabus_api_syllabus__syllabus_id__delete"];
-    options?: never;
-    head?: never;
-    /**
-     * Update Syllabus
-     * @description Update a syllabus.
-     */
-    patch: operations["update_syllabus_api_syllabus__syllabus_id__patch"];
-    trace?: never;
-  };
-  "/api/syllabus/all": {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
+    "/api/syllabus/all": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Syllabuses
+         * @description Get all syllabuses.
+         */
+        get: operations["get_syllabuses_api_syllabus_all_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
-    /**
-     * Get Syllabuses
-     * @description Get all syllabuses.
-     */
-    get: operations["get_syllabuses_api_syllabus_all_get"];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  "/": {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
+    "/api/syllabus/{syllabus_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Syllabus
+         * @description Get a syllabus by ID.
+         */
+        get: operations["get_syllabus_api_syllabus__syllabus_id__get"];
+        put?: never;
+        post?: never;
+        /**
+         * Delete Syllabus
+         * @description Delete a syllabus.
+         */
+        delete: operations["delete_syllabus_api_syllabus__syllabus_id__delete"];
+        options?: never;
+        head?: never;
+        /**
+         * Update Syllabus
+         * @description Update a syllabus.
+         */
+        patch: operations["update_syllabus_api_syllabus__syllabus_id__patch"];
+        trace?: never;
     };
-    /**
-     * Index
-     * @description Root endpoint.
-     */
-    get: operations["index__get"];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
+    "/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Index
+         * @description Root endpoint.
+         */
+        get: operations["index__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
-  schemas: {
-    /** AuthLoginRequest */
-    AuthLoginRequest: {
-      /**
-       * Email
-       * Format: email
-       */
-      email: string;
-      /** Password */
-      password: string;
+    schemas: {
+        /** AuthLoginRequest */
+        AuthLoginRequest: {
+            /**
+             * Email
+             * Format: email
+             */
+            email: string;
+            /** Password */
+            password: string;
+        };
+        /** AuthLoginResponse */
+        AuthLoginResponse: {
+            user: components["schemas"]["User"];
+        };
+        /** AuthRefreshResponse */
+        AuthRefreshResponse: {
+            user: components["schemas"]["User"];
+        };
+        /** AuthRegisterRequest */
+        AuthRegisterRequest: {
+            /** First Name */
+            first_name: string;
+            /** Last Name */
+            last_name: string;
+            /**
+             * Email
+             * Format: email
+             */
+            email: string;
+            /** Password */
+            password: string;
+            type: components["schemas"]["UserType"];
+        };
+        /** AuthRegisterResponse */
+        AuthRegisterResponse: {
+            user: components["schemas"]["User"];
+        };
+        /** AuthVerifyResponse */
+        AuthVerifyResponse: {
+            /** Authenticated */
+            authenticated: boolean;
+            user: components["schemas"]["AuthVerifyUser"] | null;
+        };
+        /** AuthVerifyUser */
+        AuthVerifyUser: {
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /**
+             * Email
+             * Format: email
+             */
+            email: string;
+            /** First Name */
+            first_name: string;
+            /** Last Name */
+            last_name: string;
+            type: components["schemas"]["UserType"];
+        };
+        /** HTTPValidationError */
+        HTTPValidationError: {
+            /** Detail */
+            detail?: components["schemas"]["ValidationError"][];
+        };
+        /**
+         * SubjectCode
+         * @enum {string}
+         */
+        SubjectCode: "4CP0" | "41T1" | "X/YIT11" | "2210" | "9618" | "HL, 2014";
+        /** Syllabus */
+        Syllabus: {
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /**
+             * Updated At
+             * Format: date-time
+             */
+            updated_at: string;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id?: string;
+            /** Name */
+            name: string;
+            /** Description */
+            description: string;
+            code: components["schemas"]["SubjectCode"];
+            level: components["schemas"]["SyllabusLevel"];
+            /**
+             * Examination Date
+             * Format: date
+             */
+            examination_date: string;
+        };
+        /** SyllabusCreateRequest */
+        SyllabusCreateRequest: {
+            /** Name */
+            name: string;
+            /** Description */
+            description: string;
+            code: components["schemas"]["SubjectCode"];
+            level: components["schemas"]["SyllabusLevel"];
+            /**
+             * Examination Date
+             * Format: date
+             */
+            examination_date: string;
+        };
+        /** SyllabusCreateResponse */
+        SyllabusCreateResponse: {
+            syllabus: components["schemas"]["Syllabus"];
+        };
+        /** SyllabusGetResponse */
+        SyllabusGetResponse: {
+            syllabus: components["schemas"]["Syllabus"];
+        };
+        /**
+         * SyllabusLevel
+         * @enum {string}
+         */
+        SyllabusLevel: "igcse" | "olevel" | "alevel" | "diploma";
+        /** SyllabusUpdateRequest */
+        SyllabusUpdateRequest: {
+            /** Name */
+            name?: string | null;
+            /** Description */
+            description?: string | null;
+            code?: components["schemas"]["SubjectCode"] | null;
+            level?: components["schemas"]["SyllabusLevel"] | null;
+            /** Examination Date */
+            examination_date?: string | null;
+        };
+        /** SyllabusUpdateResponse */
+        SyllabusUpdateResponse: {
+            syllabus: components["schemas"]["Syllabus"];
+        };
+        /** SyllabusesGetResponse */
+        SyllabusesGetResponse: {
+            /** Syllabuses */
+            syllabuses: components["schemas"]["Syllabus"][];
+        };
+        /** User */
+        User: {
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /**
+             * Updated At
+             * Format: date-time
+             */
+            updated_at: string;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id?: string;
+            /** First Name */
+            first_name: string;
+            /** Last Name */
+            last_name: string;
+            /**
+             * Email
+             * Format: email
+             */
+            email: string;
+            /** Password */
+            password: string;
+            type: components["schemas"]["UserType"];
+        };
+        /** UserGetResponse */
+        UserGetResponse: {
+            user: components["schemas"]["User"];
+        };
+        /**
+         * UserType
+         * @enum {string}
+         */
+        UserType: "student" | "admin";
+        /** UserUpdateRequest */
+        UserUpdateRequest: {
+            /** First Name */
+            first_name?: string | null;
+            /** Last Name */
+            last_name?: string | null;
+            /** Email */
+            email?: string | null;
+            type?: components["schemas"]["UserType"] | null;
+        };
+        /** UserUpdateResponse */
+        UserUpdateResponse: {
+            user: components["schemas"]["User"];
+        };
+        /** ValidationError */
+        ValidationError: {
+            /** Location */
+            loc: (string | number)[];
+            /** Message */
+            msg: string;
+            /** Error Type */
+            type: string;
+        };
     };
-    /** AuthLoginResponse */
-    AuthLoginResponse: {
-      user: components["schemas"]["User"];
-    };
-    /** AuthRegisterRequest */
-    AuthRegisterRequest: {
-      /** First Name */
-      first_name: string;
-      /** Last Name */
-      last_name: string;
-      /**
-       * Email
-       * Format: email
-       */
-      email: string;
-      /** Password */
-      password: string;
-      type: components["schemas"]["UserType"];
-    };
-    /** AuthRegisterResponse */
-    AuthRegisterResponse: {
-      user: components["schemas"]["User"];
-    };
-    /** AuthVerifyResponse */
-    AuthVerifyResponse: {
-      /** Authenticated */
-      authenticated: boolean;
-      user: components["schemas"]["AuthVerifyUser"] | null;
-    };
-    /** AuthVerifyUser */
-    AuthVerifyUser: {
-      /**
-       * Id
-       * Format: uuid
-       */
-      id: string;
-      /**
-       * Email
-       * Format: email
-       */
-      email: string;
-      /** First Name */
-      first_name: string;
-      /** Last Name */
-      last_name: string;
-      type: components["schemas"]["UserType"];
-    };
-    /** HTTPValidationError */
-    HTTPValidationError: {
-      /** Detail */
-      detail?: components["schemas"]["ValidationError"][];
-    };
-    /**
-     * SubjectCode
-     * @enum {string}
-     */
-    SubjectCode: "4CP0" | "41T1" | "X/YIT11" | "2210" | "9618" | "HL, 2014";
-    /** Syllabus */
-    Syllabus: {
-      /**
-       * Created At
-       * Format: date-time
-       */
-      created_at: string;
-      /**
-       * Updated At
-       * Format: date-time
-       */
-      updated_at: string;
-      /**
-       * Id
-       * Format: uuid
-       */
-      id?: string;
-      /** Name */
-      name: string;
-      /** Description */
-      description: string;
-      code: components["schemas"]["SubjectCode"];
-      level: components["schemas"]["SyllabusLevel"];
-      /**
-       * Examination Date
-       * Format: date
-       */
-      examination_date: string;
-    };
-    /** SyllabusCreateRequest */
-    SyllabusCreateRequest: {
-      /** Name */
-      name: string;
-      /** Description */
-      description: string;
-      code: components["schemas"]["SubjectCode"];
-      level: components["schemas"]["SyllabusLevel"];
-      /**
-       * Examination Date
-       * Format: date
-       */
-      examination_date: string;
-    };
-    /** SyllabusCreateResponse */
-    SyllabusCreateResponse: {
-      syllabus: components["schemas"]["Syllabus"];
-    };
-    /** SyllabusGetResponse */
-    SyllabusGetResponse: {
-      syllabus: components["schemas"]["Syllabus"];
-    };
-    /**
-     * SyllabusLevel
-     * @enum {string}
-     */
-    SyllabusLevel: "igcse" | "olevel" | "alevel" | "diploma";
-    /** SyllabusUpdateRequest */
-    SyllabusUpdateRequest: {
-      /** Name */
-      name?: string | null;
-      /** Description */
-      description?: string | null;
-      code?: components["schemas"]["SubjectCode"] | null;
-      level?: components["schemas"]["SyllabusLevel"] | null;
-      /** Examination Date */
-      examination_date?: string | null;
-    };
-    /** SyllabusUpdateResponse */
-    SyllabusUpdateResponse: {
-      syllabus: components["schemas"]["Syllabus"];
-    };
-    /** SyllabusesGetResponse */
-    SyllabusesGetResponse: {
-      /** Syllabuses */
-      syllabuses: components["schemas"]["Syllabus"][];
-    };
-    /** User */
-    User: {
-      /**
-       * Created At
-       * Format: date-time
-       */
-      created_at: string;
-      /**
-       * Updated At
-       * Format: date-time
-       */
-      updated_at: string;
-      /**
-       * Id
-       * Format: uuid
-       */
-      id?: string;
-      /** First Name */
-      first_name: string;
-      /** Last Name */
-      last_name: string;
-      /**
-       * Email
-       * Format: email
-       */
-      email: string;
-      /** Password */
-      password: string;
-      type: components["schemas"]["UserType"];
-    };
-    /** UserGetResponse */
-    UserGetResponse: {
-      user: components["schemas"]["User"];
-    };
-    /**
-     * UserType
-     * @enum {string}
-     */
-    UserType: "student" | "admin";
-    /** UserUpdateRequest */
-    UserUpdateRequest: {
-      /** First Name */
-      first_name?: string | null;
-      /** Last Name */
-      last_name?: string | null;
-      /** Email */
-      email?: string | null;
-      type?: components["schemas"]["UserType"] | null;
-    };
-    /** UserUpdateResponse */
-    UserUpdateResponse: {
-      user: components["schemas"]["User"];
-    };
-    /** ValidationError */
-    ValidationError: {
-      /** Location */
-      loc: (string | number)[];
-      /** Message */
-      msg: string;
-      /** Error Type */
-      type: string;
-    };
-  };
-  responses: never;
-  parameters: never;
-  requestBodies: never;
-  headers: never;
-  pathItems: never;
+    responses: never;
+    parameters: never;
+    requestBodies: never;
+    headers: never;
+    pathItems: never;
 }
 export type $defs = Record<string, never>;
 export interface operations {
-  register_api_auth_register_post: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
+    register_api_auth_register_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["AuthRegisterRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AuthRegisterResponse"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
     };
-    requestBody: {
-      content: {
-        "application/json": components["schemas"]["AuthRegisterRequest"];
-      };
+    login_api_auth_login_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["AuthLoginRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AuthLoginResponse"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
     };
-    responses: {
-      /** @description Successful Response */
-      201: {
-        headers: {
-          [name: string]: unknown;
+    logout_api_auth_logout_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
         };
-        content: {
-          "application/json": components["schemas"]["AuthRegisterResponse"];
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
         };
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
-        };
-      };
     };
-  };
-  login_api_auth_login_post: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
+    verify_api_auth_verify_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AuthVerifyResponse"];
+                };
+            };
+        };
     };
-    requestBody: {
-      content: {
-        "application/json": components["schemas"]["AuthLoginRequest"];
-      };
+    refresh_api_auth_refresh_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AuthRefreshResponse"];
+                };
+            };
+        };
     };
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
+    get_user_api_users__user_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                user_id: string;
+            };
+            cookie?: never;
         };
-        content: {
-          "application/json": components["schemas"]["AuthLoginResponse"];
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UserGetResponse"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
         };
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
-        };
-      };
     };
-  };
-  logout_api_auth_logout_post: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
+    delete_user_api_users__user_id__delete: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                user_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
     };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      204: {
-        headers: {
-          [name: string]: unknown;
+    update_user_api_users__user_id__patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                user_id: string;
+            };
+            cookie?: never;
         };
-        content?: never;
-      };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["UserUpdateRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UserUpdateResponse"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
     };
-  };
-  verify_api_auth_verify_get: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
+    create_syllabus_api_syllabus__post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SyllabusCreateRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SyllabusCreateResponse"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
     };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
+    get_syllabuses_api_syllabus_all_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
         };
-        content: {
-          "application/json": components["schemas"]["AuthVerifyResponse"];
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SyllabusesGetResponse"];
+                };
+            };
         };
-      };
     };
-  };
-  get_user_api_users__user_id__get: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        user_id: string;
-      };
-      cookie?: never;
+    get_syllabus_api_syllabus__syllabus_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                syllabus_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SyllabusGetResponse"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
     };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
+    delete_syllabus_api_syllabus__syllabus_id__delete: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                syllabus_id: string;
+            };
+            cookie?: never;
         };
-        content: {
-          "application/json": components["schemas"]["UserGetResponse"];
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
         };
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
-        };
-      };
     };
-  };
-  delete_user_api_users__user_id__delete: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        user_id: string;
-      };
-      cookie?: never;
+    update_syllabus_api_syllabus__syllabus_id__patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                syllabus_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SyllabusUpdateRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SyllabusUpdateResponse"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
     };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      204: {
-        headers: {
-          [name: string]: unknown;
+    index__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
         };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
         };
-        content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
-        };
-      };
     };
-  };
-  update_user_api_users__user_id__patch: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        user_id: string;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        "application/json": components["schemas"]["UserUpdateRequest"];
-      };
-    };
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": components["schemas"]["UserUpdateResponse"];
-        };
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
-        };
-      };
-    };
-  };
-  create_syllabus_api_syllabus__post: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        "application/json": components["schemas"]["SyllabusCreateRequest"];
-      };
-    };
-    responses: {
-      /** @description Successful Response */
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": components["schemas"]["SyllabusCreateResponse"];
-        };
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
-        };
-      };
-    };
-  };
-  get_syllabus_api_syllabus__syllabus_id__get: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        syllabus_id: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": components["schemas"]["SyllabusGetResponse"];
-        };
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
-        };
-      };
-    };
-  };
-  delete_syllabus_api_syllabus__syllabus_id__delete: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        syllabus_id: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      204: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
-        };
-      };
-    };
-  };
-  update_syllabus_api_syllabus__syllabus_id__patch: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        syllabus_id: string;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        "application/json": components["schemas"]["SyllabusUpdateRequest"];
-      };
-    };
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": components["schemas"]["SyllabusUpdateResponse"];
-        };
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
-        };
-      };
-    };
-  };
-  get_syllabuses_api_syllabus_all_get: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": components["schemas"]["SyllabusesGetResponse"];
-        };
-      };
-    };
-  };
-  index__get: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": unknown;
-        };
-      };
-    };
-  };
 }

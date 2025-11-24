@@ -7,6 +7,7 @@ export type AuthRegisterRequest = components["schemas"]["AuthRegisterRequest"];
 export type AuthRegisterResponse =
   components["schemas"]["AuthRegisterResponse"];
 export type AuthVerifyResponse = components["schemas"]["AuthVerifyResponse"];
+export type AuthRefreshResponse = components["schemas"]["AuthRefreshResponse"];
 
 // User-related schemas
 export type User = components["schemas"]["User"];

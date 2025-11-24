@@ -16,6 +16,7 @@ import CSClassDashboard from "@/pages/cs-class/Dashboard";
 import CSClassLogin from "@/pages/cs-class/Login";
 import CSClassRegister from "@/pages/cs-class/Register";
 import CSClassLogout from "@/pages/cs-class/Logout";
+import CSClassAddSyllabus from "@/pages/cs-class/AddSyllabus";
 
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { AuthProvider, UserProvider, SyllabusProvider } from "@/contexts";
@@ -59,14 +60,19 @@ export default function App() {
           <Route element={<ProtectedRoute redirectTo="/cs-class/login" />}>
             {/* Index Route */}
             <Route index element={<CSClassDashboard />} />
+
+            {/* Specific Routes */}
+            <Route path="add-syllabus" element={<CSClassAddSyllabus />} />
+            <Route path="logout" element={<CSClassLogout />} />
           </Route>
 
           {/* Public Routes */}
           <Route element={<RedirectRoute redirectTo="/cs-class" />}>
             <Route path="login" element={<CSClassLogin />} />
-            <Route path="register" element={<CSClassRegister />} />
-            <Route path="logout" element={<CSClassLogout />} />
           </Route>
+
+          {/* Register Route */}
+          <Route path="register" element={<CSClassRegister />} />
 
           {/* Catch-all Route */}
           <Route path="*" element={<NotFound linkHref="/cs-class" />} />
