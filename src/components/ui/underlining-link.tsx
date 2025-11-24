@@ -1,7 +1,7 @@
 import type { AnchorHTMLAttributes } from "react";
 import { FiArrowUpRight } from "react-icons/fi";
 
-type UnderliningLinkVariant = "link" | "text";
+type UnderliningLinkVariant = "link" | "text" | "surface";
 
 const variantClasses = {
   link: {
@@ -11,6 +11,10 @@ const variantClasses = {
   text: {
     base: "text-muted",
     after: "after:bg-muted",
+  },
+  surface: {
+    base: "text-surface",
+    after: "after:bg-surface",
   },
 };
 
@@ -34,7 +38,9 @@ export default function UnderliningLink({
   return (
     <a className={combinedClassName} {...props}>
       {children}
-      {withIcon && <FiArrowUpRight aria-hidden="true" className="w-4 h-4 shrink-0" />}
+      {withIcon && (
+        <FiArrowUpRight aria-hidden="true" className="h-4 w-4 shrink-0" />
+      )}
     </a>
   );
 }

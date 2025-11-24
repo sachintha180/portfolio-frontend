@@ -4,14 +4,14 @@ import { useUserState } from "@/contexts/hooks/useUserState";
 import { useUserAPI } from "@/contexts/hooks/useUserAPI";
 import { useUserOperations } from "@/contexts/hooks/useUserOperations";
 
-interface UserContextType {
+type UserContextType = {
   user: User | null;
   isLoading: boolean;
   error: string | null;
   getUser: (userId: string) => Promise<User | null>;
   updateUser: (userId: string, data: UserUpdateRequest) => Promise<User | null>;
   deleteUser: (userId: string) => Promise<void>;
-}
+};
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
 
@@ -21,16 +21,7 @@ export function UserProvider({ children }: { children: ReactNode }) {
   const operations = useUserOperations(state, api);
 
   return (
-    <UserContext.Provider
-      value={{
-        user: state.user,
-        isLoading: state.isLoading,
-        error: state.error,
-        getUser: operations.getUser,
-        updateUser: operations.updateUser,
-        deleteUser: operations.deleteUser,
-      }}
-    >
+    <UserContext.Provider value={{ ...state, ...operations }}>
       {children}
     </UserContext.Provider>
   );

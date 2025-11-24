@@ -49,7 +49,7 @@ export default function ForceGraph({ data, width, height }: ForceGraphProps) {
       }
       if (!groupColor.has(group)) {
         const assignedColor =
-          NODE_COLORS[colorRotationIndex % NODE_COLORS.length];
+          NODE_COLORS[colorRotationIndex % NODE_COLORS.length] ?? "";
         groupColor.set(group, assignedColor);
         colorRotationIndex += 1;
       }
@@ -182,16 +182,16 @@ export default function ForceGraph({ data, width, height }: ForceGraphProps) {
     function ticked() {
       link
         .attr("x1", (d: LinkDatum) =>
-          typeof d.source === "object" ? d.source.x ?? 0 : 0
+          typeof d.source === "object" ? (d.source.x ?? 0) : 0
         )
         .attr("y1", (d: LinkDatum) =>
-          typeof d.source === "object" ? d.source.y ?? 0 : 0
+          typeof d.source === "object" ? (d.source.y ?? 0) : 0
         )
         .attr("x2", (d: LinkDatum) =>
-          typeof d.target === "object" ? d.target.x ?? 0 : 0
+          typeof d.target === "object" ? (d.target.x ?? 0) : 0
         )
         .attr("y2", (d: LinkDatum) =>
-          typeof d.target === "object" ? d.target.y ?? 0 : 0
+          typeof d.target === "object" ? (d.target.y ?? 0) : 0
         );
       typedNode
         .attr("cx", (d: NodeDatum) => d.x ?? 0)

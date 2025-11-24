@@ -84,6 +84,26 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/auth/refresh": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Refresh
+         * @description Refresh the current user's access token using refresh token from HTTP-only cookie.
+         */
+        post: operations["refresh_api_auth_refresh_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/users/{user_id}": {
         parameters: {
             query?: never;
@@ -132,6 +152,26 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/syllabus/all": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Syllabuses
+         * @description Get all syllabuses.
+         */
+        get: operations["get_syllabuses_api_syllabus_all_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/syllabus/{syllabus_id}": {
         parameters: {
             query?: never;
@@ -158,26 +198,6 @@ export interface paths {
          * @description Update a syllabus.
          */
         patch: operations["update_syllabus_api_syllabus__syllabus_id__patch"];
-        trace?: never;
-    };
-    "/api/syllabus/all": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get Syllabuses
-         * @description Get all syllabuses.
-         */
-        get: operations["get_syllabuses_api_syllabus_all_get"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
         trace?: never;
     };
     "/": {
@@ -216,6 +236,10 @@ export interface components {
         };
         /** AuthLoginResponse */
         AuthLoginResponse: {
+            user: components["schemas"]["User"];
+        };
+        /** AuthRefreshResponse */
+        AuthRefreshResponse: {
             user: components["schemas"]["User"];
         };
         /** AuthRegisterRequest */
@@ -522,6 +546,26 @@ export interface operations {
             };
         };
     };
+    refresh_api_auth_refresh_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AuthRefreshResponse"];
+                };
+            };
+        };
+    };
     get_user_api_users__user_id__get: {
         parameters: {
             query?: never;
@@ -650,6 +694,26 @@ export interface operations {
             };
         };
     };
+    get_syllabuses_api_syllabus_all_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SyllabusesGetResponse"];
+                };
+            };
+        };
+    };
     get_syllabus_api_syllabus__syllabus_id__get: {
         parameters: {
             query?: never;
@@ -741,26 +805,6 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["HTTPValidationError"];
-                };
-            };
-        };
-    };
-    get_syllabuses_api_syllabus_all_get: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful Response */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["SyllabusesGetResponse"];
                 };
             };
         };

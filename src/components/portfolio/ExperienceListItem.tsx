@@ -35,13 +35,13 @@ export default function ExperienceListItem({
               </h4>
 
               {/* Role Duration */}
-              <p className="text-sm text-muted/80 mt-1">
+              <p className="text-muted/80 mt-1 text-sm">
                 {formatTimelineDate(role.startDate, role.endDate)}
               </p>
             </div>
 
             {/* Role Details */}
-            <ul className="list-disc space-y-2 pl-5 text-sm leading-relaxed text-muted mt-3">
+            <ul className="text-muted mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed">
               {role.details.map((detail) => (
                 <li key={detail}>{detail}</li>
               ))}

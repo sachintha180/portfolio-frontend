@@ -1,3 +1,4 @@
+import { useCallback, useMemo } from "react";
 import type { AuthLoginRequest, AuthRegisterRequest } from "@/types/api";
 import type { useAuthAPI } from "@/contexts/hooks/useAuthAPI";
 import type { useAuthState } from "@/contexts/hooks/useAuthState";
@@ -15,10 +16,11 @@ export function useAuthOperations(
     login: apiLogin,
     logout: apiLogout,
     verify: apiVerify,
+    refresh: apiRefresh,
   } = api;
 
   // Verify authentication status
-  const verify = async (): Promise<boolean> => {
+  const verify = useCallback(async (): Promise<boolean> => {
     setIsLoading(true);
     setError(null);
 
@@ -35,50 +37,56 @@ export function useAuthOperations(
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [apiVerify, setIsAuthenticated, setIsLoading, setError]);
 
   // Register new user
-  const register = async (data: AuthRegisterRequest): Promise<boolean> => {
-    setIsLoading(true);
-    setError(null);
+  const register = useCallback(
+    async (data: AuthRegisterRequest): Promise<boolean> => {
+      setIsLoading(true);
+      setError(null);
 
-    try {
-      await apiRegister(data);
-      setIsAuthenticated(true);
-      return true;
-    } catch (error) {
-      const errorMessage =
-        error instanceof Error ? error.message : "Registration failed";
-      setError(errorMessage);
-      setIsAuthenticated(false);
-      return false;
-    } finally {
-      setIsLoading(false);
-    }
-  };
+      try {
+        await apiRegister(data);
+        setIsAuthenticated(true);
+        return true;
+      } catch (error) {
+        const errorMessage =
+          error instanceof Error ? error.message : "Registration failed";
+        setError(errorMessage);
+        setIsAuthenticated(false);
+        return false;
+      } finally {
+        setIsLoading(false);
+      }
+    },
+    [apiRegister, setIsAuthenticated, setIsLoading, setError]
+  );
 
   // Login user
-  const login = async (credentials: AuthLoginRequest): Promise<boolean> => {
-    setIsLoading(true);
-    setError(null);
+  const login = useCallback(
+    async (credentials: AuthLoginRequest): Promise<boolean> => {
+      setIsLoading(true);
+      setError(null);
 
-    try {
-      await apiLogin(credentials);
-      setIsAuthenticated(true);
-      return true;
-    } catch (error) {
-      const errorMessage =
-        error instanceof Error ? error.message : "Login failed";
-      setError(errorMessage);
-      setIsAuthenticated(false);
-      return false;
-    } finally {
-      setIsLoading(false);
-    }
-  };
+      try {
+        await apiLogin(credentials);
+        setIsAuthenticated(true);
+        return true;
+      } catch (error) {
+        const errorMessage =
+          error instanceof Error ? error.message : "Login failed";
+        setError(errorMessage);
+        setIsAuthenticated(false);
+        return false;
+      } finally {
+        setIsLoading(false);
+      }
+    },
+    [apiLogin, setIsAuthenticated, setIsLoading, setError]
+  );
 
   // Logout user
-  const logout = async (): Promise<void> => {
+  const logout = useCallback(async (): Promise<void> => {
     setIsLoading(true);
     setError(null);
 
@@ -93,12 +101,36 @@ export function useAuthOperations(
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [apiLogout, setIsAuthenticated, setIsLoading, setError]);
 
-  return {
-    register,
-    login,
-    logout,
-    verify,
-  };
+  // Refresh access token
+  const refresh = useCallback(async (): Promise<boolean> => {
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      await apiRefresh();
+      setIsAuthenticated(true);
+      return true;
+    } catch (error) {
+      const errorMessage =
+        error instanceof Error ? error.message : "Refresh failed";
+      setError(errorMessage);
+      setIsAuthenticated(false);
+      return false;
+    } finally {
+      setIsLoading(false);
+    }
+  }, [apiRefresh, setIsAuthenticated, setIsLoading, setError]);
+
+  return useMemo(
+    () => ({
+      register,
+      login,
+      logout,
+      verify,
+      refresh,
+    }),
+    [register, login, logout, verify, refresh]
+  );
 }

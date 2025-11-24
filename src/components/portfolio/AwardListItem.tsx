@@ -33,7 +33,7 @@ export default function AwardListItem({
       <p className="text-muted/80">{year}</p>
 
       {/* Award Description */}
-      <p className="text-sm text-muted/80">{description}</p>
+      <p className="text-muted/80 text-sm">{description}</p>
     </ListItem>
   );
 }

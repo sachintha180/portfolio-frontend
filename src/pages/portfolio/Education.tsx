@@ -7,11 +7,11 @@ import Header from "@/components/portfolio/Header";
 
 export default function Education() {
   return (
-    <section className="flex-1 flex flex-col gap-5 mx-5 md:mx-15 my-10">
+    <section className="mx-5 my-10 flex flex-1 flex-col gap-5 md:mx-15">
       {/* Header */}
       <Header title="sachintha senanayake" subtitle="my education">
-        <UnderliningLink href="/" variant="link">
-          <FiArrowLeft aria-hidden="true" className="w-5 h-5" />
+        <UnderliningLink href="/portfolio" variant="link">
+          <FiArrowLeft aria-hidden="true" className="h-5 w-5" />
           <span className="text-lg">back to home</span>
         </UnderliningLink>
       </Header>
@@ -22,7 +22,7 @@ export default function Education() {
       {/* Education Section */}
       <section className="flex-1">
         {/* Timeline */}
-        <ol className="relative border-l-2 border-danger md:ml-2 md:pb-1 pl-3 md:pl-6">
+        <ol className="border-danger relative border-l-2 pl-3 md:ml-2 md:pb-1 md:pl-6">
           {EDUCATION_ITEMS.map((item, index) => (
             <EducationListItem
               key={`${item.institution.name}-${index}`}

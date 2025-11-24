@@ -7,11 +7,11 @@ import Header from "@/components/portfolio/Header";
 
 export default function Projects() {
   return (
-    <section className="flex-1 flex flex-col gap-5 mx-5 md:mx-15 my-10">
+    <section className="mx-5 my-10 flex flex-1 flex-col gap-5 md:mx-15">
       {/* Header */}
       <Header title="sachintha senanayake" subtitle="my projects">
-        <UnderliningLink href="/" variant="link">
-          <FiArrowLeft aria-hidden="true" className="w-5 h-5" />
+        <UnderliningLink href="/portfolio" variant="link">
+          <FiArrowLeft aria-hidden="true" className="h-5 w-5" />
           <span className="text-lg">back to home</span>
         </UnderliningLink>
       </Header>

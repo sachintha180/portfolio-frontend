@@ -26,7 +26,7 @@ export default function PageButton({
     <a href={href} className={combinedClassName} {...props}>
       <FiArrowUpRight
         aria-hidden="true"
-        className="h-10 w-10 ml-auto text-surface transition-transform duration-300 group-hover/page-button:translate-x-1 group-hover/page-button:-translate-y-1"
+        className="text-surface ml-auto h-10 w-10 transition-transform duration-300 group-hover/page-button:translate-x-1 group-hover/page-button:-translate-y-1"
       />
       <div className="flex flex-col gap-3">
         <span className="text-xl font-semibold">{buttonLabel}</span>

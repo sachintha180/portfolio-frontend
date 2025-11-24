@@ -35,23 +35,23 @@ export default function Home() {
   return (
     <div>
       {/* Header Section */}
-      <header className="flex flex-col gap-2 mb-5">
-        <h1 className="text-2xl font-bold mb-2">sachintha senanayake</h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 text-muted text-xs">
-          <div className="flex flex-row gap-2 items-center">
-            <FiMapPin aria-hidden="true" className="w-4 h-4 text-muted" />
+      <header className="mb-5 flex flex-col gap-2">
+        <h1 className="mb-2 text-2xl font-bold">sachintha senanayake</h1>
+        <div className="text-muted grid grid-cols-1 gap-x-8 gap-y-2 text-xs sm:grid-cols-2">
+          <div className="flex flex-row items-center gap-2">
+            <FiMapPin aria-hidden="true" className="text-muted h-4 w-4" />
             <p>
               <strong>Location:</strong> Colombo, Sri Lanka
             </p>
           </div>
-          <div className="flex flex-row gap-2 items-center">
-            <FiPhone aria-hidden="true" className="w-4 h-4 text-muted" />
+          <div className="flex flex-row items-center gap-2">
+            <FiPhone aria-hidden="true" className="text-muted h-4 w-4" />
             <p>
               <strong>Phone:</strong> +94 72 455 9912
             </p>
           </div>
-          <div className="flex flex-row gap-2 items-center">
-            <FiMail aria-hidden="true" className="w-4 h-4 text-muted" />
+          <div className="flex flex-row items-center gap-2">
+            <FiMail aria-hidden="true" className="text-muted h-4 w-4" />
             <p>
               <strong>Email:</strong>{" "}
               <a
@@ -64,8 +64,8 @@ export default function Home() {
               </a>
             </p>
           </div>
-          <div className="flex flex-row gap-2 items-center">
-            <FiGithub aria-hidden="true" className="w-4 h-4 text-muted" />
+          <div className="flex flex-row items-center gap-2">
+            <FiGithub aria-hidden="true" className="text-muted h-4 w-4" />
             <p>
               <strong>GitHub:</strong>{" "}
               <a
@@ -78,8 +78,8 @@ export default function Home() {
               </a>
             </p>
           </div>
-          <div className="flex flex-row gap-2 items-center">
-            <FiLinkedin aria-hidden="true" className="w-4 h-4 text-muted" />
+          <div className="flex flex-row items-center gap-2">
+            <FiLinkedin aria-hidden="true" className="text-muted h-4 w-4" />
             <p>
               <strong>LinkedIn:</strong>{" "}
               <a
@@ -92,8 +92,8 @@ export default function Home() {
               </a>
             </p>
           </div>
-          <div className="flex flex-row gap-2 items-center">
-            <FiGlobe aria-hidden="true" className="w-4 h-4 text-muted" />
+          <div className="flex flex-row items-center gap-2">
+            <FiGlobe aria-hidden="true" className="text-muted h-4 w-4" />
             <p>
               <strong>Website:</strong>{" "}
               <a
@@ -111,7 +111,7 @@ export default function Home() {
 
       {/* About Me Section */}
       <section className="mb-5">
-        <h2 className="text-warm text-xl font-bold border-b border-warm pb-2 mb-4">
+        <h2 className="text-warm border-warm mb-4 border-b pb-2 text-xl font-bold">
           about me
         </h2>
         <p className="text-justify text-xs">{ABOUT_ME}</p>
@@ -119,13 +119,13 @@ export default function Home() {
 
       {/* Experience Section */}
       <section className="mb-5">
-        <h2 className="text-cool text-xl font-bold border-b border-cool pb-2 mb-4">
+        <h2 className="text-cool border-cool mb-4 border-b pb-2 text-xl font-bold">
           experience
         </h2>
         {softwareSectorExperienceItems.map((item, itemIndex) =>
           item.roles.map((role, roleIndex) => (
             <article key={`${itemIndex}-${roleIndex}`} className="mb-6">
-              <div className="flex justify-between items-start mb-2">
+              <div className="mb-2 flex items-start justify-between">
                 <div className="flex flex-row items-start gap-3">
                   {/* Role and Organization Name */}
                   <div className="flex flex-col gap-1">
@@ -137,10 +137,10 @@ export default function Home() {
 
                   {/* Organization Location */}
                   {item.organization.location && (
-                    <span className="flex items-center gap-1 text-xs mt-1">
+                    <span className="mt-1 flex items-center gap-1 text-xs">
                       <FiMapPin
                         aria-hidden="true"
-                        className="w-4 h-4 text-muted"
+                        className="text-muted h-4 w-4"
                       />
                       {item.organization.location}
                     </span>
@@ -148,13 +148,13 @@ export default function Home() {
                 </div>
 
                 {/* Role Duration */}
-                <span className="text-right text-xs text-secondary">
+                <span className="text-secondary text-right text-xs">
                   {formatTimelineDate(role.startDate, role.endDate)}
                 </span>
               </div>
 
               {/* Role Details */}
-              <ul className="ml-6 mt-2 list-disc text-xs max-w-[550px]">
+              <ul className="mt-2 ml-6 max-w-[550px] list-disc text-xs">
                 {role.details.map((detail, detailIndex) => (
                   <li key={detailIndex} className="mb-1">
                     {detail}
@@ -171,7 +171,7 @@ export default function Home() {
 
       {/* Education Section */}
       <section className="mb-8">
-        <h2 className="text-success text-xl font-bold border-b border-success pb-2 mb-4">
+        <h2 className="text-success border-success mb-4 border-b pb-2 text-xl font-bold">
           education
         </h2>
         {EDUCATION_ITEMS.filter((item) => item.label !== "Certifications")
@@ -179,7 +179,7 @@ export default function Home() {
           .map((item, itemIndex) =>
             item.programs.map((program, programIndex) => (
               <article key={`${itemIndex}-${programIndex}`} className="mb-6">
-                <div className="flex justify-between items-start mb-2">
+                <div className="mb-2 flex items-start justify-between">
                   <div className="flex flex-row items-start gap-5">
                     <div className="flex flex-col gap-1">
                       {/* Program Name and Field */}
@@ -198,10 +198,10 @@ export default function Home() {
 
                       {/* Institution Location */}
                       {item.institution.location && (
-                        <span className="flex items-center gap-1 text-xs mt-1">
+                        <span className="mt-1 flex items-center gap-1 text-xs">
                           <FiMapPin
                             aria-hidden="true"
-                            className="w-4 h-4 text-muted"
+                            className="text-muted h-4 w-4"
                           />
                           {item.institution.location}
                         </span>
@@ -210,7 +210,7 @@ export default function Home() {
                   </div>
 
                   {/* Program Duration */}
-                  <span className="text-right text-xs text-secondary">
+                  <span className="text-secondary text-right text-xs">
                     {program.pursuing
                       ? `Expected ${program.endYear}`
                       : program.endYear}
@@ -223,23 +223,23 @@ export default function Home() {
 
       {/* Projects Section */}
       <section className="mb-8">
-        <h2 className="text-danger text-xl font-bold border-b border-danger pb-2 mb-4">
+        <h2 className="text-danger border-danger mb-4 border-b pb-2 text-xl font-bold">
           top {MAX_PROJECT_NODE_COUNT} projects
         </h2>
         {SLICED_PROJECT_ITEMS.map((project, index) => (
           <article key={index} className="mb-6">
-            <div className="flex justify-between items-start mb-2">
+            <div className="mb-2 flex items-start justify-between">
               <div className="flex flex-col gap-1">
                 {/* Project Title */}
                 <div className="flex items-center gap-2">
                   <strong>{project.title}</strong>
                   {project.pending && (
-                    <span className="italic text-xs text-muted">(Pending)</span>
+                    <span className="text-muted text-xs italic">(Pending)</span>
                   )}
                 </div>
 
                 {/* Project Description Bullets */}
-                <ul className="list-disc ml-5 mt-1 text-xs max-w-[500px]">
+                <ul className="mt-1 ml-5 max-w-[500px] list-disc text-xs">
                   {project.description.map((desc, descIndex) => (
                     <li key={descIndex} className="mb-1">
                       {desc}
@@ -261,7 +261,7 @@ export default function Home() {
                 </ul>
               </div>
               {/* Project time duration */}
-              <span className="text-right text-xs text-secondary whitespace-nowrap">
+              <span className="text-secondary text-right text-xs whitespace-nowrap">
                 Completed in {project.timeDuration}
               </span>
             </div>
@@ -274,10 +274,10 @@ export default function Home() {
 
       {/* Technical Skills Section */}
       <section className="mb-8">
-        <h2 className="text-secondary text-xl font-bold border-b border-secondary pb-2 mb-4">
+        <h2 className="text-secondary border-secondary mb-4 border-b pb-2 text-xl font-bold">
           technical skills
         </h2>
-        <ul className="list-disc ml-6 text-xs">
+        <ul className="ml-6 list-disc text-xs">
           {groupedTechStack.map((group, index) => (
             <li key={index} className="mb-2">
               <strong className="text-secondary">{group.group.label}:</strong>{" "}
@@ -294,12 +294,12 @@ export default function Home() {
 
       {/* Awards Section */}
       <section className="mb-8">
-        <h2 className="text-warm text-xl font-bold border-b border-warm pb-2 mb-4">
+        <h2 className="text-warm border-warm mb-4 border-b pb-2 text-xl font-bold">
           top {MAX_AWARD_NODE_COUNT} awards
         </h2>
         {SLICED_AWARD_ITEMS.map((award, index) => (
           <article key={index} className="mb-6">
-            <div className="flex justify-between items-start mb-2">
+            <div className="mb-2 flex items-start justify-between">
               <div className="flex flex-col gap-1">
                 <strong>{award.title}</strong>
                 <span className="text-muted text-xs">
@@ -308,7 +308,7 @@ export default function Home() {
                     `, ${award.organization.location}`}
                 </span>
               </div>
-              <span className="text-right text-xs text-secondary">
+              <span className="text-secondary text-right text-xs">
                 {award.year}
               </span>
             </div>
@@ -319,7 +319,7 @@ export default function Home() {
 
       {/* References Section */}
       <section className="mb-8">
-        <h2 className="text-muted text-xl font-bold border-b border-muted pb-2 mb-4">
+        <h2 className="text-muted border-muted mb-4 border-b pb-2 text-xl font-bold">
           references
         </h2>
         <p className="text-xs">Available upon request.</p>

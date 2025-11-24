@@ -1,4 +1,35 @@
-import type { ClassItem, PageItem } from "@/types/miscellaneous";
+import type { PageItem } from "@/types/miscellaneous";
+
+// The following constants must have keys that match api.ts
+export const USER_TYPES = {
+  admin: "Admin",
+  student: "Student",
+} as const;
+
+export const SYLLABUS_LEVELS = {
+  igcse: "IGCSE",
+  olevel: "O Level",
+  alevel: "A Level",
+  diploma: "Diploma",
+} as const;
+
+export const FILE_TYPES = {
+  note: "Note",
+  video: "Video",
+  code: "Code",
+  exercise: "Exercise",
+  test: "Test",
+} as const;
+
+export const SUBJECT_CODES = [
+  "4CP0",
+  "41T1",
+  "X/YIT11",
+  "2210",
+  "9618",
+  "HL, 2014",
+] as const;
+export const TOKEN_TYPES = ["access", "refresh"] as const;
 
 export const PAGE_ITEMS: PageItem[] = [
   {
@@ -18,44 +49,5 @@ export const PAGE_ITEMS: PageItem[] = [
     nodeLabel: "view-marks",
     href: "/cs-class/view-marks",
     colorClass: "bg-danger",
-  },
-];
-
-export const CLASS_ITEMS: ClassItem[] = [
-  {
-    buttonLabel: "Edexcel IGCSE CS (4CP0)",
-    nodeLabel: "edexcel-igcse-cs",
-    href: "/cs-class/edexcel-igcse-cs",
-    colorClass: "bg-warm",
-  },
-  {
-    buttonLabel: "Cambridge OL CS (2210)",
-    nodeLabel: "cambridge-olevel-cs",
-    href: "/cs-class/cambridge-olevel-cs",
-    colorClass: "bg-cool",
-  },
-  {
-    buttonLabel: "Edexcel IGCSE ICT (41T1)",
-    nodeLabel: "edexcel-igcse-ict",
-    href: "/cs-class/edexcel-igcse-ict",
-    colorClass: "bg-success",
-  },
-  {
-    buttonLabel: "Cambridge IAL CS (9618)",
-    nodeLabel: "cambridge-ial-cs",
-    href: "/cs-class/cambridge-ial-cs",
-    colorClass: "bg-danger",
-  },
-  {
-    buttonLabel: "Edexcel IAL IT (X/YIT11)",
-    nodeLabel: "edexcel-ial-it",
-    href: "/cs-class/edexcel-ial-it",
-    colorClass: "bg-secondary",
-  },
-  {
-    buttonLabel: "IB Diploma CS (HL, 2014)",
-    nodeLabel: "ib-diploma-cs",
-    href: "/cs-class/ib-diploma-cs",
-    colorClass: "bg-link",
   },
 ];
