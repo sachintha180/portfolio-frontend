@@ -22,6 +22,13 @@ export function useSyllabusAPI() {
     []
   );
 
+  // Get all syllabuses
+  const getAllSyllabuses =
+    useCallback(async (): Promise<SyllabusesGetResponse> => {
+      const { data } = await api.get<SyllabusesGetResponse>("/syllabus/all");
+      return data;
+    }, []);
+
   // Get a syllabus by ID
   const getSyllabus = useCallback(
     async (syllabusId: string): Promise<SyllabusGetResponse> => {
@@ -32,13 +39,6 @@ export function useSyllabusAPI() {
     },
     []
   );
-
-  // Get all syllabuses
-  const getAllSyllabuses =
-    useCallback(async (): Promise<SyllabusesGetResponse> => {
-      const { data } = await api.get<SyllabusesGetResponse>("/syllabus/all");
-      return data;
-    }, []);
 
   // Update syllabus
   const updateSyllabus = useCallback(

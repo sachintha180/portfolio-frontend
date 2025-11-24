@@ -5,6 +5,7 @@ import type {
   AuthRegisterResponse,
   AuthLoginResponse,
   AuthVerifyResponse,
+  AuthRefreshResponse,
 } from "@/types/api";
 import { useCallback } from "react";
 
@@ -44,10 +45,17 @@ export function useAuthAPI() {
     return data;
   }, []);
 
+  // Refresh access token
+  const refresh = useCallback(async (): Promise<AuthRefreshResponse> => {
+    const { data } = await api.post<AuthRefreshResponse>("/auth/refresh");
+    return data;
+  }, []);
+
   return {
     register,
     login,
     logout,
     verify,
+    refresh,
   };
 }

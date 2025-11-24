@@ -5,7 +5,9 @@ export function useAuthState() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   // State management for loading
-  const [isLoading, setIsLoading] = useState(false);
+  // NOTE: isLoading is set to true to prevent premature redirects
+  //       before initial verification
+  const [isLoading, setIsLoading] = useState(true);
 
   // State management for error
   const [error, setError] = useState<string | null>(null);

@@ -16,6 +16,7 @@ export function useAuthOperations(
     login: apiLogin,
     logout: apiLogout,
     verify: apiVerify,
+    refresh: apiRefresh,
   } = api;
 
   // Verify authentication status
@@ -102,13 +103,34 @@ export function useAuthOperations(
     }
   }, [apiLogout, setIsAuthenticated, setIsLoading, setError]);
 
+  // Refresh access token
+  const refresh = useCallback(async (): Promise<boolean> => {
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      await apiRefresh();
+      setIsAuthenticated(true);
+      return true;
+    } catch (error) {
+      const errorMessage =
+        error instanceof Error ? error.message : "Refresh failed";
+      setError(errorMessage);
+      setIsAuthenticated(false);
+      return false;
+    } finally {
+      setIsLoading(false);
+    }
+  }, [apiRefresh, setIsAuthenticated, setIsLoading, setError]);
+
   return useMemo(
     () => ({
       register,
       login,
       logout,
       verify,
+      refresh,
     }),
-    [register, login, logout, verify]
+    [register, login, logout, verify, refresh]
   );
 }

@@ -1,4 +1,4 @@
-import { createContext, useContext, type ReactNode } from "react";
+import { createContext, useContext, useEffect, type ReactNode } from "react";
 import type { AuthLoginRequest, AuthRegisterRequest } from "@/types/api";
 import { useAuthState } from "@/contexts/hooks/useAuthState";
 import { useAuthAPI } from "@/contexts/hooks/useAuthAPI";
@@ -12,6 +12,7 @@ type AuthContextType = {
   login: (credentials: AuthLoginRequest) => Promise<boolean>;
   logout: () => Promise<void>;
   verify: () => Promise<boolean>;
+  refresh: () => Promise<boolean>;
 };
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -20,6 +21,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const state = useAuthState();
   const api = useAuthAPI();
   const operations = useAuthOperations(state, api);
+
+  // Verify authentication status on mount
+  const { verify } = operations;
+
+  useEffect(() => {
+    verify();
+  }, [verify]);
 
   return (
     <AuthContext.Provider value={{ ...state, ...operations }}>

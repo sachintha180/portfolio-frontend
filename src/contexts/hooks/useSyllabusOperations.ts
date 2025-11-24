@@ -53,6 +53,34 @@ export function useSyllabusOperations(
     [apiCreateSyllabus, setSyllabuses, setIsLoading, setError]
   );
 
+  // Get all syllabuses
+  const getAllSyllabuses = useCallback(async (): Promise<Syllabus[] | null> => {
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      const result = await apiGetAllSyllabuses();
+      const syllabusesMap = result.syllabuses.reduce<Record<string, Syllabus>>(
+        (acc, syllabus) => {
+          if (syllabus.id) {
+            acc[syllabus.id] = syllabus;
+          }
+          return acc;
+        },
+        {}
+      );
+      setSyllabuses(syllabusesMap);
+      return result.syllabuses;
+    } catch (error) {
+      const errorMessage =
+        error instanceof Error ? error.message : "Failed to get syllabuses";
+      setError(errorMessage);
+      return null;
+    } finally {
+      setIsLoading(false);
+    }
+  }, [apiGetAllSyllabuses, setSyllabuses, setIsLoading, setError]);
+
   // Get syllabus by ID
   const getSyllabus = useCallback(
     async (syllabusId: string): Promise<Syllabus | null> => {
@@ -82,34 +110,6 @@ export function useSyllabusOperations(
     },
     [apiGetSyllabus, setSyllabuses, setIsLoading, setError]
   );
-
-  // Get all syllabuses
-  const getAllSyllabuses = useCallback(async (): Promise<Syllabus[] | null> => {
-    setIsLoading(true);
-    setError(null);
-
-    try {
-      const result = await apiGetAllSyllabuses();
-      const syllabusesMap = result.syllabuses.reduce<Record<string, Syllabus>>(
-        (acc, syllabus) => {
-          if (syllabus.id) {
-            acc[syllabus.id] = syllabus;
-          }
-          return acc;
-        },
-        {}
-      );
-      setSyllabuses(syllabusesMap);
-      return result.syllabuses;
-    } catch (error) {
-      const errorMessage =
-        error instanceof Error ? error.message : "Failed to get syllabuses";
-      setError(errorMessage);
-      return null;
-    } finally {
-      setIsLoading(false);
-    }
-  }, [apiGetAllSyllabuses, setSyllabuses, setIsLoading, setError]);
 
   // Update syllabus
   const updateSyllabus = useCallback(
