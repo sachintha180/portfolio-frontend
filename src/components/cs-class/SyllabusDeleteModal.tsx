@@ -68,7 +68,7 @@ export default function SyllabusDeleteModal({
       <div className="text-muted flex flex-col gap-2">
         <p>Are you sure you want to delete the following syllabus?</p>
         <p className="text-xl font-semibold">{syllabus.name}</p>
-        <p className="font-semibold text-red-500">
+        <p className="text-red-500">
           This will permanently delete all associated lessons, files, tests, and
           results.
         </p>
